@@ -2,18 +2,25 @@ version: 2
 updates:
   - package-ecosystem: npm
     directory: /
+    open-pull-requests-limit: 1
     schedule:
       interval: weekly
     groups:
-      web-toolchain:
-        patterns: ["vite", "vitest", "typescript", "@vitejs/*"]
-      tauri-js:
-        patterns: ["@tauri-apps/*"]
+      node-dependencies:
+        patterns: ["*"]
   - package-ecosystem: cargo
     directory: /src-tauri
+    open-pull-requests-limit: 1
     schedule:
       interval: weekly
+    groups:
+      rust-dependencies:
+        patterns: ["*"]
   - package-ecosystem: github-actions
     directory: /
+    open-pull-requests-limit: 1
     schedule:
       interval: weekly
+    groups:
+      workflow-actions:
+        patterns: ["*"]
