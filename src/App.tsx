@@ -125,7 +125,7 @@ function App() {
       {tab === "today" && (
         <div className="page-grid">
           <section className="hero panel">
-            <p className="eyebrow">第 {feed?.total ?? "…"} 次变化 · Core v0.1.0-beta.1</p>
+            <p className="eyebrow">第 {feed?.total ?? "…"} 次变化 · Core v0.1.1-1</p>
             <h1>{latestCapsule?.reason.headline ?? latestEntry?.headline ?? "今天也会发生一点变化"}</h1>
             <p className="hero__detail">
               {latestCapsule?.reason.detail ?? "每次更新理由可以荒唐，但它必须真的改变些什么。"}
