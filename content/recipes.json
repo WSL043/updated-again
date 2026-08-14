@@ -1,0 +1,146 @@
+[
+  {
+    "id": "good-mood-sky",
+    "kind": "theme",
+    "weight": 5,
+    "cooldownDays": 5,
+    "headline": "作者今天心情不错，所以天空被批准换色",
+    "detail": "没有用户反馈、没有路线图会议，只是觉得今天值得亮一点。",
+    "mood": "心情很好",
+    "absurdity": 72,
+    "change": "替换世界调色板并增加一条心情横幅。",
+    "effect": "首页背景、光晕和宣言发生可见变化。",
+    "payload": {
+      "background": ["#11142b", "#16132d", "#0d1b2a"],
+      "surface": ["#23254a", "#292044", "#18334a"],
+      "accent": ["#ffd166", "#ffb86b", "#86f7d2"],
+      "glow": ["#ff6f91", "#c084fc", "#4dd6ff"],
+      "banner": ["今天允许软件比昨天开心一点。", "天空升级完成，理由是没有理由不这样做。"]
+    }
+  },
+  {
+    "id": "midnight-ink",
+    "kind": "theme",
+    "weight": 3,
+    "cooldownDays": 7,
+    "headline": "深夜坚持认为深色还可以更深",
+    "detail": "项目和黑夜进行了一次没有会议纪要的合作。",
+    "mood": "夜行",
+    "absurdity": 57,
+    "change": "增加一组午夜调色板。",
+    "effect": "整个世界进入更深的夜间配色。",
+    "payload": {
+      "background": "#080912",
+      "surface": "#121527",
+      "accent": ["#a9c5ff", "#d4b5ff"],
+      "glow": ["#6a5acd", "#3d7ea6"],
+      "banner": "凌晨的像素获得了合法居留权。"
+    }
+  },
+  {
+    "id": "one-sentence-worth-shipping",
+    "kind": "message",
+    "weight": 8,
+    "cooldownDays": 1,
+    "headline": ["一句话也值得拥有版本号", "今天只多说一句，但它真的被安装了"],
+    "detail": "体积很小，态度完整；本次更新拒绝因为改动少而感到羞愧。",
+    "mood": ["认真胡说", "轻量发布"],
+    "absurdity": 61,
+    "change": "向本地版本档案写入一条新的永久文案。",
+    "effect": "首页出现今天独有的一句话，并被收进消息档案。",
+    "payload": {
+      "text": [
+        "{{date}}：软件确认自己今天仍然活着。",
+        "更新不一定解决问题，有时更新负责制造值得记住的问题。",
+        "本版本增加了一句以后可能会被另一句吐槽的话。",
+        "今天的改动很小，所以发布说明决定站得更直一点。"
+      ]
+    }
+  },
+  {
+    "id": "museum-object",
+    "kind": "collectible",
+    "weight": 6,
+    "cooldownDays": 2,
+    "headline": ["版本博物馆收到一件来历可疑的藏品", "这件东西没有用途，所以决定永久保存"],
+    "detail": "实用性审查没有通过，但荒诞性审查给了高分。",
+    "mood": "收藏欲",
+    "absurdity": 83,
+    "change": "新增一件带唯一编号的版本收藏品。",
+    "effect": "收藏柜会增加一件可查看的新物品。",
+    "payload": {
+      "id": "relic-{{date}}-{{sequence}}",
+      "name": ["多余的逗号", "退役进度条", "昨天剩下的一个像素", "备用的星期二", "没有提交的按钮影子"],
+      "glyph": ["✦", "◌", "⌁", "※", "◇"],
+      "note": ["它被保存下来，因为删除也需要一个理由。", "未来的考古学家可能会误解它。", "没有功能，但有出生证明。"]
+    }
+  },
+  {
+    "id": "tiny-ritual",
+    "kind": "ritual",
+    "weight": 5,
+    "cooldownDays": 3,
+    "headline": "软件今天想举行一个非常小的仪式",
+    "detail": "完成与否不会影响任何正经功能，但会影响今天的气氛。",
+    "mood": "仪式感",
+    "absurdity": 76,
+    "change": "向今日仪式列表添加一个新动作。",
+    "effect": "首页出现一项可完成的无用小任务。",
+    "payload": {
+      "instruction": ["点击更新按钮七次，但第七次要郑重一点。", "认真观察版本号三秒，然后假装理解了它。", "为今天最喜欢的像素起一个名字。", "关闭应用前对补丁团子说一声辛苦了。"],
+      "reward": ["一份不可兑换的满足感", "软件的无声认可", "一枚只存在于记忆里的徽章", "明天继续更新的微弱可能性"]
+    }
+  },
+  {
+    "id": "patch-dumpling-mood",
+    "kind": "companion",
+    "weight": 7,
+    "cooldownDays": 2,
+    "headline": "补丁团子提交了新的心情状态",
+    "detail": "它没有解释原因，但更新系统认为情绪属于有效载荷。",
+    "mood": "陪伴",
+    "absurdity": 68,
+    "change": "改变补丁团子的表情、心情和一句台词。",
+    "effect": "常驻伙伴以新的状态出现在首页。",
+    "payload": {
+      "name": ["补丁团子", "版本小鬼", "更新值班员"],
+      "mood": ["对新版本略感骄傲", "正在假装修复自己", "今天不想写长日志", "等待一场不必要的热更新"],
+      "phrase": ["我检查过了，这次真的有东西。", "版本号长了一格，我也长了一点。", "不要问为什么更新，问就是今天到了。", "如果明天没有灵感，我会贡献一个表情。"],
+      "glyph": ["◉", "●", "◎", "◍"]
+    }
+  },
+  {
+    "id": "version-star",
+    "kind": "constellation",
+    "weight": 6,
+    "cooldownDays": 1,
+    "headline": "天空缺少一颗只属于本版本的星",
+    "detail": "宇宙没有提出需求，但版本委员会仍然通过了。",
+    "mood": "仰头",
+    "absurdity": 79,
+    "change": "在本地版本星图中增加一颗唯一恒星。",
+    "effect": "背景星图出现一个带版本标签的新光点。",
+    "payload": {
+      "x": { "$random": [5, 95] },
+      "y": { "$random": [8, 86] },
+      "size": { "$random": [4, 11] },
+      "label": "{{date}} / 第 {{sequence}} 更"
+    }
+  },
+  {
+    "id": "button-has-opinions",
+    "kind": "button-personality",
+    "weight": 5,
+    "cooldownDays": 4,
+    "headline": "更新按钮认为自己长期缺乏人格",
+    "detail": "本次更新采纳了按钮的意见，虽然没人记得它何时开始发言。",
+    "mood": "人格化",
+    "absurdity": 88,
+    "change": "更换更新按钮的文案与运动性格。",
+    "effect": "按钮会以害羞、夸张或弹跳方式回应用户。",
+    "payload": {
+      "label": ["我又可以更新了", "点我，但请尊重版本历史", "今天也不是最终版", "安装这份没有必要的必要"],
+      "temperament": ["shy", "dramatic", "bouncy", "calm"]
+    }
+  }
+]

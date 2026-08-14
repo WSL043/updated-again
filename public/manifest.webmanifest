@@ -1,0 +1,20 @@
+{
+  "name": "Updated Again · 又更了",
+  "short_name": "又更了",
+  "description": "一个为了更新而更新、每天都真实改变一点点的活体软件项目。",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#11101d",
+  "theme_color": "#17142f",
+  "lang": "zh-CN",
+  "categories": ["entertainment", "developer tools"],
+  "icons": [
+    {
+      "src": "icons/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

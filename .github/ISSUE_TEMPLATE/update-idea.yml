@@ -1,0 +1,41 @@
+name: 荒唐更新提案
+description: 提议一个理由不必正经、改动必须真实的新更新
+title: "[update idea] "
+labels: ["update-idea"]
+body:
+  - type: textarea
+    id: reason
+    attributes:
+      label: 为什么今天要更新？
+      description: 理由可以荒唐，但请写清楚。
+      placeholder: 因为按钮看起来有点孤独……
+    validations:
+      required: true
+  - type: textarea
+    id: change
+    attributes:
+      label: 它会真正改变什么？
+      description: 不能只是版本号、时间戳或空白发布。
+    validations:
+      required: true
+  - type: dropdown
+    id: kind
+    attributes:
+      label: 最接近的类型
+      options:
+        - theme
+        - message
+        - collectible
+        - ritual
+        - companion
+        - constellation
+        - button-personality
+        - 需要新的 Core 能力
+    validations:
+      required: true
+  - type: textarea
+    id: rollback
+    attributes:
+      label: 用户后悔时怎么恢复？
+    validations:
+      required: true

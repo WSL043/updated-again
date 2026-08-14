@@ -1,0 +1,48 @@
+{
+  "name": "updated-again",
+  "private": true,
+  "version": "0.1.0-beta.1",
+  "type": "module",
+  "description": "A living software toy that updates because updating is the point.",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview",
+    "typecheck": "tsc -b --pretty false",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "check": "pnpm version:check && pnpm typecheck && pnpm test && pnpm update:validate && pnpm build",
+    "version:check": "node scripts/check-versions.mjs",
+    "update:daily": "node scripts/run-daily-update.mjs",
+    "update:validate": "node scripts/validate-feed.mjs",
+    "update:simulate": "node scripts/run-daily-update.mjs --dry-run --force",
+    "tauri": "tauri",
+    "tauri:dev": "tauri dev",
+    "tauri:build": "tauri build"
+  },
+  "dependencies": {
+    "@noble/curves": "2.3.0",
+    "@tauri-apps/api": "2.11.1",
+    "@tauri-apps/plugin-notification": "2.3.3",
+    "@tauri-apps/plugin-process": "2.3.1",
+    "@tauri-apps/plugin-updater": "2.10.1",
+    "react": "19.2.8",
+    "react-dom": "19.2.8"
+  },
+  "devDependencies": {
+    "@tauri-apps/cli": "2.11.4",
+    "@types/node": "24.10.13",
+    "@types/react": "19.2.13",
+    "@types/react-dom": "19.2.3",
+    "@vitejs/plugin-react": "6.0.5",
+    "jsdom": "27.4.0",
+    "typescript": "7.0.2",
+    "vite": "8.2.1",
+    "vitest": "4.1.10"
+  },
+  "engines": {
+    "node": ">=22.17.0",
+    "pnpm": ">=10.0.0"
+  },
+  "packageManager": "pnpm@10.33.0"
+}

@@ -1,0 +1,23 @@
+{
+  "specVersion": 1,
+  "generatedAt": "2026-08-14T11:26:30.521Z",
+  "latest": "D-20260814-0001-museum-object",
+  "total": 1,
+  "entries": [
+    {
+      "id": "D-20260814-0001-museum-object",
+      "sequence": 1,
+      "publishedAt": "2026-08-14T11:26:30.521Z",
+      "plannedFor": "2026-08-14",
+      "channel": "weird",
+      "kind": "collectible",
+      "headline": "版本博物馆收到一件来历可疑的藏品",
+      "mood": "收藏欲",
+      "absurdity": 83,
+      "path": "updates/D-20260814-0001-museum-object.json",
+      "payloadSha256": "7e0eca169d2b33ec85ca11a964b72c5ce66e865dcba414b7abc437bcd3b47ca8",
+      "recipe": "museum-object",
+      "seed": "072ef775aadc131616911f5aab1939e177a7e26ed8770d1f0c63589d1d9464eb"
+    }
+  ]
+}
