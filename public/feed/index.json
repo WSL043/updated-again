@@ -1,9 +1,24 @@
 {
   "specVersion": 1,
-  "generatedAt": "2026-08-14T12:30:44.065Z",
-  "latest": "C-0.1.1-1-0003",
-  "total": 3,
+  "generatedAt": "2026-08-14T16:33:00.906Z",
+  "latest": "D-20260815-0004-one-sentence-worth-shipping",
+  "total": 4,
   "entries": [
+    {
+      "id": "D-20260815-0004-one-sentence-worth-shipping",
+      "sequence": 4,
+      "publishedAt": "2026-08-14T16:33:00.906Z",
+      "plannedFor": "2026-08-15",
+      "channel": "daily",
+      "kind": "message",
+      "headline": "一句话也值得拥有版本号",
+      "mood": "认真胡说",
+      "absurdity": 61,
+      "path": "updates/D-20260815-0004-one-sentence-worth-shipping.json",
+      "payloadSha256": "7ab696e61469755ebce8369915421efd42b8bb16565e5e2c26b9ca05a851b3eb",
+      "recipe": "one-sentence-worth-shipping",
+      "seed": "d0414a779d3bcc60abb41f58abdc796169f3094c56af0dabc44b678560a45353"
+    },
     {
       "id": "C-0.1.1-1-0003",
       "sequence": 3,
