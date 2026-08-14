@@ -34,7 +34,7 @@
     "category": "Entertainment",
     "shortDescription": "A living software toy that updates every day.",
     "longDescription": "Updated Again is a software toy where every update has a reason and a real, reversible effect.",
-    "icons": [
+    "icon": [
       "icons/32x32.png",
       "icons/128x128.png",
       "icons/128x128@2x.png",
