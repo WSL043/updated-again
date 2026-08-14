@@ -1,6 +1,51 @@
 {
   "version": "0.1.1-1",
-  "notes": "Initial developer preview. There is no newer core build yet.",
-  "pub_date": "2026-08-14T00:00:00Z",
-  "platforms": {}
+  "notes": "Signed cross-platform developer preview. Windows and macOS artifacts are not yet backed by commercial code-signing certificates, so the operating system may show a warning.",
+  "pub_date": "2026-08-14T12:29:37.289Z",
+  "platforms": {
+    "darwin-aarch64": {
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVTMXNFdkMxa0lFU0NBTEFiYUpWQlJtTXltV2gwYmFrc3JqSDFuYVJYUDFkSXowaVpHZ2l3WHNVYnBSSFcybVZkTVdUSUJHU3ZsRnlLcmFOZXd3YnpiTnBsejkxMXF4Y2dNPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzg2NzEwMjQ2CWZpbGU6VXBkYXRlZCBBZ2Fpbi5hcHAudGFyLmd6CnlnRlM4WEpoOFMrbGFRTlNyR3FYekVXOWVZUHgvRWVFMDBxeFovdkhNaUE0bHIrcWFPNmFWNFVWdCt6aFFWa2s5M24yMjN2SFFGUkFpS3dVcmFGR0JBPT0K",
+      "url": "https://api.github.com/repos/WSL043/updated-again/releases/assets/514390048"
+    },
+    "darwin-aarch64-app": {
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVTMXNFdkMxa0lFU0NBTEFiYUpWQlJtTXltV2gwYmFrc3JqSDFuYVJYUDFkSXowaVpHZ2l3WHNVYnBSSFcybVZkTVdUSUJHU3ZsRnlLcmFOZXd3YnpiTnBsejkxMXF4Y2dNPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzg2NzEwMjQ2CWZpbGU6VXBkYXRlZCBBZ2Fpbi5hcHAudGFyLmd6CnlnRlM4WEpoOFMrbGFRTlNyR3FYekVXOWVZUHgvRWVFMDBxeFovdkhNaUE0bHIrcWFPNmFWNFVWdCt6aFFWa2s5M24yMjN2SFFGUkFpS3dVcmFGR0JBPT0K",
+      "url": "https://api.github.com/repos/WSL043/updated-again/releases/assets/514390048"
+    },
+    "linux-x86_64": {
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVTMXNFdkMxa0lFU0FmNWNCTlRCbWtXQUFURUpIZFl6UUZjeEQ3Q2lrYkEwL2htTG15UjhkTy9UeWg5cTlCS2pSRlBjK3d5MHhVZTFlbTRTN3lFREZzQUIwODNWNWQ1U3dzPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzg2NzEwMzQyCWZpbGU6VXBkYXRlZCBBZ2Fpbl8wLjEuMS0xX2FtZDY0LkFwcEltYWdlCjFOcHJuRHpOVlhHZVJnL0VIOTRqek0xOUY0eUFiZlVGQ3VuMDEzYlYwOFJMYkhEa2d6cmxmMW5ka1N4MGcrYWdFTGRzR2tlY3laQkc0V2hNd3lObkNRPT0K",
+      "url": "https://api.github.com/repos/WSL043/updated-again/releases/assets/514391241"
+    },
+    "linux-x86_64-appimage": {
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVTMXNFdkMxa0lFU0FmNWNCTlRCbWtXQUFURUpIZFl6UUZjeEQ3Q2lrYkEwL2htTG15UjhkTy9UeWg5cTlCS2pSRlBjK3d5MHhVZTFlbTRTN3lFREZzQUIwODNWNWQ1U3dzPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzg2NzEwMzQyCWZpbGU6VXBkYXRlZCBBZ2Fpbl8wLjEuMS0xX2FtZDY0LkFwcEltYWdlCjFOcHJuRHpOVlhHZVJnL0VIOTRqek0xOUY0eUFiZlVGQ3VuMDEzYlYwOFJMYkhEa2d6cmxmMW5ka1N4MGcrYWdFTGRzR2tlY3laQkc0V2hNd3lObkNRPT0K",
+      "url": "https://api.github.com/repos/WSL043/updated-again/releases/assets/514391241"
+    },
+    "linux-x86_64-deb": {
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVTMXNFdkMxa0lFU0Y5ckpab3RxZXlSdldKdVdXS0hJU2hvOGc0d2d3dDlVRmQrYVFVSEdhVG5QNkM2eVdRekhnU2JOcm0yYzBXUm4yZnNIR0M2QThSdFJvT0tyWitBQ1FRPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzg2NzEwMzQyCWZpbGU6VXBkYXRlZCBBZ2Fpbl8wLjEuMS0xX2FtZDY0LmRlYgpnSG02Wlg4bmVJWFluQWZSdGdkMjVUL2FQSlZVWmZlYVVPbkNlRDlQVE52ZmJTeXBVNHhjYjNoK3c1bEVHZUxJbHZBVEpzRW5XUnFPY2dXdVhFWCtCUT09Cg==",
+      "url": "https://api.github.com/repos/WSL043/updated-again/releases/assets/514391215"
+    },
+    "linux-x86_64-rpm": {
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVTMXNFdkMxa0lFU0NSdFBTOEtMQmNoaW5aSWFhYzZaNVpLQVpTUmxLWU03NDZ4MzlkcTJBMW9lUVJLN3dsZFFYNGdNUmMvaDhLaTNWaGxyUnFra05BQ1ZJbWNGWlQwTlFZPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzg2NzEwMzQyCWZpbGU6VXBkYXRlZCBBZ2Fpbi0wLjEuMS0xLTEueDg2XzY0LnJwbQpxVysyZTNKbEUvdkw5c0k3SkU0Nnp1QmhjQ3hNdXBmdWZNd05TQ0I2TWtBUVdoeERuLzRwdlN5NlB5dmViaFdmc3Vac1EwZTVVNHJzYmRZM1hoR1hBZz09Cg==",
+      "url": "https://api.github.com/repos/WSL043/updated-again/releases/assets/514391233"
+    },
+    "darwin-x86_64": {
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVTMXNFdkMxa0lFU0E0TjA5UThad1hnN2FmNUU0UEc5RXNjUmM5S0l0OWVBTlNYOTdQMWFRT2R3MHBSSkFwUFk2TS9FdkRWMitDVlJEN3NSY3gxOERRVysyT0pGNllJZ3dNPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzg2NzEwNTEzCWZpbGU6VXBkYXRlZCBBZ2Fpbi5hcHAudGFyLmd6CkNCc1VycjFGWkdqamQ2dk5IcU1YS2JaUG5sd1pCNkgydnV5VktOQkEzdE1keTVXc3JuV2V6TzBRVDRVaFhJMFpsZUhiUEJQMlhhRk1HUkhsYTRCekJBPT0K",
+      "url": "https://api.github.com/repos/WSL043/updated-again/releases/assets/514394021"
+    },
+    "darwin-x86_64-app": {
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVTMXNFdkMxa0lFU0E0TjA5UThad1hnN2FmNUU0UEc5RXNjUmM5S0l0OWVBTlNYOTdQMWFRT2R3MHBSSkFwUFk2TS9FdkRWMitDVlJEN3NSY3gxOERRVysyT0pGNllJZ3dNPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzg2NzEwNTEzCWZpbGU6VXBkYXRlZCBBZ2Fpbi5hcHAudGFyLmd6CkNCc1VycjFGWkdqamQ2dk5IcU1YS2JaUG5sd1pCNkgydnV5VktOQkEzdE1keTVXc3JuV2V6TzBRVDRVaFhJMFpsZUhiUEJQMlhhRk1HUkhsYTRCekJBPT0K",
+      "url": "https://api.github.com/repos/WSL043/updated-again/releases/assets/514394021"
+    },
+    "windows-x86_64": {
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVTMXNFdkMxa0lFU0o2dVVPQy9ySVkzc1V3T0lraHZSeGZsUnZUZUtaYjIwMDBkUW50TzR6T2NQYWpta1AvUWhBdE9WK3lSUlc5OHBhcU5rdk9OVXFTeFNiTXZBbDFwU3c4PQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzg2NzEwNTczCWZpbGU6VXBkYXRlZCBBZ2Fpbl8wLjEuMS0xX3g2NC1zZXR1cC5leGUKRmtBa0lYaWxuQ0FYNWJtWkEwNHNpcWowSVFnSnV3V2w5c2t6YTIxVStlNEo0L28wWjd5dUlsV1NBczkwZnZLbTRDdVh2OVFRTmg1VGQraWpHYTI1QWc9PQo=",
+      "url": "https://api.github.com/repos/WSL043/updated-again/releases/assets/514394813"
+    },
+    "windows-x86_64-nsis": {
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVTMXNFdkMxa0lFU0o2dVVPQy9ySVkzc1V3T0lraHZSeGZsUnZUZUtaYjIwMDBkUW50TzR6T2NQYWpta1AvUWhBdE9WK3lSUlc5OHBhcU5rdk9OVXFTeFNiTXZBbDFwU3c4PQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzg2NzEwNTczCWZpbGU6VXBkYXRlZCBBZ2Fpbl8wLjEuMS0xX3g2NC1zZXR1cC5leGUKRmtBa0lYaWxuQ0FYNWJtWkEwNHNpcWowSVFnSnV3V2w5c2t6YTIxVStlNEo0L28wWjd5dUlsV1NBczkwZnZLbTRDdVh2OVFRTmg1VGQraWpHYTI1QWc9PQo=",
+      "url": "https://api.github.com/repos/WSL043/updated-again/releases/assets/514394813"
+    },
+    "windows-x86_64-msi": {
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVTMXNFdkMxa0lFU0ZVMmlWelo1RzlqY2ltaHJvdGZNMHZOMTlMZlRNRWtBV1kvWWt3b0d0Q0ZMRmsxY1ZuYm5DdmU3b2R6YUEzMUt4OHlFdjZac29OanhleVM5dFpyeWdVPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzg2NzEwNTczCWZpbGU6VXBkYXRlZCBBZ2Fpbl8wLjEuMS0xX3g2NF9lbi1VUy5tc2kKQUZGY3VHQ3RJQlhUdjVod2JNM1ozNlRQazY5L1lDUWx1eDNVeEJQd2VUVytLajNiUEdSN2N2dThYUXJHeU83cXFadVVTM1lXY3o5NnExd1FjOHVqQ3c9PQo=",
+      "url": "https://api.github.com/repos/WSL043/updated-again/releases/assets/514394798"
+    }
+  }
 }

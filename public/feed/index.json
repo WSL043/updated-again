@@ -1,9 +1,24 @@
 {
   "specVersion": 1,
-  "generatedAt": "2026-08-14T12:05:43.024Z",
-  "latest": "D-20260814-0002-patch-dumpling-mood",
-  "total": 2,
+  "generatedAt": "2026-08-14T12:30:44.065Z",
+  "latest": "C-0.1.1-1-0003",
+  "total": 3,
   "entries": [
+    {
+      "id": "C-0.1.1-1-0003",
+      "sequence": 3,
+      "publishedAt": "2026-08-14T12:30:44.065Z",
+      "plannedFor": "2026-08-14",
+      "channel": "core",
+      "kind": "message",
+      "headline": "真正的玩法更新抵达 Core 0.1.1-1",
+      "mood": "认真更新",
+      "absurdity": 24,
+      "path": "updates/C-0.1.1-1-0003.json",
+      "payloadSha256": "702de115e959c293e697c15ebac8f29d8dc952d5731755a83ea6bb58a8b1dd90",
+      "recipe": "core-0.1.1-1",
+      "seed": "3321df5ff6b3fb2915ade389e333677babcca0b9adb47c085573145c61055b78"
+    },
     {
       "id": "D-20260814-0002-patch-dumpling-mood",
       "sequence": 2,
