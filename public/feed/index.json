@@ -1,9 +1,24 @@
 {
   "specVersion": 1,
-  "generatedAt": "2026-08-14T16:33:00.906Z",
-  "latest": "D-20260815-0004-one-sentence-worth-shipping",
-  "total": 4,
+  "generatedAt": "2026-08-15T01:49:51.446Z",
+  "latest": "D-20260815-0005-button-has-opinions",
+  "total": 5,
   "entries": [
+    {
+      "id": "D-20260815-0005-button-has-opinions",
+      "sequence": 5,
+      "publishedAt": "2026-08-15T01:49:51.446Z",
+      "plannedFor": "2026-08-15",
+      "channel": "weird",
+      "kind": "button-personality",
+      "headline": "更新按钮认为自己长期缺乏人格",
+      "mood": "人格化",
+      "absurdity": 88,
+      "path": "updates/D-20260815-0005-button-has-opinions.json",
+      "payloadSha256": "4389520ad9e33d9f20b3e3a974b8e997125f2e872db2c0899be901d0da56d565",
+      "recipe": "button-has-opinions",
+      "seed": "95677b798e45866879e4c4354558f2251252503dc4b746264983f74f095fe362"
+    },
     {
       "id": "D-20260815-0004-one-sentence-worth-shipping",
       "sequence": 4,
