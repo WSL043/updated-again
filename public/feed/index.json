@@ -1,9 +1,24 @@
 {
   "specVersion": 1,
-  "generatedAt": "2026-08-15T01:49:51.446Z",
-  "latest": "D-20260815-0005-button-has-opinions",
-  "total": 5,
+  "generatedAt": "2026-08-16T08:58:36.538Z",
+  "latest": "D-20260816-0006-tiny-ritual",
+  "total": 6,
   "entries": [
+    {
+      "id": "D-20260816-0006-tiny-ritual",
+      "sequence": 6,
+      "publishedAt": "2026-08-16T08:58:36.538Z",
+      "plannedFor": "2026-08-16",
+      "channel": "daily",
+      "kind": "ritual",
+      "headline": "软件今天想举行一个非常小的仪式",
+      "mood": "仪式感",
+      "absurdity": 76,
+      "path": "updates/D-20260816-0006-tiny-ritual.json",
+      "payloadSha256": "3aeefa6d073178343bef4c176bd28d28d77cdc129589b2aa611899409ca371b5",
+      "recipe": "tiny-ritual",
+      "seed": "74d54d7498e97614708d6c2a966b0ee886beccc46fee0293d2f69afa6b071816"
+    },
     {
       "id": "D-20260815-0005-button-has-opinions",
       "sequence": 5,
