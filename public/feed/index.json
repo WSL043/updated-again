@@ -1,9 +1,24 @@
 {
   "specVersion": 1,
-  "generatedAt": "2026-08-18T01:50:54.439Z",
-  "latest": "D-20260818-0008-patch-dumpling-mood",
-  "total": 8,
+  "generatedAt": "2026-08-18T16:02:50.340Z",
+  "latest": "D-20260819-0009-museum-object",
+  "total": 9,
   "entries": [
+    {
+      "id": "D-20260819-0009-museum-object",
+      "sequence": 9,
+      "publishedAt": "2026-08-18T16:02:50.340Z",
+      "plannedFor": "2026-08-19",
+      "channel": "weird",
+      "kind": "collectible",
+      "headline": "这件东西没有用途，所以决定永久保存",
+      "mood": "收藏欲",
+      "absurdity": 83,
+      "path": "updates/D-20260819-0009-museum-object.json",
+      "payloadSha256": "ff8654309a78bf5237646c6433db5e028707ea6ca31d1241f471c1b2d4c78cad",
+      "recipe": "museum-object",
+      "seed": "2a62bf395ce4a8a873799ff8b9725afb48367cd28cb3fd33256f7ef17d8e7e06"
+    },
     {
       "id": "D-20260818-0008-patch-dumpling-mood",
       "sequence": 8,
