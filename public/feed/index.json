@@ -1,9 +1,24 @@
 {
   "specVersion": 1,
-  "generatedAt": "2026-08-17T05:02:24.278Z",
-  "latest": "D-20260817-0007-museum-object",
-  "total": 7,
+  "generatedAt": "2026-08-18T01:50:54.439Z",
+  "latest": "D-20260818-0008-patch-dumpling-mood",
+  "total": 8,
   "entries": [
+    {
+      "id": "D-20260818-0008-patch-dumpling-mood",
+      "sequence": 8,
+      "publishedAt": "2026-08-18T01:50:54.439Z",
+      "plannedFor": "2026-08-18",
+      "channel": "daily",
+      "kind": "companion",
+      "headline": "补丁团子提交了新的心情状态",
+      "mood": "陪伴",
+      "absurdity": 68,
+      "path": "updates/D-20260818-0008-patch-dumpling-mood.json",
+      "payloadSha256": "09b1389d316fea649080786933c17e32ee46b72c20f7e63a885a77fe7756c44e",
+      "recipe": "patch-dumpling-mood",
+      "seed": "37451f06d455a19c28ea57a259cac3927299803f042b76debeab99578f3a587e"
+    },
     {
       "id": "D-20260817-0007-museum-object",
       "sequence": 7,
