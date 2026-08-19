@@ -1,0 +1,40 @@
+{
+  "specVersion": 1,
+  "id": "D-20260820-0010-button-has-opinions",
+  "sequence": 10,
+  "coreRequirement": ">=0.1.0-beta.1",
+  "publishedAt": "2026-08-19T16:03:42.690Z",
+  "plannedFor": "2026-08-20",
+  "channel": "weird",
+  "kind": "button-personality",
+  "reason": {
+    "headline": "更新按钮认为自己长期缺乏人格",
+    "detail": "本次更新采纳了按钮的意见，虽然没人记得它何时开始发言。",
+    "mood": "人格化",
+    "absurdity": 88
+  },
+  "changes": [
+    "更换更新按钮的文案与运动性格。"
+  ],
+  "expectedEffects": [
+    "按钮会以害羞、夸张或弹跳方式回应用户。"
+  ],
+  "payload": {
+    "label": "我又可以更新了",
+    "temperament": "dramatic"
+  },
+  "generator": {
+    "mode": "reserve",
+    "recipe": "button-has-opinions",
+    "seed": "4ba0aa8127f457c0bfd275ca9ab40280e97591320342363a97a1c525ecccb4e9"
+  },
+  "rollback": {
+    "strategy": "snapshot"
+  },
+  "integrity": {
+    "algorithm": "ed25519",
+    "keyId": "capsule-2026-01",
+    "payloadSha256": "6cdff0cf3268fa9fafdd9d250bb8423e971ad84f173811229717fe391ad4917c",
+    "signature": "3db4xS4aHk2yLgheDPSrIvA9S+GQqt6KZuITBRsMABPUgKHmkp5ZDdjrTkMi27qwYPDGtjtjwL6VAK3ewIyQAw=="
+  }
+}
