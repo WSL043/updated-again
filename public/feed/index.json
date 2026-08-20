@@ -1,9 +1,24 @@
 {
   "specVersion": 1,
-  "generatedAt": "2026-08-19T16:03:42.690Z",
-  "latest": "D-20260820-0010-button-has-opinions",
-  "total": 10,
+  "generatedAt": "2026-08-20T04:56:48.289Z",
+  "latest": "D-20260820-0011-one-sentence-worth-shipping",
+  "total": 11,
   "entries": [
+    {
+      "id": "D-20260820-0011-one-sentence-worth-shipping",
+      "sequence": 11,
+      "publishedAt": "2026-08-20T04:56:48.289Z",
+      "plannedFor": "2026-08-20",
+      "channel": "daily",
+      "kind": "message",
+      "headline": "今天只多说一句，但它真的被安装了",
+      "mood": "认真胡说",
+      "absurdity": 61,
+      "path": "updates/D-20260820-0011-one-sentence-worth-shipping.json",
+      "payloadSha256": "7ab696e61469755ebce8369915421efd42b8bb16565e5e2c26b9ca05a851b3eb",
+      "recipe": "one-sentence-worth-shipping",
+      "seed": "3de563025cd0bd5da7b7ee36c6e90bfcc06791fb0fc89212fbd24b3cd7641b2b"
+    },
     {
       "id": "D-20260820-0010-button-has-opinions",
       "sequence": 10,
