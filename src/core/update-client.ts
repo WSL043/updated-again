@@ -21,6 +21,13 @@ export async function fetchCapsule(path: string): Promise<UpdateCapsule> {
   return response.json() as Promise<UpdateCapsule>;
 }
 
+export async function fetchCoreVersion(): Promise<string> {
+  const response = await fetch(absolutePath("feed/core-latest.json"), { cache: "no-store" });
+  if (!response.ok) throw new Error(`核心版本不可用：HTTP ${response.status}`);
+  const data = (await response.json()) as { version?: string };
+  return data.version ?? "";
+}
+
 export async function installVerifiedCapsule(archive: LocalArchive, capsule: UpdateCapsule): Promise<LocalArchive> {
   if (!PUBLIC_KEY) {
     if (import.meta.env.PROD) throw new Error("生产构建缺少更新签名公钥。");

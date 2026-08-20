@@ -1,12 +1,15 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import type { CSSProperties } from "react";
 import { CAPABILITY_LIST, rollbackLatest } from "./capabilities";
+import { Companion } from "./components/Companion";
 import { Constellation } from "./components/Constellation";
+import { ParticleBurst } from "./components/ParticleBurst";
+import { StreakCalendar } from "./components/StreakCalendar";
 import { UpdateCard } from "./components/UpdateCard";
-import { checkForCoreUpdate, enableNotifications, isDesktopApp, notifyUpdate } from "./core/native";
+import { checkForCoreUpdate, enableNotifications, isDesktopApp, listenForTrayCheckUpdate, notifyUpdate } from "./core/native";
 import { loadArchive, saveArchive } from "./core/storage";
 import type { FeedIndex, LocalArchive, UpdateCapsule } from "./core/types";
-import { fetchCapsule, fetchFeed, findPendingCapsules, installVerifiedCapsule } from "./core/update-client";
+import { fetchCapsule, fetchCoreVersion, fetchFeed, findPendingCapsules, installVerifiedCapsule } from "./core/update-client";
 
 type Status = "idle" | "checking" | "installing" | "error";
 
@@ -17,6 +20,8 @@ function App() {
   const [status, setStatus] = useState<Status>("idle");
   const [notice, setNotice] = useState("正在倾听版本宇宙……");
   const [tab, setTab] = useState<"today" | "museum" | "lab">("today");
+  const [coreVersion, setCoreVersion] = useState("0.1.1-1");
+  const [burstKey, setBurstKey] = useState(0);
 
   const installedIds = useMemo(() => new Set(archive.state.installedIds), [archive.state.installedIds]);
   const pendingCount = feed?.entries.filter((entry) => !installedIds.has(entry.id)).length ?? 0;
@@ -47,9 +52,15 @@ function App() {
         let nextArchive = archive;
         for (const capsule of pending) nextArchive = await installVerifiedCapsule(nextArchive, capsule);
         persist(nextArchive);
+        setBurstKey((key) => key + 1);
         setNotice(`自动安装了 ${pending.length} 个真实更新。`);
       }
       setStatus("idle");
+      try {
+        setCoreVersion(await fetchCoreVersion());
+      } catch {
+        // The ledger is authoritative for capsules; the core version is cosmetic.
+      }
     } catch (error) {
       setNotice(error instanceof Error ? error.message : String(error));
       setStatus("error");
@@ -62,6 +73,14 @@ function App() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  useEffect(() => {
+    let unsubscribe: (() => void) | undefined;
+    void listenForTrayCheckUpdate(() => void checkForCoreUpdate()).then((handler) => {
+      unsubscribe = handler;
+    });
+    return () => unsubscribe?.();
+  }, []);
+
   const installOne = useCallback(
     async (id: string) => {
       setStatus("installing");
@@ -72,6 +91,7 @@ function App() {
         const next = await installVerifiedCapsule(archive, capsule);
         setCapsules((current) => new Map(current).set(id, capsule));
         persist(next);
+        setBurstKey((key) => key + 1);
         setNotice(`已安装：${capsule.reason.headline}`);
         setStatus("idle");
       } catch (error) {
@@ -90,6 +110,7 @@ function App() {
       let next = archive;
       for (const capsule of pending) next = await installVerifiedCapsule(next, capsule);
       persist(next);
+      setBurstKey((key) => key + 1);
       setNotice(pending.length ? `这次一口气安装了 ${pending.length} 更。` : "没有漏掉的更新。");
       setStatus("idle");
     } catch (error) {
@@ -125,7 +146,7 @@ function App() {
       {tab === "today" && (
         <div className="page-grid">
           <section className="hero panel">
-            <p className="eyebrow">第 {feed?.total ?? "…"} 次变化 · Core v0.1.1-1</p>
+            <p className="eyebrow">第 {feed?.total ?? "…"} 次变化 · Core v{coreVersion}</p>
             <h1>{latestCapsule?.reason.headline ?? latestEntry?.headline ?? "今天也会发生一点变化"}</h1>
             <p className="hero__detail">
               {latestCapsule?.reason.detail ?? "每次更新理由可以荒唐，但它必须真的改变些什么。"}
@@ -135,8 +156,9 @@ function App() {
               <span>荒诞度：{latestCapsule?.reason.absurdity ?? latestEntry?.absurdity ?? "?"}/100</span>
               <span>待安装：{pendingCount}</span>
             </div>
+            {burstKey > 0 && <ParticleBurst key={burstKey} />}
             <button
-              className={`primary-button temperament-${archive.state.button.temperament}`}
+              className={`primary-button temperament-${archive.state.button.temperament}${status === "checking" || status === "installing" ? " is-busy" : ""}`}
               disabled={status === "checking" || status === "installing"}
               onClick={pendingCount ? installAll : refresh}
             >
@@ -144,22 +166,23 @@ function App() {
                 ? "正在问今天有没有理由……"
                 : status === "installing"
                   ? "正在让世界发生变化……"
-                  : pendingCount
-                    ? archive.state.button.label
-                    : "再检查一次，也许刚刚心情变了"}
+                  : status === "error"
+                    ? "刚才没听清，再试一次"
+                    : pendingCount
+                      ? archive.state.button.label
+                      : "再检查一次，也许刚刚心情变了"}
             </button>
             <p className={`notice notice--${status}`} role="status" aria-live="polite">{notice}</p>
             <span className="hero__orbit" aria-hidden="true">↻</span>
           </section>
 
           <aside className="companion panel">
-            <div className="companion__glyph" aria-hidden="true">{archive.state.companion.glyph}</div>
-            <div>
-              <p className="eyebrow">常驻更新生物</p>
-              <h2>{archive.state.companion.name}</h2>
-              <p>{archive.state.companion.phrase}</p>
-              <span className="mood-chip">{archive.state.companion.mood}</span>
-            </div>
+            <Companion
+              name={archive.state.companion.name}
+              mood={archive.state.companion.mood}
+              phrase={archive.state.companion.phrase}
+              glyph={archive.state.companion.glyph}
+            />
           </aside>
 
           <section className="world-note panel">
@@ -170,6 +193,16 @@ function App() {
               <span><strong>{archive.state.collectibles.length}</strong> 件藏品</span>
               <span><strong>{archive.state.stars.length}</strong> 颗版本星</span>
             </div>
+          </section>
+
+          <section className="heartbeat panel">
+            <div className="section-heading">
+              <div>
+                <p className="eyebrow">更新心跳</p>
+                <h2>每一次真实变化都留下脉搏</h2>
+              </div>
+            </div>
+            <StreakCalendar entries={feed?.entries ?? []} />
           </section>
 
           <section className="latest-list panel">
