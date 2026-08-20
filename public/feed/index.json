@@ -1,9 +1,24 @@
 {
   "specVersion": 1,
-  "generatedAt": "2026-08-20T09:07:50.112Z",
-  "latest": "D-20260820-0012-good-mood-sky",
-  "total": 12,
+  "generatedAt": "2026-08-20T09:13:17.471Z",
+  "latest": "C-0.1.2-0013",
+  "total": 13,
   "entries": [
+    {
+      "id": "C-0.1.2-0013",
+      "sequence": 13,
+      "publishedAt": "2026-08-20T09:13:17.471Z",
+      "plannedFor": "2026-08-20",
+      "channel": "core",
+      "kind": "message",
+      "headline": "真正的玩法更新抵达 Core 0.1.2",
+      "mood": "认真更新",
+      "absurdity": 24,
+      "path": "updates/C-0.1.2-0013.json",
+      "payloadSha256": "ebb893796342bcc370be0a82cafc354a3e2b58f46c7f92e0f90c5323a03a2833",
+      "recipe": "core-0.1.2",
+      "seed": "cee99871d7c67d6eb2388b3871c76fb944b208c5583a2a2fec1e3b812acaa79e"
+    },
     {
       "id": "D-20260820-0012-good-mood-sky",
       "sequence": 12,
