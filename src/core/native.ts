@@ -43,3 +43,9 @@ export async function enableNotifications(): Promise<boolean> {
   if (!("Notification" in window)) return false;
   return (await Notification.requestPermission()) === "granted";
 }
+
+export async function listenForTrayCheckUpdate(handler: () => void): Promise<() => void> {
+  if (!isDesktopApp()) return () => undefined;
+  const { listen } = await import("@tauri-apps/api/event");
+  return listen("check-update", () => void handler());
+}
