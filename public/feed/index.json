@@ -1,9 +1,24 @@
 {
   "specVersion": 1,
-  "generatedAt": "2026-08-24T01:57:56.220Z",
-  "latest": "D-20260824-0017-version-star",
-  "total": 17,
+  "generatedAt": "2026-08-24T16:16:27.944Z",
+  "latest": "D-20260825-0018-tiny-ritual",
+  "total": 18,
   "entries": [
+    {
+      "id": "D-20260825-0018-tiny-ritual",
+      "sequence": 18,
+      "publishedAt": "2026-08-24T16:16:27.944Z",
+      "plannedFor": "2026-08-25",
+      "channel": "daily",
+      "kind": "ritual",
+      "headline": "软件今天想举行一个非常小的仪式",
+      "mood": "仪式感",
+      "absurdity": 76,
+      "path": "updates/D-20260825-0018-tiny-ritual.json",
+      "payloadSha256": "67038a59d0d6015dfce5e57ffef3ee7e77096a56ab41df375628c8e9eda80da3",
+      "recipe": "tiny-ritual",
+      "seed": "70df97c99c5b64b0a744d8db2d5a59cd896e6e890492553bf4558b98078addb1"
+    },
     {
       "id": "D-20260824-0017-version-star",
       "sequence": 17,
