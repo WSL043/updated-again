@@ -1,0 +1,42 @@
+{
+  "specVersion": 1,
+  "id": "D-20260826-0019-museum-object",
+  "sequence": 19,
+  "coreRequirement": ">=0.1.0-beta.1",
+  "publishedAt": "2026-08-25T16:18:40.240Z",
+  "plannedFor": "2026-08-26",
+  "channel": "weird",
+  "kind": "collectible",
+  "reason": {
+    "headline": "这件东西没有用途，所以决定永久保存",
+    "detail": "实用性审查没有通过，但荒诞性审查给了高分。",
+    "mood": "收藏欲",
+    "absurdity": 83
+  },
+  "changes": [
+    "新增一件带唯一编号的版本收藏品。"
+  ],
+  "expectedEffects": [
+    "收藏柜会增加一件可查看的新物品。"
+  ],
+  "payload": {
+    "id": "relic-2026-08-26-19",
+    "name": "多余的逗号",
+    "glyph": "※",
+    "note": "未来的考古学家可能会误解它。"
+  },
+  "generator": {
+    "mode": "reserve",
+    "recipe": "museum-object",
+    "seed": "72cfc05166dcd01b4a584c29c13897cb566584fca7d7d65351c35678d4139a2e"
+  },
+  "rollback": {
+    "strategy": "snapshot"
+  },
+  "integrity": {
+    "algorithm": "ed25519",
+    "keyId": "capsule-2026-01",
+    "payloadSha256": "7cf7940cb7ff981c994e9d0e4b707ac8085c9270b35c5ea03d6a2b2f705ec14b",
+    "signature": "ap7Xv8BGi4Y+fn8T5QaoKA2EY3OGsJH57sDL6ua1jD92hFlSLEdG7fReS6jPAUCHnBailkgnIoPiUbWWqitDAQ=="
+  }
+}
