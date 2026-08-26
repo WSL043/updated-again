@@ -1,9 +1,24 @@
 {
   "specVersion": 1,
-  "generatedAt": "2026-08-25T16:18:40.240Z",
-  "latest": "D-20260826-0019-museum-object",
-  "total": 19,
+  "generatedAt": "2026-08-26T09:21:36.987Z",
+  "latest": "D-20260826-0020-one-sentence-worth-shipping",
+  "total": 20,
   "entries": [
+    {
+      "id": "D-20260826-0020-one-sentence-worth-shipping",
+      "sequence": 20,
+      "publishedAt": "2026-08-26T09:21:36.987Z",
+      "plannedFor": "2026-08-26",
+      "channel": "daily",
+      "kind": "message",
+      "headline": "一句话也值得拥有版本号",
+      "mood": "认真胡说",
+      "absurdity": 61,
+      "path": "updates/D-20260826-0020-one-sentence-worth-shipping.json",
+      "payloadSha256": "7ab696e61469755ebce8369915421efd42b8bb16565e5e2c26b9ca05a851b3eb",
+      "recipe": "one-sentence-worth-shipping",
+      "seed": "a5bc114f0979b017ddd604dbf03899572e345ea1795c7b8c5e53bdb97dc2f0ed"
+    },
     {
       "id": "D-20260826-0019-museum-object",
       "sequence": 19,
