@@ -16,7 +16,24 @@ interface PreparedCorpus {
 let corpusPromise: Promise<PreparedCorpus> | undefined;
 
 export function normalizePrompt(value: string): string {
-  return value.toLocaleLowerCase("zh-CN").replace(/[^\p{L}\p{N}]+/gu, "");
+  let normalized = value.toLocaleLowerCase("zh-CN").replace(/[^\p{L}\p{N}]+/gu, "");
+  normalized = normalized
+    .replace(/^(请问|我想问(?:一下)?)/u, "")
+    .replace(/(喜不喜欢|爱不爱|喜歡不喜歡|愛不愛)/gu, "爱")
+    .replace(/(喜欢|喜爱|喜歡|喜愛|爱着|愛著)/gu, "爱")
+    .replace(/(为啥|为何)/gu, "为什么")
+    .replace(/(為啥|為何)/gu, "為什麼")
+    .replace(/(咋样|怎么样)/gu, "如何")
+    .replace(/(咋樣|怎麼樣)/gu, "如何")
+    .replace(/哪儿/gu, "哪里")
+    .replace(/哪兒/gu, "哪裡")
+    .replace(/每天都要/gu, "每天")
+    .replace(/每天都得/gu, "每天")
+    .replace(/[吗嘛么呢呀啊]$/u, "")
+    .replace(/[嗎嘛麼呢呀啊]$/u, "")
+    .replace(/^whats/u, "whatis")
+    .replace(/^hows/u, "howis");
+  return normalized;
 }
 
 function bigrams(value: string): Set<string> {
