@@ -1,0 +1,53 @@
+name: Audit living project health
+
+on:
+  schedule:
+    - cron: "20 16 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  audit:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v7
+      - uses: pnpm/action-setup@v6
+        with:
+          version: 10.33.0
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22.22.2
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - name: Validate local ledger and public deployment
+        id: health
+        continue-on-error: true
+        run: |
+          pnpm update:validate
+          expected="$(jq -r .latest public/feed/index.json)"
+          remote="$(curl --fail --retry 3 --silent https://wsl043.github.io/updated-again/feed/index.json | jq -r .latest)"
+          today="$(TZ=Asia/Shanghai date +%F)"
+          planned="$(jq -r '.entries[0].plannedFor' public/feed/index.json)"
+          test "$remote" = "$expected"
+          test "$planned" = "$today"
+      - name: Open one actionable incident
+        if: steps.health.outcome == 'failure'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          gh label create automated-health --color d73a4a --description "Living-project health automation" --force
+          if [[ "$(gh issue list --state open --label automated-health --json number --jq length)" == "0" ]]; then
+            gh issue create --title "[health] 日更账本或公开站点需要修复" --body "自动体检发现本地签名账本、今日覆盖或 Pages 同步不一致：${RUN_URL}" --label automated-health
+          fi
+      - name: Close recovered incidents
+        if: steps.health.outcome == 'success'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          for number in $(gh issue list --state open --label automated-health --json number --jq '.[].number'); do
+            gh issue close "$number" --comment "自动体检已恢复正常，本次事件关闭。"
+          done
