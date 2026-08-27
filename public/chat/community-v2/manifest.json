@@ -1,0 +1,26 @@
+{
+  "version": 2,
+  "totalPairs": 410009,
+  "shards": {
+    "zh": {
+      "path": "chat/community-v2/zh.json.gz",
+      "pairCount": 161032
+    },
+    "en": {
+      "path": "chat/community-v2/en.json.gz",
+      "pairCount": 82014
+    },
+    "de": {
+      "path": "chat/community-v2/de.json.gz",
+      "pairCount": 79880
+    },
+    "it": {
+      "path": "chat/community-v2/it.json.gz",
+      "pairCount": 80486
+    },
+    "other": {
+      "path": "chat/community-v2/other.json.gz",
+      "pairCount": 6597
+    }
+  }
+}

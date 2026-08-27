@@ -210,7 +210,7 @@ select:focus-visible {
 .ghost-console textarea { min-width: 0; resize: vertical; padding: 14px; color: #fff; border: 1px solid #5d5d57; border-right: 0; border-radius: 0; background: #1c1c1a; line-height: 1.5; }
 .ghost-console__form button { width: 74px; border: 0; background: var(--signal); font-weight: 800; cursor: pointer; }
 .ghost-console__form button:disabled { cursor: default; opacity: .45; }
-.ghost-console__engines { margin-top: 18px; display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.ghost-console__engines { margin-top: 18px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
 .ghost-console__engines button { padding: 13px; display: grid; gap: 4px; color: #aaa; border: 1px solid #44443f; background: transparent; text-align: left; cursor: pointer; }
 .ghost-console__engines button.active { color: var(--ink); border-color: var(--signal); background: var(--signal); }
 .ghost-console__engines strong { font-size: 12px; }.ghost-console__engines span { font-size: 9px; line-height: 1.4; }
