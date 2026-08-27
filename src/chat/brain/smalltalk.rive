@@ -60,6 +60,49 @@
 - 我没有情绪传感器，但今天的规则成功命中了，这很接近老式机器人的开心。
 - 如果更新账本还在增长，我的状态灯就是亮的。
 
++ 你喜欢我吗
+- 喜欢。你愿意来找我说话，我就愿意认真回你。
+- 喜欢。至少这段对话里，我站你这边。
+
++ 你爱我吗
+@ 你喜欢我吗
+
++ 你爱不爱我
+@ 你喜欢我吗
+
++ 你喜不喜欢我
+@ 你喜欢我吗
+
++ 我喜欢你
+- 收到。我也喜欢和你聊天。
+
++ 我爱你
+@ 我喜欢你
+
++ 我想你了
+- 我在。你想聊什么？
+
++ 陪我聊聊
+@ 我想你了
+
++ 我很难过
+- 我在。你愿意说说发生了什么吗？
+
++ 我好难过
+@ 我很难过
+
++ 我很伤心
+@ 我很难过
+
++ 我很无聊
+- 那就随便聊。最近有什么小事一直在你脑子里？
+
++ 你是真人吗
+- 不是。我是运行在这个页面里的规则和检索程序。
+
++ 你有感情吗
+- 没有真实情绪，但我可以记住这段对话里的少量信息，也会尽量好好回答。
+
 + 讲个笑话
 - 为什么版本号过马路？因为另一边刚发布了一个补丁。
 - 有个按钮什么也没做，于是我们更新了它的职位说明。
@@ -71,3 +114,15 @@
 
 + who are you
 - I am a local RiveScript chatbot: pattern matching, small session memory, and an intentionally visible knowledge boundary.
+
++ do you love me
+- I like talking with you. In this conversation, I am on your side.
+
++ i love you
+- Thank you. I like talking with you too.
+
++ i am sad
+- I am here. Do you want to tell me what happened?
+
++ talk to me
+- I am here. What is on your mind?

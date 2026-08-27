@@ -1,5 +1,5 @@
 import RiveScript from "rivescript";
-import { askCommunityCorpus, COMMUNITY_PAIR_COUNT } from "./community";
+import { askCommunityCorpus, normalizePrompt } from "./community";
 import philosophyBrain from "./brain/philosophy.rive?raw";
 import smalltalkBrain from "./brain/smalltalk.rive?raw";
 import updatesBrain from "./brain/updates.rive?raw";
@@ -35,6 +35,11 @@ export async function askLegacyBrain(userId: string, prompt: string, context: st
   const message = raw === "我叫什么" ? raw : raw.replace(/^我叫\s*/, "我叫 ");
   const projectReply = await engine.reply(userId, message);
   if (projectReply !== NO_MATCH) return projectReply;
+  const normalized = normalizePrompt(raw);
+  if (/\p{Script=Han}/u.test(raw) && normalized && normalized !== message) {
+    const normalizedReply = await engine.reply(userId, normalized);
+    if (normalizedReply !== NO_MATCH) return normalizedReply;
+  }
   try {
     const communityReply = await askCommunityCorpus(raw);
     if (communityReply) return communityReply;
@@ -42,12 +47,6 @@ export async function askLegacyBrain(userId: string, prompt: string, context: st
     // The small project brain remains available if the larger corpus cannot load.
   }
   return /[A-Za-z]/.test(raw)
-    ? "I couldn't find a good local reply. Try another wording, or ask about updates, rollback, Remotion, or Puter."
-    : "这句没找到合适的本地回答。可以换个说法，或问我更新、回滚、Remotion 和 Puter。";
+    ? "I didn't catch that. Try saying it another way?"
+    : "我没接住这句。换个说法再问一次？";
 }
-
-export const LEGACY_BRAIN_FACTS = {
-  engine: "RiveScript 2.2.1",
-  brainFiles: BRAINS.length,
-  authoredReplyPaths: 130 + COMMUNITY_PAIR_COUNT,
-} as const;
