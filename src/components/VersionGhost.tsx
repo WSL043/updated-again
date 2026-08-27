@@ -2,7 +2,7 @@ import { useId, useMemo, useRef, useState } from "react";
 import { askPuter, connectPuter, type ChatTurn, type PuterUsage, usagePercent } from "../chat/puter";
 
 const STARTERS = ["给我一个更新理由", "为什么每天更新", "Remotion 是干嘛的"];
-const LOCAL_REPLY_PATHS = 130;
+const LOCAL_REPLY_PATHS = 89_986;
 type BrainMode = "legacy" | "puter";
 
 async function askLocalBrain(userId: string, prompt: string, context: string) {
@@ -102,14 +102,19 @@ export function VersionGhost({ context }: { context: string }) {
       <form className="ghost-console__form" onSubmit={(event) => { event.preventDefault(); void submit(input); }}>
         <label htmlFor="ghost-input">输入一句话</label>
         <div>
-          <textarea id="ghost-input" rows={2} maxLength={600} value={input} onChange={(event) => setInput(event.target.value)} placeholder={mode === "legacy" ? "输入更新相关的问题……" : "这条消息会发送给 Puter……"} />
+          <textarea id="ghost-input" rows={2} maxLength={600} value={input} onChange={(event) => setInput(event.target.value)} onKeyDown={(event) => {
+            if (event.key === "Enter" && !event.shiftKey && !event.nativeEvent.isComposing) {
+              event.preventDefault();
+              void submit(input);
+            }
+          }} placeholder={mode === "legacy" ? "输入一句话；Enter 发送，Shift+Enter 换行" : "这条消息会发送给 Puter；Enter 发送"} />
           <button type="submit" disabled={busy || !input.trim()}>发送</button>
         </div>
       </form>
 
       <div className="ghost-console__engines">
         <button type="button" className={mode === "legacy" ? "active" : ""} onClick={() => setMode("legacy")} disabled={busy}>
-          <strong>本地规则</strong><span>{LOCAL_REPLY_PATHS}+ 回答路径 · 不联网</span>
+          <strong>本地规则</strong><span>{LOCAL_REPLY_PATHS.toLocaleString("zh-CN")} 条 · 不联网</span>
         </button>
         <button type="button" className={mode === "puter" ? "active" : ""} onClick={() => void activatePuter()} disabled={busy}>
           <strong>连接 Puter</strong><span>登录后使用你自己的月度额度</span>

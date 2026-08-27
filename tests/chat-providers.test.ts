@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { askLegacyBrain } from "../src/chat/legacy";
+import { findCommunityReply, prepareCommunityCorpusForTest } from "../src/chat/community";
 import { extractPuterText, usagePercent } from "../src/chat/puter";
 
 describe("version ghost engines", () => {
@@ -16,6 +17,15 @@ describe("version ghost engines", () => {
   it("keeps a name in the local chat session", async () => {
     await askLegacyBrain("memory-user", "我叫小明", "当前 12 更");
     expect(await askLegacyBrain("memory-user", "我叫什么", "当前 12 更")).toContain("小明");
+  });
+
+  it("retrieves an exact or close community reply", () => {
+    const corpus = prepareCommunityCorpusForTest([
+      ["你喜欢什么电影？", "我最近在翻旧电影。"],
+      ["去上海哪里玩？", "可以先去外滩走走。"],
+    ]);
+    expect(findCommunityReply(corpus, "你喜欢什么电影")).toBe("我最近在翻旧电影。");
+    expect(findCommunityReply(corpus, "上海哪里玩")).toBe("可以先去外滩走走。");
   });
 
   it("reports Puter allowance as a bounded percentage", () => {

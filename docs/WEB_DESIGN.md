@@ -16,7 +16,7 @@ Remotion 使用专用许可证。个人、非营利组织和不超过三人的�
 
 ## 聊天
 
-- 本地：RiveScript 2.2.1，三份中文规则文件，按首次提问加载。
+- 本地：RiveScript 2.2.1 的 130 条项目规则，加上 89,856 条社区对话；包含 KdConv 中文对话和 ChatterBot Corpus 的 28 种语言，首次需要时加载。
 - 云端：用户点击后加载 Puter.js，并使用其 Puter 账户额度。
 
 Puter 没有公开固定的每日免费次数。界面通过 `puter.auth.getMonthlyUsage()` 显示账户当月剩余比例。聊天不会写入版本账本或本地档案。

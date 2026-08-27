@@ -1,4 +1,4 @@
-const CACHE = "updated-again-shell-v3";
+const CACHE = "updated-again-shell-v4";
 const SHELL = ["./", "./manifest.webmanifest", "./icons/icon.svg"];
 
 self.addEventListener("install", (event) => {
