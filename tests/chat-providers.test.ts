@@ -1,14 +1,35 @@
 import { describe, expect, it } from "vitest";
-import { extractPuterText, localGhostReply } from "../src/chat/providers";
+import { askLegacyBrain } from "../src/chat/legacy";
+import { findCommunityReply, prepareCommunityCorpusForTest } from "../src/chat/community";
+import { extractPuterText, usagePercent } from "../src/chat/puter";
 
-describe("version ghost providers", () => {
+describe("version ghost engines", () => {
   it("extracts string and block Puter responses", () => {
     expect(extractPuterText({ message: { content: "又更了" } })).toBe("又更了");
     expect(extractPuterText({ message: { content: [{ type: "text", text: "先更" }, { type: "text", text: "再说" }] } })).toBe("先更再说");
   });
 
-  it("always returns a useful local fallback", () => {
-    expect(localGhostReply("给我一个更新点子", "今天已更新")).toContain("点子");
-    expect(localGhostReply("你好", "今天已更新")).toContain("版本幽灵");
+  it("answers from the local pre-generative brain", async () => {
+    const answer = await askLegacyBrain("test-user", "为什么每天更新", "当前 12 更");
+    expect(answer).toMatch(/心跳|媒介|期待/);
+  });
+
+  it("keeps a name in the local chat session", async () => {
+    await askLegacyBrain("memory-user", "我叫小明", "当前 12 更");
+    expect(await askLegacyBrain("memory-user", "我叫什么", "当前 12 更")).toContain("小明");
+  });
+
+  it("retrieves an exact or close community reply", () => {
+    const corpus = prepareCommunityCorpusForTest([
+      ["你喜欢什么电影？", "我最近在翻旧电影。"],
+      ["去上海哪里玩？", "可以先去外滩走走。"],
+    ]);
+    expect(findCommunityReply(corpus, "你喜欢什么电影")).toBe("我最近在翻旧电影。");
+    expect(findCommunityReply(corpus, "上海哪里玩")).toBe("可以先去外滩走走。");
+  });
+
+  it("reports Puter allowance as a bounded percentage", () => {
+    expect(usagePercent({ allowance: 1000, remaining: 610 })).toBe(61);
+    expect(usagePercent({ allowance: 0, remaining: 0 })).toBeNull();
   });
 });
