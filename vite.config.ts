@@ -4,6 +4,9 @@ import react from "@vitejs/plugin-react";
 export default defineConfig({
   base: "./",
   plugins: [react()],
+  define: {
+    "process.browser": "true",
+  },
   clearScreen: false,
   server: {
     port: 1420,
