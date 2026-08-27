@@ -23,9 +23,9 @@ export class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundarySt
     if (this.state.error) {
       return (
         <main className="app-shell crash-panel">
-          <p className="eyebrow">世界暂时塌了一角</p>
-          <h1>这个界面出错了</h1>
-          <p className="crash-panel__detail">你的版本档案还在本地，重新载入后可以继续收集更新。</p>
+          <p className="eyebrow">页面错误</p>
+          <h1>页面没能正常打开</h1>
+          <p className="crash-panel__detail">本地版本档案没有丢失。请重新载入。</p>
           <button type="button" className="primary-button" onClick={() => window.location.reload()}>
             重新载入
           </button>
