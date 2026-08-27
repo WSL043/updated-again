@@ -1,0 +1,55 @@
+name: Recover failed automatic merges
+
+on:
+  workflow_run:
+    workflows: [CI]
+    types: [completed]
+
+permissions:
+  contents: write
+  issues: write
+  actions: write
+
+concurrency:
+  group: automatic-recovery
+  cancel-in-progress: false
+
+jobs:
+  revert:
+    if: (github.event.workflow_run.event == 'push' || github.event.workflow_run.event == 'workflow_dispatch') && github.event.workflow_run.head_branch == 'main' && github.event.workflow_run.conclusion == 'failure'
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: main
+          fetch-depth: 2
+      - name: Revert only the exact failed automatic merge
+        id: revert
+        env:
+          FAILED_SHA: ${{ github.event.workflow_run.head_sha }}
+        run: |
+          if [[ "$(git rev-parse HEAD)" != "$FAILED_SHA" ]]; then
+            echo "A newer commit exists; refusing to revert stale state."
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          if [[ "$(git log -1 --pretty=%s)" != \[auto-community\]* ]]; then
+            echo "The failed commit was not automatically merged."
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          git config user.name "updated-again-recovery-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git revert --no-edit HEAD
+          git push origin HEAD:main
+          echo "changed=true" >> "$GITHUB_OUTPUT"
+      - name: Leave a recovery record
+        if: steps.revert.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          RUN_URL: ${{ github.event.workflow_run.html_url }}
+        run: |
+          gh label create auto-recovered --color b60205 --description "Automatically reverted after failed main CI" --force
+          gh issue create --title "[auto-recovered] 自动合并导致主分支失败" --body "机器人已自动回滚失败提交。失败证据：${RUN_URL}" --label auto-recovered
+          gh workflow run ci.yml --ref main
+          gh api --method POST "repos/${GITHUB_REPOSITORY}/dispatches" -f event_type=living-content-changed

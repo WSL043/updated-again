@@ -1,0 +1,60 @@
+name: Auto-merge safe community changes
+
+on:
+  workflow_run:
+    workflows: [CI]
+    types: [completed]
+
+permissions:
+  contents: write
+  pull-requests: write
+  actions: write
+
+jobs:
+  merge:
+    if: github.event.workflow_run.event == 'pull_request' && github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Merge only declarative community changes or trusted dependency updates
+        uses: actions/github-script@v8
+        with:
+          script: |
+            const owner = context.repo.owner;
+            const repo = context.repo.repo;
+            let merged = false;
+            const pulls = await github.paginate(github.rest.repos.listPullRequestsAssociatedWithCommit, {
+              owner, repo, commit_sha: context.payload.workflow_run.head_sha,
+            });
+            for (const pr of pulls.filter((candidate) => candidate.state === "open" && !candidate.draft)) {
+              const files = await github.paginate(github.rest.pulls.listFiles, { owner, repo, pull_number: pr.number, per_page: 100 });
+              const names = files.map((file) => file.filename);
+              const isDependabot = pr.user?.login === "dependabot[bot]";
+              const safeCommunity = names.length > 0 && names.every((name) =>
+                name === "content/recipes.json" || name.startsWith("community/") || name.startsWith("docs/")
+              );
+              const safeDependabot = isDependabot && names.length > 0 && names.every((name) =>
+                name === "package.json" || name === "pnpm-lock.yaml" || name === "src-tauri/Cargo.toml" ||
+                name === "src-tauri/Cargo.lock" || name.startsWith(".github/workflows/")
+              );
+              if (!safeCommunity && !safeDependabot) {
+                core.info(`PR #${pr.number} remains open: executable or privileged paths require a core release review.`);
+                continue;
+              }
+              await github.rest.pulls.merge({
+                owner, repo, pull_number: pr.number, merge_method: "squash", sha: pr.head.sha,
+                commit_title: `[auto-community] ${pr.title} (#${pr.number})`,
+                commit_message: `Automatically merged after the complete CI matrix passed. Paths: ${names.join(", ")}`,
+              });
+              merged = true;
+              if (pr.head.repo?.full_name === `${owner}/${repo}` && pr.head.ref !== context.payload.repository.default_branch) {
+                try {
+                  await github.rest.git.deleteRef({ owner, repo, ref: `heads/${pr.head.ref}` });
+                } catch (error) {
+                  core.warning(`Merged PR #${pr.number}, but branch cleanup failed: ${error.message}`);
+                }
+              }
+            }
+            if (merged) {
+              await github.rest.actions.createWorkflowDispatch({ owner, repo, workflow_id: "ci.yml", ref: context.payload.repository.default_branch });
+              await github.rest.repos.createDispatchEvent({ owner, repo, event_type: "living-content-changed" });
+            }

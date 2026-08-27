@@ -1,0 +1,84 @@
+name: Publish community update ideas
+
+on:
+  issues:
+    types: [opened]
+  workflow_dispatch:
+    inputs:
+      issue_number:
+        description: Existing update-idea issue to publish
+        required: true
+        type: number
+
+permissions:
+  contents: write
+  issues: write
+  actions: write
+
+concurrency:
+  group: living-release-writer
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    if: vars.COMMUNITY_AUTOPILOT != 'false' && (github.event_name == 'workflow_dispatch' || contains(github.event.issue.labels.*.name, 'update-idea'))
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: pnpm/action-setup@v6
+        with:
+          version: 10.33.0
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22.22.2
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - name: Load the issue without evaluating its content
+        id: issue
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          EVENT_ISSUE: ${{ toJson(github.event.issue) }}
+          INPUT_NUMBER: ${{ inputs.issue_number }}
+        run: |
+          if [[ "$GITHUB_EVENT_NAME" == "workflow_dispatch" ]]; then
+            issue_json="$(gh api "repos/${GITHUB_REPOSITORY}/issues/${INPUT_NUMBER}")"
+          else
+            issue_json="$EVENT_ISSUE"
+          fi
+          printf '%s' "$issue_json" > "$RUNNER_TEMP/community-issue.json"
+          echo "number=$(jq -r .number "$RUNNER_TEMP/community-issue.json")" >> "$GITHUB_OUTPUT"
+      - name: Turn the idea into a signed, reversible capsule
+        env:
+          CAPSULE_SIGNING_PRIVATE_KEY: ${{ secrets.CAPSULE_SIGNING_PRIVATE_KEY }}
+        run: |
+          export COMMUNITY_ISSUE_JSON="$(cat "$RUNNER_TEMP/community-issue.json")"
+          node scripts/run-community-idea.mjs
+      - run: pnpm check
+      - name: Publish only immutable ledger artifacts
+        id: publish
+        env:
+          ISSUE_NUMBER: ${{ steps.issue.outputs.number }}
+        run: |
+          if git diff --quiet -- public/feed/index.json public/updates; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          git config user.name "updated-again-community-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add public/feed/index.json public/updates
+          git commit -m "[community-live] publish idea #${ISSUE_NUMBER}"
+          git push origin HEAD:main
+          echo "changed=true" >> "$GITHUB_OUTPUT"
+      - name: Mark the idea live and deploy it
+        if: steps.publish.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ISSUE_NUMBER: ${{ steps.issue.outputs.number }}
+        run: |
+          gh label create community-live --color 8a63d2 --description "Automatically published as a safe signed capsule" --force
+          gh issue edit "$ISSUE_NUMBER" --add-label community-live
+          gh issue comment "$ISSUE_NUMBER" --body "这条想法已经自动变成签名更新胶囊并进入公共票账。它只使用已有声明式能力，可在客户端回滚。"
+          gh api --method POST "repos/${GITHUB_REPOSITORY}/dispatches" -f event_type=living-content-changed

@@ -3,6 +3,7 @@ import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { ed25519 } from "@noble/curves/ed25519.js";
 import { base64ToBytes, canonicalize, sha256, toUnsignedCapsule } from "./lib.mjs";
+import { assertPayload } from "./payload-schema.mjs";
 
 const projectRoot = join(dirname(fileURLToPath(import.meta.url)), "..");
 const feed = JSON.parse(await readFile(join(projectRoot, "public", "feed", "index.json"), "utf8"));
@@ -38,6 +39,7 @@ for (const entry of feed.entries) {
     const capsule = JSON.parse(await readFile(join(projectRoot, "public", entry.path), "utf8"));
     if (capsule.id !== entry.id) failures.push(`${entry.id}: capsule id mismatch`);
     if (capsule.sequence !== entry.sequence) failures.push(`${entry.id}: sequence mismatch`);
+    assertPayload(capsule.kind, capsule.payload);
     const payloadHash = sha256(canonicalize({ kind: capsule.kind, payload: capsule.payload }));
     if (payloadHash !== capsule.integrity.payloadSha256 || payloadHash !== entry.payloadSha256) {
       failures.push(`${entry.id}: payload hash mismatch`);

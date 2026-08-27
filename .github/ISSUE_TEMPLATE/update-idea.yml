@@ -1,8 +1,12 @@
 name: 荒唐更新提案
-description: 提议一个理由不必正经、改动必须真实的新更新
+description: 提议一个理由不必正经、改动必须真实的新更新；通过安全检查后会自动上线
 title: "[update idea] "
 labels: ["update-idea"]
 body:
+  - type: markdown
+    attributes:
+      value: |
+        **这是自动生效通道。** 提交后，机器人会把内容清洗为已有安全能力的签名胶囊并加入公共票账，不需要维护者批准。可执行代码、权限和全新 Core 能力不会从 Issue 自动运行。
   - type: textarea
     id: reason
     attributes:
@@ -11,6 +15,13 @@ body:
       placeholder: 因为按钮看起来有点孤独……
     validations:
       required: true
+  - type: checkboxes
+    id: consent
+    attributes:
+      label: 自动发布确认
+      options:
+        - label: 我知道这条想法会公开、自动生效，并按 MIT 项目内容参与方式被长期归档。
+          required: true
   - type: textarea
     id: change
     attributes:
