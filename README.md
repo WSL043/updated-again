@@ -49,6 +49,12 @@ Agent 可以生成理由、台词、参数和新配方 PR，但不持有签名�
 - `constellation`：在版本星图中钉上一颗星
 - `button-personality`：改变更新按钮的文案和运动性格
 
+## 版本幽灵聊天室
+
+网页会自动尝试三层聊天脑：Puter.js 的用户自付免费额度、Chrome 桌面端内置 AI，以及永远可用的本地规则回复。用户不需要选择模型，项目也不保存或公开任何开发者密钥；前一层不可用时自动尝试下一层。
+
+Puter 可能要求访客登录自己的 Puter 账户，使用的是访客自己的免费月度额度。Chrome 内置 AI 只在满足设备与浏览器条件时出现，并在本机运行。离线层不是大模型，会在所有外部服务失败时继续提供项目相关的固定人格回复。
+
 增加配方只需编辑 [`content/recipes.json`](content/recipes.json)。增加全新能力必须同时实现生成、校验、应用、可见效果、回滚和测试；详见 [`docs/ADDING_UPDATE_TYPES.md`](docs/ADDING_UPDATE_TYPES.md)。
 
 ## 本地运行

@@ -24,7 +24,7 @@
       }
     ],
     "security": {
-      "csp": "default-src 'self'; connect-src 'self' https://wsl043.github.io https://github.com; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'"
+      "csp": "default-src 'self'; connect-src 'self' https://wsl043.github.io https://github.com https://puter.com https://*.puter.com wss://*.puter.com; img-src 'self' data: https://*.puter.com; style-src 'self' 'unsafe-inline'; script-src 'self' https://js.puter.com"
     }
   },
   "bundle": {
