@@ -18,8 +18,8 @@ function App() {
         {route === "lab" && <LabPage station={station} />}
       </main>
       <footer className="site-footer">
-        <div><strong>UPDATED AGAIN</strong><span>每天至少更新一次。理由可以随便，改动必须是真的。</span></div>
-        <div><a href="https://github.com/WSL043/updated-again" target="_blank" rel="noreferrer">GitHub ↗</a><a href="https://github.com/WSL043/updated-again/issues/new?template=update-idea.yml" target="_blank" rel="noreferrer">提交一个更新理由 ↗</a></div>
+        <div><strong>UPDATED AGAIN</strong><span>明天还会更。至于为什么，明天再说。</span></div>
+        <div><a href="https://github.com/WSL043/updated-again" target="_blank" rel="noreferrer">看源码</a><a href="https://github.com/WSL043/updated-again/issues/new?template=update-idea.yml" target="_blank" rel="noreferrer">塞一个更新理由</a></div>
       </footer>
     </div>
   );

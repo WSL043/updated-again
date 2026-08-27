@@ -13,6 +13,7 @@ export function UpdateCard({ entry, installed, onInstall, busy }: UpdateCardProp
   );
   return (
     <article className="update-card">
+      <span className="update-card__sequence" aria-hidden="true">#{String(entry.sequence).padStart(4, "0")}</span>
       <div className="update-card__meta">
         <span>{date}</span>
         <span>{entry.channel}</span>

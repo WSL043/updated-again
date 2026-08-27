@@ -31,8 +31,8 @@ export function StreakCalendar({ entries }: { entries: FeedEntry[] }) {
   return (
     <div className="heartbeat__body">
       <div className="heartbeat__stats">
-        <span><strong>{streak}</strong> 连续更新天数</span>
-        <span><strong>{total}</strong> 次真实变化</span>
+        <span><strong>{streak}</strong><small>天连续更新</small></span>
+        <span><strong>{total}</strong><small>次真实变化</small></span>
       </div>
       <div
         className="heartbeat__grid"
@@ -47,7 +47,7 @@ export function StreakCalendar({ entries }: { entries: FeedEntry[] }) {
           />
         ))}
       </div>
-      <p className="heartbeat__legend muted">每一格都是一天，颜色越亮那天更得越勤。</p>
+      <p className="heartbeat__legend muted">一格一天。亮起来的都是真的。</p>
     </div>
   );
 }
