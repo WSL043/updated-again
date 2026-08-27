@@ -80,8 +80,8 @@ export function TodayPage({ station }: { station: UpdateStation }) {
       <section className="conversation-section">
         <div className="section-intro section-intro--dark">
           <p>聊天</p>
-          <h2>先用本地规则回答。</h2>
-          <span>聊天内容留在本机。首次使用会加载本站语料；需要生成式回答时再连接 Puter。</span>
+          <h2>先在本机聊。</h2>
+          <span>先在本机回答。需要生成式回答时，可用匿名社区节点，也可连接 Puter。</span>
         </div>
         <VersionGhost context={ghostContext} />
       </section>

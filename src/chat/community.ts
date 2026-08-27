@@ -1,19 +1,29 @@
-export const COMMUNITY_PAIR_COUNT = 89_856;
+export const COMMUNITY_PAIR_COUNT = 410_009;
 
 type DialogPair = [prompt: string, reply: string];
+export type CorpusShard = "zh" | "en" | "de" | "it" | "other";
 
 interface CommunityCorpus {
   version: number;
+  shard: CorpusShard;
   sources: string[];
   pairs: DialogPair[];
+}
+
+interface CommunityManifest {
+  version: number;
+  totalPairs: number;
+  shards: Record<CorpusShard, { path: string; pairCount: number }>;
 }
 
 interface PreparedCorpus {
   exact: Map<string, string[]>;
   pairs: Array<[normalizedPrompt: string, reply: string]>;
+  postings: Map<string, number[]>;
 }
 
-let corpusPromise: Promise<PreparedCorpus> | undefined;
+const corpusPromises = new Map<CorpusShard, Promise<PreparedCorpus>>();
+let manifestPromise: Promise<CommunityManifest> | undefined;
 
 export function normalizePrompt(value: string): string {
   let normalized = value.toLocaleLowerCase("zh-CN").replace(/[^\p{L}\p{N}]+/gu, "");
@@ -36,19 +46,29 @@ export function normalizePrompt(value: string): string {
   return normalized;
 }
 
-function bigrams(value: string): Set<string> {
-  if (value.length < 2) return new Set(value ? [value] : []);
-  const result = new Set<string>();
-  for (let index = 0; index < value.length - 1; index += 1) result.add(value.slice(index, index + 2));
-  return result;
+export function detectCorpusShard(value: string): CorpusShard {
+  const lower = value.toLocaleLowerCase();
+  if (/[\p{Script=Hiragana}\p{Script=Katakana}\p{Script=Hangul}\p{Script=Cyrillic}\p{Script=Arabic}\p{Script=Hebrew}\p{Script=Thai}\p{Script=Devanagari}]/u.test(lower)) return "other";
+  if (/\p{Script=Han}/u.test(lower)) return "zh";
+  if (/[äöüß]/u.test(lower) || /\b(?:ich|nicht|danke|bitte|warum|hallo|wie geht)\b/u.test(lower)) return "de";
+  if (/\b(?:ciao|grazie|perché|come stai|buongiorno|buonasera|sono|vorrei)\b/u.test(lower)) return "it";
+  if (/[ñ¿¡ãõçğşåøæ]/u.test(lower) || /\b(?:bonjour|merci|hola|gracias|olá|obrigado|goedendag|hej|merhaba)\b/u.test(lower)) return "other";
+  return "en";
 }
 
-function similarity(left: Set<string>, rightValue: string): number {
-  const right = bigrams(rightValue);
-  if (!left.size || !right.size) return 0;
+function bigrams(value: string): string[] {
+  if (value.length < 2) return value ? [value] : [];
+  const result = new Set<string>();
+  for (let index = 0; index < value.length - 1; index += 1) result.add(value.slice(index, index + 2));
+  return [...result];
+}
+
+function similarity(left: string[], rightValue: string): number {
+  const right = new Set(bigrams(rightValue));
+  if (!left.length || !right.size) return 0;
   let overlap = 0;
   for (const token of left) if (right.has(token)) overlap += 1;
-  return (2 * overlap) / (left.size + right.size);
+  return (2 * overlap) / (left.length + right.size);
 }
 
 export function findCommunityReply(corpus: PreparedCorpus, prompt: string): string | null {
@@ -59,9 +79,24 @@ export function findCommunityReply(corpus: PreparedCorpus, prompt: string): stri
   if (normalized.length < 3) return null;
 
   const query = bigrams(normalized);
+  const lists = query
+    .map((token) => corpus.postings.get(token) ?? [])
+    .filter((list) => list.length)
+    .sort((left, right) => left.length - right.length);
+  if (!lists.length) return null;
+
+  const usefulLists = lists.filter((list) => list.length <= 20_000).slice(0, 6);
+  const selectedLists = usefulLists.length ? usefulLists : lists.slice(0, 2);
+  const candidateHits = new Map<number, number>();
+  for (const list of selectedLists) {
+    for (const index of list) candidateHits.set(index, (candidateHits.get(index) ?? 0) + 1);
+  }
+  const candidates = [...candidateHits].sort((left, right) => right[1] - left[1]).slice(0, 2_000);
+
   let bestReply: string | null = null;
   let bestScore = 0;
-  for (const [candidate, reply] of corpus.pairs) {
+  for (const [index] of candidates) {
+    const [candidate, reply] = corpus.pairs[index];
     if (Math.abs(candidate.length - normalized.length) > Math.max(8, normalized.length)) continue;
     const score = similarity(query, candidate);
     if (score > bestScore) {
@@ -83,31 +118,53 @@ async function decodeCorpus(response: Response): Promise<CommunityCorpus> {
 }
 
 function prepareCorpus(data: CommunityCorpus): PreparedCorpus {
-  if (data.version !== 1 || !Array.isArray(data.pairs)) throw new Error("社区语料格式不受支持。");
+  if (![1, 2].includes(data.version) || !Array.isArray(data.pairs)) throw new Error("社区语料格式不受支持。");
   const exact = new Map<string, string[]>();
   const pairs: PreparedCorpus["pairs"] = [];
+  const postings = new Map<string, number[]>();
   for (const [prompt, reply] of data.pairs) {
     if (typeof prompt !== "string" || typeof reply !== "string") continue;
     const normalized = normalizePrompt(prompt);
     if (!normalized) continue;
+    const index = pairs.length;
     pairs.push([normalized, reply]);
+    for (const token of bigrams(normalized)) {
+      const list = postings.get(token) ?? [];
+      list.push(index);
+      postings.set(token, list);
+    }
     const replies = exact.get(normalized) ?? [];
     replies.push(reply);
     exact.set(normalized, replies);
   }
-  return { exact, pairs };
+  return { exact, pairs, postings };
 }
 
-async function loadCorpus(): Promise<PreparedCorpus> {
-  const url = `${import.meta.env.BASE_URL}chat/community-v1.json.gz`;
-  return prepareCorpus(await decodeCorpus(await fetch(url)));
+async function loadManifest(): Promise<CommunityManifest> {
+  const response = await fetch(`${import.meta.env.BASE_URL}chat/community-v2/manifest.json`);
+  if (!response.ok) throw new Error(`社区语料清单加载失败（${response.status}）。`);
+  const manifest = await response.json() as CommunityManifest;
+  if (manifest.version !== 2 || manifest.totalPairs !== COMMUNITY_PAIR_COUNT) throw new Error("社区语料清单版本不匹配。");
+  return manifest;
+}
+
+async function loadCorpus(shard: CorpusShard): Promise<PreparedCorpus> {
+  manifestPromise ??= loadManifest();
+  const manifest = await manifestPromise;
+  const response = await fetch(`${import.meta.env.BASE_URL}${manifest.shards[shard].path}`);
+  return prepareCorpus(await decodeCorpus(response));
 }
 
 export async function askCommunityCorpus(prompt: string): Promise<string | null> {
-  corpusPromise ??= loadCorpus();
-  return findCommunityReply(await corpusPromise, prompt);
+  const shard = detectCorpusShard(prompt);
+  let promise = corpusPromises.get(shard);
+  if (!promise) {
+    promise = loadCorpus(shard);
+    corpusPromises.set(shard, promise);
+  }
+  return findCommunityReply(await promise, prompt);
 }
 
 export function prepareCommunityCorpusForTest(pairs: DialogPair[]): PreparedCorpus {
-  return prepareCorpus({ version: 1, sources: ["test"], pairs });
+  return prepareCorpus({ version: 2, shard: "zh", sources: ["test"], pairs });
 }
