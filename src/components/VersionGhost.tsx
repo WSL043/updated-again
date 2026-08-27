@@ -85,7 +85,7 @@ export function VersionGhost({ context }: { context: string }) {
       <header className="ghost-console__header">
         <div>
           <span className={`ghost-signal ghost-signal--${busy ? "busy" : mode}`} />
-          <div><p>LOCAL CHAT / OPTIONAL CLOUD</p><h2 id="ghost-title">版本聊天室</h2></div>
+          <div><p>本机优先，需要时借云端</p><h2 id="ghost-title">版本聊天室</h2></div>
         </div>
         <span className="ghost-console__route">{mode === "legacy" ? "本地 · RiveScript" : mode === "horde" ? "匿名云端 · AI Horde" : `Puter 云端${remaining === null ? "" : ` · 剩 ${remaining}%`}`}</span>
       </header>

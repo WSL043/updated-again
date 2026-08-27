@@ -18,7 +18,7 @@ export function ArchivePage({ station }: { station: UpdateStation }) {
   return (
     <section className="archive-page">
       <header className="page-heading">
-        <div><p>UPDATE HISTORY / {entries.length} EDITIONS</p><h1>更新记录</h1><span>这里保留全部公开版本。回滚只影响你的本地数据，不会删除记录。</span></div>
+        <div><p>共 {entries.length} 个版本</p><h1>更新记录</h1><span>公开版本都留在这里。回滚只动你这台机器，不会删账。</span></div>
         <button type="button" disabled={!station.archive.history.length} onClick={station.rollback}>↶ 回滚最后一更</button>
       </header>
 
@@ -56,7 +56,7 @@ export function ArchivePage({ station }: { station: UpdateStation }) {
           {!filtered.length && <p className="empty-state">没有找到。换个关键词试试。</p>}
         </div>
         <aside className="relic-cabinet">
-          <p>YOUR LOCAL CABINET</p><h2>我的版本藏柜</h2>
+          <p>留在这台机器上</p><h2>我的版本藏柜</h2>
           {station.archive.state.collectibles.length ? station.archive.state.collectibles.map((item) => (
             <article key={item.id}><span>{item.glyph}</span><div><strong>{item.name}</strong><p>{item.note}</p></div></article>
           )) : <p className="muted">还没有藏品。安装包含藏品的更新后会显示在这里。</p>}

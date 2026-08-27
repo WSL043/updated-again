@@ -3,9 +3,9 @@ import type { AppRoute } from "../hooks/useHashRoute";
 import type { StationStatus } from "../hooks/useUpdateStation";
 
 const NAV: Array<{ route: AppRoute; label: string; note: string }> = [
-  { route: "today", label: "今天", note: "LIVE" },
-  { route: "archive", label: "全部版本", note: "LEDGER" },
-  { route: "lab", label: "项目内部", note: "SYSTEM" },
+  { route: "today", label: "今天", note: "01" },
+  { route: "archive", label: "全部版本", note: "02" },
+  { route: "lab", label: "项目内部", note: "03" },
 ];
 
 export function SiteHeader({ route, status }: { route: AppRoute; status: StationStatus }) {
@@ -14,7 +14,7 @@ export function SiteHeader({ route, status }: { route: AppRoute; status: Station
     <header className="site-header">
       <a className="brand" href="#today" aria-label="Updated Again 首页">
         <span className="brand__mark" aria-hidden="true"><i /><i /></span>
-        <span><strong>UPDATED AGAIN</strong><small>又更了</small></span>
+        <span><strong>UPDATED AGAIN</strong><small>为了更新而更新</small></span>
       </a>
       <nav aria-label="主导航">
         {NAV.map((item) => (
@@ -24,7 +24,7 @@ export function SiteHeader({ route, status }: { route: AppRoute; status: Station
         ))}
       </nav>
       <div className={`live-status live-status--${status}`}>
-        <span aria-hidden="true" /><div><strong>{statusLabel}</strong><small>{isDesktopApp() ? "DESKTOP" : "WEB / PWA"}</small></div>
+        <span aria-hidden="true" /><div><strong>{statusLabel}</strong><small>{isDesktopApp() ? "桌面版" : "网页版"}</small></div>
       </div>
     </header>
   );
