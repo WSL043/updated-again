@@ -25,7 +25,10 @@ export async function fetchCoreVersion(): Promise<string> {
   const response = await fetch(absolutePath("feed/core-latest.json"), { cache: "no-store" });
   if (!response.ok) throw new Error(`核心版本不可用：HTTP ${response.status}`);
   const data = (await response.json()) as { version?: string };
-  return data.version ?? "";
+  if (typeof data.version !== "string" || !/^\d+\.\d+\.\d+(?:-[0-9A-Za-z.-]+)?$/.test(data.version)) {
+    throw new Error("核心版本清单缺少有效版本号。");
+  }
+  return data.version;
 }
 
 export async function installVerifiedCapsule(archive: LocalArchive, capsule: UpdateCapsule): Promise<LocalArchive> {

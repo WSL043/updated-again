@@ -1,10 +1,15 @@
 use tauri::{
     menu::{Menu, MenuItem},
     tray::{MouseButton, MouseButtonState, TrayIconBuilder, TrayIconEvent},
-    AppHandle, Emitter, Manager,
+    AppHandle, Emitter, Manager, WindowEvent,
 };
-use tauri_plugin_autostart::MacosLauncher;
 
+fn show_main_window(app: &AppHandle) {
+    if let Some(window) = app.get_webview_window("main") {
+        let _ = window.show();
+        let _ = window.set_focus();
+    }
+}
 fn toggle_main_window(app: &AppHandle) {
     if let Some(window) = app.get_webview_window("main") {
         if window.is_visible().unwrap_or(false) {
@@ -20,12 +25,6 @@ fn toggle_main_window(app: &AppHandle) {
 pub fn run() {
     tauri::Builder::default()
         .plugin(tauri_plugin_window_state::Builder::default().build())
-        .plugin(
-            tauri_plugin_autostart::init(
-                MacosLauncher::LaunchAgent,
-                Some(vec!["--minimized"]),
-            ),
-        )
         .plugin(tauri_plugin_updater::Builder::new().build())
         .plugin(tauri_plugin_process::init())
         .plugin(tauri_plugin_notification::init())
@@ -45,7 +44,7 @@ pub fn run() {
                     "show-hide" => toggle_main_window(app),
                     "check-update" => {
                         let _ = app.emit("check-update", ());
-                        toggle_main_window(app);
+                        show_main_window(app);
                     }
                     "quit" => app.exit(0),
                     _ => {}
@@ -63,6 +62,14 @@ pub fn run() {
                 .build(app)?;
 
             Ok(())
+        })
+        .on_window_event(|window, event| {
+            if window.label() == "main" {
+                if let WindowEvent::CloseRequested { api, .. } = event {
+                    api.prevent_close();
+                    let _ = window.hide();
+                }
+            }
         })
         .run(tauri::generate_context!())
         .expect("error while running Updated Again");
