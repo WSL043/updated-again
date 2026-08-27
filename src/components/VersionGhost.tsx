@@ -2,7 +2,6 @@ import { useId, useMemo, useRef, useState } from "react";
 import { askPuter, connectPuter, type ChatTurn, type PuterUsage, usagePercent } from "../chat/puter";
 
 const STARTERS = ["给我一个更新理由", "为什么每天更新", "Remotion 是干嘛的"];
-const LOCAL_REPLY_PATHS = 89_986;
 type BrainMode = "legacy" | "puter";
 
 async function askLocalBrain(userId: string, prompt: string, context: string) {
@@ -114,7 +113,7 @@ export function VersionGhost({ context }: { context: string }) {
 
       <div className="ghost-console__engines">
         <button type="button" className={mode === "legacy" ? "active" : ""} onClick={() => setMode("legacy")} disabled={busy}>
-          <strong>本地规则</strong><span>{LOCAL_REPLY_PATHS.toLocaleString("zh-CN")} 条 · 本机处理</span>
+          <strong>本地对话</strong><span>规则 + 9 万条语料</span>
         </button>
         <button type="button" className={mode === "puter" ? "active" : ""} onClick={() => void activatePuter()} disabled={busy}>
           <strong>连接 Puter</strong><span>登录后使用你自己的月度额度</span>
