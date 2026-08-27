@@ -13,7 +13,7 @@ export function LabPage({ station }: { station: UpdateStation }) {
       <div className="foundation-map">
         <article><span>01</span><div><small>LEDGER</small><h2>签名账本</h2><p>公开版本都带哈希和签名，安装时会重新验证。</p></div></article>
         <article><span>02</span><div><small>LOCAL DATA</small><h2>安装与回滚</h2><p>安装前保存本地快照。自动安装可以关闭，最后一次安装可以回滚。</p></div></article>
-        <article><span>03</span><div><small>CHAT</small><h2>本地规则优先</h2><p>RiveScript 默认离线运行。只有点击连接后才会加载 Puter。</p></div></article>
+        <article><span>03</span><div><small>CHAT</small><h2>本地规则优先</h2><p>规则和社区语料在本机处理。只有点击连接后才会加载 Puter。</p></div></article>
         <article><span>04</span><div><small>VIDEO</small><h2>版本短片</h2><p>Remotion 按版本数据生成短片，并在点击播放后才加载。</p></div></article>
       </div>
 

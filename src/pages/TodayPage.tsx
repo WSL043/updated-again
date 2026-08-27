@@ -81,7 +81,7 @@ export function TodayPage({ station }: { station: UpdateStation }) {
         <div className="section-intro section-intro--dark">
           <p>聊天</p>
           <h2>先用本地规则回答。</h2>
-          <span>不联网，不下载模型。需要生成式回答时再连接 Puter。</span>
+          <span>聊天内容留在本机。首次使用会加载本站语料；需要生成式回答时再连接 Puter。</span>
         </div>
         <VersionGhost context={ghostContext} />
       </section>

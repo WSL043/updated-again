@@ -13,7 +13,7 @@ async function askLocalBrain(userId: string, prompt: string, context: string) {
 export function VersionGhost({ context }: { context: string }) {
   const userId = useId();
   const [messages, setMessages] = useState<ChatTurn[]>([
-    { role: "assistant", content: "你好。这里默认用本地规则，不联网，不下载模型。" },
+    { role: "assistant", content: "你好。这里默认在本机处理，不会把聊天内容发到外部服务。" },
   ]);
   const [mode, setMode] = useState<BrainMode>("legacy");
   const [usage, setUsage] = useState<PuterUsage | null>(null);
@@ -114,7 +114,7 @@ export function VersionGhost({ context }: { context: string }) {
 
       <div className="ghost-console__engines">
         <button type="button" className={mode === "legacy" ? "active" : ""} onClick={() => setMode("legacy")} disabled={busy}>
-          <strong>本地规则</strong><span>{LOCAL_REPLY_PATHS.toLocaleString("zh-CN")} 条 · 不联网</span>
+          <strong>本地规则</strong><span>{LOCAL_REPLY_PATHS.toLocaleString("zh-CN")} 条 · 本机处理</span>
         </button>
         <button type="button" className={mode === "puter" ? "active" : ""} onClick={() => void activatePuter()} disabled={busy}>
           <strong>连接 Puter</strong><span>登录后使用你自己的月度额度</span>
