@@ -1,8 +1,10 @@
 import { useId, useMemo, useRef, useState } from "react";
-import { askPuter, connectPuter, type ChatTurn, type PuterUsage, usagePercent } from "../chat/puter";
+import { askHorde } from "../chat/horde";
+import { askPuter, connectPuter, type PuterUsage, usagePercent } from "../chat/puter";
+import type { ChatTurn } from "../chat/types";
 
 const STARTERS = ["给我一个更新理由", "为什么每天更新", "Remotion 是干嘛的"];
-type BrainMode = "legacy" | "puter";
+type BrainMode = "legacy" | "horde" | "puter";
 
 async function askLocalBrain(userId: string, prompt: string, context: string) {
   const { askLegacyBrain } = await import("../chat/legacy");
@@ -16,7 +18,7 @@ export function VersionGhost({ context }: { context: string }) {
   ]);
   const [mode, setMode] = useState<BrainMode>("legacy");
   const [usage, setUsage] = useState<PuterUsage | null>(null);
-  const [cloudNotice, setCloudNotice] = useState("Puter 没有固定每日次数；额度属于你的账户，并按月与模型成本计量。");
+  const [cloudNotice, setCloudNotice] = useState("本地不会上传消息。匿名云端无需登录，但会把消息交给社区工作节点。");
   const [input, setInput] = useState("");
   const [busy, setBusy] = useState(false);
   const transcript = useRef<HTMLDivElement>(null);
@@ -41,6 +43,12 @@ export function VersionGhost({ context }: { context: string }) {
     }
   };
 
+  const activateHorde = () => {
+    if (busy) return;
+    setMode("horde");
+    setCloudNotice("已选择匿名云端。无需登录；繁忙、失败或超时会自动回到本地。");
+  };
+
   const submit = async (raw: string) => {
     const content = raw.trim().slice(0, 600);
     if (!content || busy) return;
@@ -53,6 +61,10 @@ export function VersionGhost({ context }: { context: string }) {
         const reply = await askPuter(next, context);
         setUsage(reply.usage);
         setMessages((current) => [...current, { role: "assistant", content: reply.content }]);
+      } else if (mode === "horde") {
+        const reply = await askHorde(next, context);
+        setCloudNotice("本条由一个空闲的社区模型回答；下次可能会换一个。");
+        setMessages((current) => [...current, { role: "assistant", content: reply.content }]);
       } else {
         const reply = await askLocalBrain(userId, content, context);
         setMessages((current) => [...current, { role: "assistant", content: reply }]);
@@ -60,7 +72,7 @@ export function VersionGhost({ context }: { context: string }) {
     } catch (error) {
       const reply = await askLocalBrain(userId, content, context);
       setMode("legacy");
-      setCloudNotice(error instanceof Error ? `${error.message} 这次改用本地规则。` : "云端没有回答，这次改用本地规则。");
+      setCloudNotice(error instanceof Error ? `${error.message} 已自动回到本地。` : "云端没有回答，已自动回到本地。");
       setMessages((current) => [...current, { role: "assistant", content: reply }]);
     } finally {
       setBusy(false);
@@ -75,7 +87,7 @@ export function VersionGhost({ context }: { context: string }) {
           <span className={`ghost-signal ghost-signal--${busy ? "busy" : mode}`} />
           <div><p>LOCAL CHAT / OPTIONAL CLOUD</p><h2 id="ghost-title">版本聊天室</h2></div>
         </div>
-        <span className="ghost-console__route">{mode === "legacy" ? "本地 · RiveScript" : `Puter 云端${remaining === null ? "" : ` · 剩 ${remaining}%`}`}</span>
+        <span className="ghost-console__route">{mode === "legacy" ? "本地 · RiveScript" : mode === "horde" ? "匿名云端 · AI Horde" : `Puter 云端${remaining === null ? "" : ` · 剩 ${remaining}%`}`}</span>
       </header>
 
       <div className="ghost-console__transcript" ref={transcript} aria-live="polite">
@@ -87,7 +99,7 @@ export function VersionGhost({ context }: { context: string }) {
         ))}
         {busy && (
           <article className="ghost-message ghost-message--assistant ghost-message--typing">
-            <span>状态</span><p>{mode === "legacy" ? "正在翻规则索引" : "正在等待云端回信"}<span aria-hidden="true">…</span></p>
+            <span>状态</span><p>{mode === "legacy" ? "正在本机找回答" : mode === "horde" ? "正在等一个空闲的社区节点" : "正在等待 Puter 回信"}<span aria-hidden="true">…</span></p>
           </article>
         )}
       </div>
@@ -106,14 +118,17 @@ export function VersionGhost({ context }: { context: string }) {
               event.preventDefault();
               void submit(input);
             }
-          }} placeholder={mode === "legacy" ? "输入一句话；Enter 发送，Shift+Enter 换行" : "这条消息会发送给 Puter；Enter 发送"} />
+          }} placeholder={mode === "legacy" ? "输入一句话；Enter 发送，Shift+Enter 换行" : mode === "horde" ? "这条消息会发送给社区节点；Enter 发送" : "这条消息会发送给 Puter；Enter 发送"} />
           <button type="submit" disabled={busy || !input.trim()}>发送</button>
         </div>
       </form>
 
       <div className="ghost-console__engines">
         <button type="button" className={mode === "legacy" ? "active" : ""} onClick={() => setMode("legacy")} disabled={busy}>
-          <strong>本地对话</strong><span>规则 + 9 万条语料</span>
+          <strong>本地对话</strong><span>规则 + 41 万条语料</span>
+        </button>
+        <button type="button" className={mode === "horde" ? "active" : ""} onClick={activateHorde} disabled={busy}>
+          <strong>匿名云端</strong><span>无需登录 · 失败回本地</span>
         </button>
         <button type="button" className={mode === "puter" ? "active" : ""} onClick={() => void activatePuter()} disabled={busy}>
           <strong>连接 Puter</strong><span>登录后使用你自己的月度额度</span>

@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { askLegacyBrain } from "../src/chat/legacy";
-import { findCommunityReply, prepareCommunityCorpusForTest } from "../src/chat/community";
+import { detectCorpusShard, findCommunityReply, prepareCommunityCorpusForTest } from "../src/chat/community";
 import { extractPuterText, usagePercent } from "../src/chat/puter";
 
 describe("version ghost engines", () => {
@@ -43,6 +43,14 @@ describe("version ghost engines", () => {
     ]);
     expect(findCommunityReply(corpus, "你喜欢我吗")).toContain("信任和友谊");
     expect(findCommunityReply(corpus, "为啥每天都要更新呢")).toBe("因为今天到了。");
+  });
+
+  it("loads the matching language shard", () => {
+    expect(detectCorpusShard("你今天怎么样？")).toBe("zh");
+    expect(detectCorpusShard("Wie geht es dir?")).toBe("de");
+    expect(detectCorpusShard("Ciao, come stai?")).toBe("it");
+    expect(detectCorpusShard("How are you?")).toBe("en");
+    expect(detectCorpusShard("こんにちは")).toBe("other");
   });
 
   it("reports Puter allowance as a bounded percentage", () => {

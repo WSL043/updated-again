@@ -1,7 +1,4 @@
-export interface ChatTurn {
-  role: "user" | "assistant";
-  content: string;
-}
+import type { ChatTurn } from "./types";
 
 export interface PuterUsage {
   allowance: number;
