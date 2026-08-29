@@ -8,7 +8,7 @@
       "include-v-in-tag": true,
       "prerelease": true,
       "bump-minor-pre-major": true,
-      "bump-patch-for-minor-pre-major": true,
+      "bump-patch-for-minor-pre-major": false,
       "pull-request-title-pattern": "chore(release): ${version}",
       "pull-request-header": "把已经进入主分支的真实改动收成一个可安装版本。",
       "pull-request-footer": "合并后自动构建 Windows、Linux 和两种 macOS 桌面包。",
