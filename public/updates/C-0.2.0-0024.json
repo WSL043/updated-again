@@ -1,0 +1,40 @@
+{
+  "specVersion": 1,
+  "id": "C-0.2.0-0024",
+  "sequence": 24,
+  "coreRequirement": ">=0.2.0",
+  "publishedAt": "2026-08-29T04:50:52.851Z",
+  "plannedFor": "2026-08-29",
+  "channel": "core",
+  "kind": "message",
+  "reason": {
+    "headline": "真正的玩法更新抵达 Core 0.2.0",
+    "detail": "这次不只是心情变化：核心程序本身获得了新的能力。",
+    "mood": "认真更新",
+    "absurdity": 24
+  },
+  "changes": [
+    "桌面核心升级到 0.2.0。"
+  ],
+  "expectedEffects": [
+    "客户端可以通过签名的核心更新通道获得新能力。"
+  ],
+  "payload": {
+    "text": "核心程序已经更新到 0.2.0。日更胶囊继续沿用自己的时间线。",
+    "version": "0.2.0"
+  },
+  "generator": {
+    "mode": "human",
+    "recipe": "core-0.2.0",
+    "seed": "4c1e49ae51216864ceabb1c4c25ff25f12633b45190714936cafa771666b943a"
+  },
+  "rollback": {
+    "strategy": "snapshot"
+  },
+  "integrity": {
+    "algorithm": "ed25519",
+    "keyId": "capsule-2026-01",
+    "payloadSha256": "dfb3ee8ff0272f668f1124137ac3c1eb35e777429444c0002f983ecfb0b22f46",
+    "signature": "gA1rFKzH+XJBUs+S9TplWza0mfJMj11S47gg521wG89omEK8dabOgO15mAIU39FU+X5jcQWlx0LF5sh86PLrAA=="
+  }
+}
