@@ -1,6 +1,6 @@
 [package]
 name = "updated-again"
-version = "0.1.2"
+version = "0.2.0"
 description = "A living software toy that updates because updating is the point."
 authors = ["WSL043 and Updated Again contributors"]
 edition = "2021"
