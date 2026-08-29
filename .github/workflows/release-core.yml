@@ -3,6 +3,12 @@ name: Release signed desktop core
 on:
   push:
     tags: ["v*"]
+  workflow_call:
+    inputs:
+      tag_name:
+        description: Existing release tag to build and publish
+        required: true
+        type: string
 
 permissions:
   contents: write
@@ -10,7 +16,7 @@ permissions:
   attestations: write
 
 concurrency:
-  group: core-release-${{ github.ref_name }}
+  group: core-release-${{ inputs.tag_name || github.ref_name }}
   cancel-in-progress: false
 
 jobs:
@@ -31,6 +37,8 @@ jobs:
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v7
+        with:
+          ref: ${{ inputs.tag_name || github.ref_name }}
       - name: Install Linux desktop dependencies
         if: runner.os == 'Linux'
         run: sudo apt-get update && sudo apt-get install -y libwebkit2gtk-4.1-dev libappindicator3-dev librsvg2-dev patchelf
@@ -52,8 +60,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           TAURI_SIGNING_PRIVATE_KEY: ${{ secrets.TAURI_SIGNING_PRIVATE_KEY }}
         with:
-          tagName: ${{ github.ref_name }}
-          releaseName: "Updated Again ${{ github.ref_name }} · Developer Preview"
+          tagName: ${{ inputs.tag_name || github.ref_name }}
+          releaseName: "Updated Again ${{ inputs.tag_name || github.ref_name }} · Developer Preview"
           releaseBody: |
             Signed cross-platform developer preview. Windows and macOS artifacts are not yet backed by commercial code-signing certificates, so the operating system may show a warning.
           prerelease: true
@@ -92,11 +100,11 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           mkdir -p .release
-          gh release download "${{ github.ref_name }}" --pattern latest.json --dir .release
+          gh release download "${{ inputs.tag_name || github.ref_name }}" --pattern latest.json --dir .release
           cp .release/latest.json public/feed/core-latest.json
       - name: Record the core update in the living ledger
         env:
-          CORE_VERSION: ${{ github.ref_name }}
+          CORE_VERSION: ${{ inputs.tag_name || github.ref_name }}
           CAPSULE_SIGNING_PRIVATE_KEY: ${{ secrets.CAPSULE_SIGNING_PRIVATE_KEY }}
         run: node scripts/record-core-release.mjs
       - run: pnpm update:validate
@@ -106,7 +114,7 @@ jobs:
           git config user.name "updated-again-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add public/feed/core-latest.json public/feed/index.json public/updates
-          git commit -m "chore(release): archive ${{ github.ref_name }}"
+          git commit -m "chore(release): archive ${{ inputs.tag_name || github.ref_name }}"
           git push origin HEAD:main
       - name: Deploy the new core pointer
         env:
