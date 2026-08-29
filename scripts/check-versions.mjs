@@ -7,11 +7,16 @@ const packageJson = JSON.parse(fs.readFileSync(path.join(root, "package.json"), 
 const tauriConfig = JSON.parse(fs.readFileSync(path.join(root, "src-tauri", "tauri.conf.json"), "utf8"));
 const cargoToml = fs.readFileSync(path.join(root, "src-tauri", "Cargo.toml"), "utf8");
 const cargoVersion = cargoToml.match(/^version\s*=\s*"([^"]+)"/m)?.[1];
+const cargoLock = fs.readFileSync(path.join(root, "src-tauri", "Cargo.lock"), "utf8");
+const cargoLockVersion = cargoLock.match(/\[\[package\]\]\r?\nname = "updated-again"\r?\nversion = "([^"]+)"/)?.[1];
+const releaseManifest = JSON.parse(fs.readFileSync(path.join(root, ".release-please-manifest.json"), "utf8"));
 
 const versions = {
   package: packageJson.version,
   tauri: tauriConfig.version,
   cargo: cargoVersion,
+  cargoLock: cargoLockVersion,
+  releaseManifest: releaseManifest["."],
 };
 
 const distinct = new Set(Object.values(versions));

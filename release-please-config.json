@@ -1,0 +1,37 @@
+{
+  "$schema": "https://raw.githubusercontent.com/googleapis/release-please/main/schemas/config.json",
+  "packages": {
+    ".": {
+      "release-type": "node",
+      "package-name": "updated-again",
+      "include-component-in-tag": false,
+      "include-v-in-tag": true,
+      "prerelease": true,
+      "bump-minor-pre-major": true,
+      "bump-patch-for-minor-pre-major": false,
+      "pull-request-title-pattern": "chore(release): ${version}",
+      "pull-request-header": "把已经进入主分支的真实改动收成一个可安装版本。",
+      "pull-request-footer": "合并后自动构建 Windows、Linux 和两种 macOS 桌面包。",
+      "changelog-sections": [
+        { "type": "feat", "section": "新东西" },
+        { "type": "fix", "section": "修好了" },
+        { "type": "perf", "section": "跑快一点" },
+        { "type": "refactor", "section": "内部整理" },
+        { "type": "build", "section": "构建与依赖" },
+        { "type": "revert", "section": "撤回" }
+      ],
+      "extra-files": [
+        {
+          "type": "json",
+          "path": "src-tauri/tauri.conf.json",
+          "jsonpath": "$.version"
+        },
+        {
+          "type": "toml",
+          "path": "src-tauri/Cargo.toml",
+          "jsonpath": "$.package.version"
+        }
+      ]
+    }
+  }
+}
