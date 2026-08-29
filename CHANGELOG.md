@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.0](https://github.com/WSL043/updated-again/compare/v0.2.0...v0.3.0) (2026-08-29)
+
+
+### 新东西
+
+* **web:** evolve the visual genome every day ([#24](https://github.com/WSL043/updated-again/issues/24)) ([8a88d19](https://github.com/WSL043/updated-again/commit/8a88d19c05fa525e239416b24dcf9f4e8efc347a))
+
 ## [0.2.0](https://github.com/WSL043/updated-again/compare/v0.1.2...v0.2.0) (2026-08-29)
 
 

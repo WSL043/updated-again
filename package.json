@@ -1,7 +1,7 @@
 {
   "name": "updated-again",
   "private": true,
-  "version": "0.2.0",
+  "version": "0.3.0",
   "type": "module",
   "description": "A living software toy that updates because updating is the point.",
   "scripts": {
