@@ -4,9 +4,10 @@ import { StreakCalendar } from "../components/StreakCalendar";
 import { UpdateCard } from "../components/UpdateCard";
 import { VersionGhost } from "../components/VersionGhost";
 import type { UpdateStation } from "../hooks/useUpdateStation";
+import type { StyleGenome } from "../core/style-genome";
 import { dateTimeLabel, shortDateLabel } from "../ui/format";
 
-export function TodayPage({ station }: { station: UpdateStation }) {
+export function TodayPage({ station, genome }: { station: UpdateStation; genome: StyleGenome }) {
   const { archive, coreVersion, feed, installedIds, isBusy, latestCapsule, latestEntry, notice, pendingCount, status } = station;
   const headline = latestCapsule?.reason.headline ?? latestEntry?.headline ?? "今天还没有更新";
   const detail = latestCapsule?.reason.detail ?? "等下一份通过验签的更新。";
@@ -60,6 +61,7 @@ export function TodayPage({ station }: { station: UpdateStation }) {
             <div><dt>核心</dt><dd>v{coreVersion}</dd></div>
             <div><dt>装进本机</dt><dd>{archive.state.stats.updatesInstalled}</dd></div>
             <div><dt>回滚快照</dt><dd>{archive.history.length ? "有" : "无"}</dd></div>
+            <div><dt>今日样式</dt><dd title={`视觉基因 ${genome.id}`}>{genome.label}</dd></div>
           </dl>
         </aside>
       </section>
