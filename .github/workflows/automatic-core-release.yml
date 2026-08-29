@@ -1,0 +1,105 @@
+name: Evolve and release the desktop core
+
+on:
+  push:
+    branches: [main]
+  schedule:
+    - cron: "11 */6 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  issues: write
+  pull-requests: write
+  actions: write
+  id-token: write
+  attestations: write
+
+concurrency:
+  group: automatic-core-release
+  cancel-in-progress: false
+
+jobs:
+  evolve:
+    name: Collect real changes into a version
+    runs-on: ubuntu-24.04
+    outputs:
+      release_created: ${{ steps.first.outputs.release_created == 'true' && 'true' || steps.second.outputs.release_created }}
+      tag_name: ${{ steps.first.outputs.tag_name || steps.second.outputs.tag_name }}
+    steps:
+      - name: Create or finish the release candidate
+        id: first
+        uses: googleapis/release-please-action@v4
+        with:
+          config-file: release-please-config.json
+          manifest-file: .release-please-manifest.json
+
+      - uses: actions/checkout@v7
+        if: steps.first.outputs.prs_created == 'true'
+        with:
+          fetch-depth: 0
+
+      - uses: pnpm/action-setup@v6
+        if: steps.first.outputs.prs_created == 'true'
+        with:
+          version: 10.33.0
+
+      - uses: actions/setup-node@v7
+        if: steps.first.outputs.prs_created == 'true'
+        with:
+          node-version: 22.22.2
+          cache: pnpm
+
+      - uses: dtolnay/rust-toolchain@stable
+        if: steps.first.outputs.prs_created == 'true'
+
+      - name: Verify and merge the version-only candidate
+        id: merge
+        if: steps.first.outputs.prs_created == 'true'
+        shell: bash
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          candidate="$(gh pr list --state open --label 'autorelease: pending' --json number,headRefName --jq '.[0]')"
+          test -n "$candidate"
+          number="$(jq -r .number <<<"$candidate")"
+          branch="$(jq -r .headRefName <<<"$candidate")"
+
+          unexpected="$(gh pr view "$number" --json files --jq '[.files[].path | select(. != "CHANGELOG.md" and . != ".release-please-manifest.json" and . != "package.json" and . != "src-tauri/tauri.conf.json" and . != "src-tauri/Cargo.toml" and . != "src-tauri/Cargo.lock")] | length')"
+          test "$unexpected" = 0
+
+          git fetch origin "$branch"
+          git checkout -B "$branch" "origin/$branch"
+          pnpm install --frozen-lockfile
+          node scripts/sync-core-lock-version.mjs
+          if ! git diff --quiet -- src-tauri/Cargo.lock; then
+            git config user.name "updated-again-release-bot"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add src-tauri/Cargo.lock
+            git commit -m "chore(release): synchronize the native lockfile"
+            git push origin "HEAD:$branch"
+          fi
+          pnpm check
+          sudo apt-get update
+          sudo apt-get install -y libwebkit2gtk-4.1-dev libappindicator3-dev librsvg2-dev patchelf
+          cargo fmt --manifest-path src-tauri/Cargo.toml --check
+          cargo check --manifest-path src-tauri/Cargo.toml --locked
+          gh pr merge "$number" --squash --delete-branch
+          echo "merged=true" >> "$GITHUB_OUTPUT"
+
+      - name: Turn the merged candidate into a tag and GitHub release
+        id: second
+        if: steps.merge.outputs.merged == 'true'
+        uses: googleapis/release-please-action@v4
+        with:
+          config-file: release-please-config.json
+          manifest-file: .release-please-manifest.json
+
+  build:
+    name: Build and publish the signed desktop core
+    needs: evolve
+    if: needs.evolve.outputs.release_created == 'true'
+    uses: ./.github/workflows/release-core.yml
+    with:
+      tag_name: ${{ needs.evolve.outputs.tag_name }}
+    secrets: inherit
