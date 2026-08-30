@@ -1,9 +1,24 @@
 {
   "specVersion": 1,
-  "generatedAt": "2026-08-29T18:52:10.745Z",
-  "latest": "D-20260830-0026-version-star",
-  "total": 26,
+  "generatedAt": "2026-08-30T05:24:24.724Z",
+  "latest": "D-20260830-0027-museum-object",
+  "total": 27,
   "entries": [
+    {
+      "id": "D-20260830-0027-museum-object",
+      "sequence": 27,
+      "publishedAt": "2026-08-30T05:24:24.724Z",
+      "plannedFor": "2026-08-30",
+      "channel": "weird",
+      "kind": "collectible",
+      "headline": "版本博物馆收到一件来历可疑的藏品",
+      "mood": "收藏欲",
+      "absurdity": 83,
+      "path": "updates/D-20260830-0027-museum-object.json",
+      "payloadSha256": "1a16aa363eb536991a1340b49ca0d3cc0b33ac3a8e16c67424104a09993587ee",
+      "recipe": "museum-object",
+      "seed": "7b1763f43750baa9eb7eb800a4c448b3b920cd3e9a17f4f9cc714d3e74d244b3"
+    },
     {
       "id": "D-20260830-0026-version-star",
       "sequence": 26,
