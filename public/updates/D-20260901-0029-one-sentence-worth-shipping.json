@@ -1,0 +1,39 @@
+{
+  "specVersion": 1,
+  "id": "D-20260901-0029-one-sentence-worth-shipping",
+  "sequence": 29,
+  "coreRequirement": ">=0.1.0-beta.1",
+  "publishedAt": "2026-08-31T16:19:56.615Z",
+  "plannedFor": "2026-09-01",
+  "channel": "daily",
+  "kind": "message",
+  "reason": {
+    "headline": "一句话也值得拥有版本号",
+    "detail": "体积很小，态度完整；本次更新拒绝因为改动少而感到羞愧。",
+    "mood": "认真胡说",
+    "absurdity": 61
+  },
+  "changes": [
+    "向本地版本档案写入一条新的永久文案。"
+  ],
+  "expectedEffects": [
+    "首页出现今天独有的一句话，并被收进消息档案。"
+  ],
+  "payload": {
+    "text": "本版本增加了一句以后可能会被另一句吐槽的话。"
+  },
+  "generator": {
+    "mode": "deterministic",
+    "recipe": "one-sentence-worth-shipping",
+    "seed": "caa48d592eb98bc3d03730c8710699adef8bea6973efc569636cec391e023bf7"
+  },
+  "rollback": {
+    "strategy": "snapshot"
+  },
+  "integrity": {
+    "algorithm": "ed25519",
+    "keyId": "capsule-2026-01",
+    "payloadSha256": "162e5835ec88480cb9105a7321f05b6a4d6356cc5938e350f1d669efc08e7699",
+    "signature": "cBi6z53qZGFNmPWGDyMhUvFagfJWcKf1CqD451SupTJDY3v5RDvUDM3jO39DK6gy4rRdrN+aZxiU1JBXmwt5Ag=="
+  }
+}
