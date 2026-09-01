@@ -1,0 +1,39 @@
+{
+  "specVersion": 1,
+  "id": "D-20260902-0030-one-sentence-worth-shipping",
+  "sequence": 30,
+  "coreRequirement": ">=0.1.0-beta.1",
+  "publishedAt": "2026-09-01T16:54:04.240Z",
+  "plannedFor": "2026-09-02",
+  "channel": "daily",
+  "kind": "message",
+  "reason": {
+    "headline": "今天只多说一句，但它真的被安装了",
+    "detail": "体积很小，态度完整；本次更新拒绝因为改动少而感到羞愧。",
+    "mood": "轻量发布",
+    "absurdity": 61
+  },
+  "changes": [
+    "向本地版本档案写入一条新的永久文案。"
+  ],
+  "expectedEffects": [
+    "首页出现今天独有的一句话，并被收进消息档案。"
+  ],
+  "payload": {
+    "text": "本版本增加了一句以后可能会被另一句吐槽的话。"
+  },
+  "generator": {
+    "mode": "deterministic",
+    "recipe": "one-sentence-worth-shipping",
+    "seed": "8f3130c0a204e42035251c02ef983e36cc87f5564359887494a430e136af526c"
+  },
+  "rollback": {
+    "strategy": "snapshot"
+  },
+  "integrity": {
+    "algorithm": "ed25519",
+    "keyId": "capsule-2026-01",
+    "payloadSha256": "162e5835ec88480cb9105a7321f05b6a4d6356cc5938e350f1d669efc08e7699",
+    "signature": "S1dDL8fXaHZpsOeQk7CGlcXhgf9ddkQxDZhxj62zmJCGzCkoIlTbt7aCiHlcKoBtYlNupBTTaDg/7IdgiLpgDQ=="
+  }
+}
