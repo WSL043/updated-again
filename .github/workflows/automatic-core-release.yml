@@ -29,7 +29,7 @@ jobs:
     steps:
       - name: Create or finish the release candidate
         id: first
-        uses: googleapis/release-please-action@v4
+        uses: googleapis/release-please-action@v5
         with:
           config-file: release-please-config.json
           manifest-file: .release-please-manifest.json
@@ -90,7 +90,7 @@ jobs:
       - name: Turn the merged candidate into a tag and GitHub release
         id: second
         if: steps.merge.outputs.merged == 'true'
-        uses: googleapis/release-please-action@v4
+        uses: googleapis/release-please-action@v5
         with:
           config-file: release-please-config.json
           manifest-file: .release-please-manifest.json
