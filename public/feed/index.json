@@ -1,9 +1,24 @@
 {
   "specVersion": 1,
-  "generatedAt": "2026-09-03T18:52:58.608Z",
-  "latest": "D-20260904-0032-version-star",
-  "total": 32,
+  "generatedAt": "2026-09-04T18:33:47.455Z",
+  "latest": "D-20260905-0033-museum-object",
+  "total": 33,
   "entries": [
+    {
+      "id": "D-20260905-0033-museum-object",
+      "sequence": 33,
+      "publishedAt": "2026-09-04T18:33:47.455Z",
+      "plannedFor": "2026-09-05",
+      "channel": "weird",
+      "kind": "collectible",
+      "headline": "这件东西没有用途，所以决定永久保存",
+      "mood": "收藏欲",
+      "absurdity": 83,
+      "path": "updates/D-20260905-0033-museum-object.json",
+      "payloadSha256": "e760c04165057546dd584a950176013a0bd41f5d888d6593f37a69d3c28a8fd6",
+      "recipe": "museum-object",
+      "seed": "ad3610427892709678cee23b61686bbbd6c3e9e07818ba09b1d1a461ab812614"
+    },
     {
       "id": "D-20260904-0032-version-star",
       "sequence": 32,
