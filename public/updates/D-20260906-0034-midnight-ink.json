@@ -1,0 +1,43 @@
+{
+  "specVersion": 1,
+  "id": "D-20260906-0034-midnight-ink",
+  "sequence": 34,
+  "coreRequirement": ">=0.1.0-beta.1",
+  "publishedAt": "2026-09-05T17:39:48.727Z",
+  "plannedFor": "2026-09-06",
+  "channel": "daily",
+  "kind": "theme",
+  "reason": {
+    "headline": "深夜坚持认为深色还可以更深",
+    "detail": "项目和黑夜进行了一次没有会议纪要的合作。",
+    "mood": "夜行",
+    "absurdity": 57
+  },
+  "changes": [
+    "增加一组午夜调色板。"
+  ],
+  "expectedEffects": [
+    "整个世界进入更深的夜间配色。"
+  ],
+  "payload": {
+    "background": "#080912",
+    "surface": "#121527",
+    "accent": "#d4b5ff",
+    "glow": "#3d7ea6",
+    "banner": "凌晨的像素获得了合法居留权。"
+  },
+  "generator": {
+    "mode": "reserve",
+    "recipe": "midnight-ink",
+    "seed": "f4aca464376e7e95da1d55a9d6ff1327a7841b2f441f3b7507a646532441d5d9"
+  },
+  "rollback": {
+    "strategy": "snapshot"
+  },
+  "integrity": {
+    "algorithm": "ed25519",
+    "keyId": "capsule-2026-01",
+    "payloadSha256": "12559dab65c7f47be5bdac8768ceca01a71026f36af3539e4941d0317244c791",
+    "signature": "Vqfp2n7IQUyPVLe99bCDGHQyNNIfVdYxXrlWNMxfJQAP2NPz3kXPe882Cb/z+/+C2CvHia5PIF9ygeGXw6sxAg=="
+  }
+}
