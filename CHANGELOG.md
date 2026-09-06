@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.4.0](https://github.com/WSL043/updated-again/compare/v0.3.0...v0.4.0) (2026-09-06)
+
+
+### 新东西
+
+* make old updates playable again ([5b0311a](https://github.com/WSL043/updated-again/commit/5b0311ae6d977187c93c9ba15dafb2019c3f51d8))
+
 ## [0.3.0](https://github.com/WSL043/updated-again/compare/v0.2.0...v0.3.0) (2026-08-29)
 
 
