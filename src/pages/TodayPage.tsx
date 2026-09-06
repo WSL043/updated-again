@@ -1,4 +1,5 @@
 import { Companion } from "../components/Companion";
+import { PatchPlayground } from "../components/PatchPlayground";
 import { ReleaseFilm } from "../components/ReleaseFilm";
 import { StreakCalendar } from "../components/StreakCalendar";
 import { UpdateCard } from "../components/UpdateCard";
@@ -66,6 +67,8 @@ export function TodayPage({ station, genome }: { station: UpdateStation; genome:
         </aside>
       </section>
 
+      <PatchPlayground entries={feed?.entries ?? []} installedIds={archive.state.installedIds} />
+
       <section className="world-section">
         <header className="section-intro">
           <span className="section-number">02</span>
@@ -84,7 +87,7 @@ export function TodayPage({ station, genome }: { station: UpdateStation; genome:
       </section>
 
       <section className="heartbeat-section">
-        <header><span className="section-number">03</span><div><p>最近 14 周</p><h2>没有断更。</h2></div><a href="#archive">翻完整账本</a></header>
+        <header><span className="section-number">03</span><div><p>最近 14 周</p><h2>更新的足迹。</h2></div><a href="#archive">翻完整账本</a></header>
         <StreakCalendar entries={feed?.entries ?? []} />
       </section>
 
