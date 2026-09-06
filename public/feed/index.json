@@ -1,9 +1,24 @@
 {
   "specVersion": 1,
-  "generatedAt": "2026-09-05T17:39:48.727Z",
-  "latest": "D-20260906-0034-midnight-ink",
-  "total": 34,
+  "generatedAt": "2026-09-06T04:39:01.152Z",
+  "latest": "D-20260906-0035-patch-dumpling-mood",
+  "total": 35,
   "entries": [
+    {
+      "id": "D-20260906-0035-patch-dumpling-mood",
+      "sequence": 35,
+      "publishedAt": "2026-09-06T04:39:01.152Z",
+      "plannedFor": "2026-09-06",
+      "channel": "daily",
+      "kind": "companion",
+      "headline": "补丁团子提交了新的心情状态",
+      "mood": "陪伴",
+      "absurdity": 68,
+      "path": "updates/D-20260906-0035-patch-dumpling-mood.json",
+      "payloadSha256": "19342bbc2b40e678e03d213a0a199a6e7ff91f93b9f73feda41f1c19bd274152",
+      "recipe": "patch-dumpling-mood",
+      "seed": "a51162aedb69292554121df57590ab20912936ca74e0ffd6d15ad759cfc4dc87"
+    },
     {
       "id": "D-20260906-0034-midnight-ink",
       "sequence": 34,
