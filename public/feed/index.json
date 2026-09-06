@@ -1,9 +1,24 @@
 {
   "specVersion": 1,
-  "generatedAt": "2026-09-06T04:39:01.152Z",
-  "latest": "D-20260906-0035-patch-dumpling-mood",
-  "total": 35,
+  "generatedAt": "2026-09-06T08:43:28.944Z",
+  "latest": "D-20260906-0036-tiny-ritual",
+  "total": 36,
   "entries": [
+    {
+      "id": "D-20260906-0036-tiny-ritual",
+      "sequence": 36,
+      "publishedAt": "2026-09-06T08:43:28.944Z",
+      "plannedFor": "2026-09-06",
+      "channel": "daily",
+      "kind": "ritual",
+      "headline": "软件今天想举行一个非常小的仪式",
+      "mood": "仪式感",
+      "absurdity": 76,
+      "path": "updates/D-20260906-0036-tiny-ritual.json",
+      "payloadSha256": "8200b906c8d8444fe329931a97a2e6041c39dd3f47fdf24a044d37448c19e400",
+      "recipe": "tiny-ritual",
+      "seed": "3184be44550f08cd55a2822c8ee0d96f0305923a16d6a47c9514a27681cd8bf4"
+    },
     {
       "id": "D-20260906-0035-patch-dumpling-mood",
       "sequence": 35,
