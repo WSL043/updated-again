@@ -1,9 +1,24 @@
 {
   "specVersion": 1,
-  "generatedAt": "2026-09-06T17:42:39.931Z",
-  "latest": "D-20260907-0037-museum-object",
-  "total": 37,
+  "generatedAt": "2026-09-06T21:33:33.246Z",
+  "latest": "C-0.4.0-0038",
+  "total": 38,
   "entries": [
+    {
+      "id": "C-0.4.0-0038",
+      "sequence": 38,
+      "publishedAt": "2026-09-06T21:33:33.246Z",
+      "plannedFor": "2026-09-07",
+      "channel": "core",
+      "kind": "message",
+      "headline": "真正的玩法更新抵达 Core 0.4.0",
+      "mood": "认真更新",
+      "absurdity": 24,
+      "path": "updates/C-0.4.0-0038.json",
+      "payloadSha256": "f3703e1d345838bab2e7048b6d948f1248ee164213dd35723514a8628de37bd4",
+      "recipe": "core-0.4.0",
+      "seed": "ae6d9f166a6c2829c74ee2200921fc31daca9962b19f89946ec79d08d9f1027a"
+    },
     {
       "id": "D-20260907-0037-museum-object",
       "sequence": 37,
