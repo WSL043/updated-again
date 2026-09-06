@@ -1,0 +1,42 @@
+{
+  "specVersion": 1,
+  "id": "D-20260907-0037-museum-object",
+  "sequence": 37,
+  "coreRequirement": ">=0.1.0-beta.1",
+  "publishedAt": "2026-09-06T17:42:39.931Z",
+  "plannedFor": "2026-09-07",
+  "channel": "weird",
+  "kind": "collectible",
+  "reason": {
+    "headline": "这件东西没有用途，所以决定永久保存",
+    "detail": "实用性审查没有通过，但荒诞性审查给了高分。",
+    "mood": "收藏欲",
+    "absurdity": 83
+  },
+  "changes": [
+    "新增一件带唯一编号的版本收藏品。"
+  ],
+  "expectedEffects": [
+    "收藏柜会增加一件可查看的新物品。"
+  ],
+  "payload": {
+    "id": "relic-2026-09-07-37",
+    "name": "昨天剩下的一个像素",
+    "glyph": "✦",
+    "note": "它被保存下来，因为删除也需要一个理由。"
+  },
+  "generator": {
+    "mode": "reserve",
+    "recipe": "museum-object",
+    "seed": "ef95d9aca0c743cc47f75d188f31dc24f19690b97e0fb4c2e8ce02fa753d594b"
+  },
+  "rollback": {
+    "strategy": "snapshot"
+  },
+  "integrity": {
+    "algorithm": "ed25519",
+    "keyId": "capsule-2026-01",
+    "payloadSha256": "6870b241fe45b61c0885cdb5fd360abc6920808b4fdf945823ac8997da6c17bc",
+    "signature": "HBLTpPvOTBuXhxmH5IbtPFmVsk2+dxRtvOdpEAlO7gubfWAPKKISI8YCao9cbaXDhXpsnndT6OQfif899BfnDQ=="
+  }
+}
