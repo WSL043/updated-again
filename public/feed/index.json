@@ -1,9 +1,24 @@
 {
   "specVersion": 1,
-  "generatedAt": "2026-09-08T16:50:13.583Z",
-  "latest": "D-20260909-0040-good-mood-sky",
-  "total": 40,
+  "generatedAt": "2026-09-09T13:07:11.442Z",
+  "latest": "D-20260909-0041-button-has-opinions",
+  "total": 41,
   "entries": [
+    {
+      "id": "D-20260909-0041-button-has-opinions",
+      "sequence": 41,
+      "publishedAt": "2026-09-09T13:07:11.442Z",
+      "plannedFor": "2026-09-09",
+      "channel": "weird",
+      "kind": "button-personality",
+      "headline": "更新按钮认为自己长期缺乏人格",
+      "mood": "人格化",
+      "absurdity": 88,
+      "path": "updates/D-20260909-0041-button-has-opinions.json",
+      "payloadSha256": "b30daea7c4aa54b27a05b7ebee9bc443d840338d36abd3d9b86a588cde3f16d0",
+      "recipe": "button-has-opinions",
+      "seed": "b615aca2c19ae40ae7aeba9c2b4d52a7dda1ce2b8be7f76d6a22a4c130f24e75"
+    },
     {
       "id": "D-20260909-0040-good-mood-sky",
       "sequence": 40,
