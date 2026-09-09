@@ -1,0 +1,42 @@
+{
+  "specVersion": 1,
+  "id": "D-20260910-0042-museum-object",
+  "sequence": 42,
+  "coreRequirement": ">=0.1.0-beta.1",
+  "publishedAt": "2026-09-09T18:51:23.608Z",
+  "plannedFor": "2026-09-10",
+  "channel": "weird",
+  "kind": "collectible",
+  "reason": {
+    "headline": "版本博物馆收到一件来历可疑的藏品",
+    "detail": "实用性审查没有通过，但荒诞性审查给了高分。",
+    "mood": "收藏欲",
+    "absurdity": 83
+  },
+  "changes": [
+    "新增一件带唯一编号的版本收藏品。"
+  ],
+  "expectedEffects": [
+    "收藏柜会增加一件可查看的新物品。"
+  ],
+  "payload": {
+    "id": "relic-2026-09-10-42",
+    "name": "没有提交的按钮影子",
+    "glyph": "◇",
+    "note": "没有功能，但有出生证明。"
+  },
+  "generator": {
+    "mode": "reserve",
+    "recipe": "museum-object",
+    "seed": "33f4cab625cda9a033b7daf236270fe047b54ce3b59bc693ea4c1163f521ab98"
+  },
+  "rollback": {
+    "strategy": "snapshot"
+  },
+  "integrity": {
+    "algorithm": "ed25519",
+    "keyId": "capsule-2026-01",
+    "payloadSha256": "46f71ee35b915cd4aa440f9b078c58d30902b81524bc7265d296ffb986a3ce4e",
+    "signature": "/12F1bmmozijRAnEyCp9H9vghrKL3mTBLeAqanrqaum3NV0YabjtmbAzo78dztB7niDsOCpsa1evTnGloGFsCA=="
+  }
+}

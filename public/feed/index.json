@@ -1,9 +1,24 @@
 {
   "specVersion": 1,
-  "generatedAt": "2026-09-09T13:07:11.442Z",
-  "latest": "D-20260909-0041-button-has-opinions",
-  "total": 41,
+  "generatedAt": "2026-09-09T18:51:23.608Z",
+  "latest": "D-20260910-0042-museum-object",
+  "total": 42,
   "entries": [
+    {
+      "id": "D-20260910-0042-museum-object",
+      "sequence": 42,
+      "publishedAt": "2026-09-09T18:51:23.608Z",
+      "plannedFor": "2026-09-10",
+      "channel": "weird",
+      "kind": "collectible",
+      "headline": "版本博物馆收到一件来历可疑的藏品",
+      "mood": "收藏欲",
+      "absurdity": 83,
+      "path": "updates/D-20260910-0042-museum-object.json",
+      "payloadSha256": "46f71ee35b915cd4aa440f9b078c58d30902b81524bc7265d296ffb986a3ce4e",
+      "recipe": "museum-object",
+      "seed": "33f4cab625cda9a033b7daf236270fe047b54ce3b59bc693ea4c1163f521ab98"
+    },
     {
       "id": "D-20260909-0041-button-has-opinions",
       "sequence": 41,
