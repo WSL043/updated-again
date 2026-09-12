@@ -27,7 +27,7 @@ function App() {
     >
       <SiteHeader route={route} status={station.status} />
       <main id="main-content">
-        {route === "today" && <TodayPage station={station} genome={genome} />}
+        {(route === "today" || route === "play") && <TodayPage station={station} genome={genome} />}
         {route === "archive" && <ArchivePage station={station} />}
         {route === "lab" && <LabPage station={station} />}
       </main>

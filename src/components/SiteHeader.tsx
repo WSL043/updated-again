@@ -3,6 +3,7 @@ import type { AppRoute } from "../hooks/useHashRoute";
 import type { StationStatus } from "../hooks/useUpdateStation";
 
 const NAV: Array<{ route: AppRoute; label: string; note: string }> = [
+  { route: "play", label: "玩一局", note: "PLAY" },
   { route: "today", label: "今天", note: "01" },
   { route: "archive", label: "全部版本", note: "02" },
   { route: "lab", label: "项目内部", note: "03" },
