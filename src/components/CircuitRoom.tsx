@@ -4,9 +4,24 @@ import { projectDay } from "../core/patch-playground";
 import "./circuit-room.css";
 
 export function CircuitRoom() {
+  const [selection] = useState(() => {
+    try {
+      const value = JSON.parse(localStorage.getItem("updated-again:circuit-choice:v1") ?? "null");
+      if (value && CIRCUIT_SIZES.includes(value.size) && (value.practice === null ||
+        (typeof value.practice === "string" && /^practice-[a-f0-9-]{36}$/.test(value.practice)))) {
+        return { size: value.size as CircuitSize, practice: value.practice as string | null };
+      }
+    } catch { /* The game also works when browser storage is unavailable. */ }
+    return { size: 4 as CircuitSize, practice: null as string | null };
+  });
   const [day, setDay] = useState(projectDay);
-  const [size, setSize] = useState<CircuitSize>(4);
-  const [practice, setPractice] = useState<string | null>(null);
+  const [size, setSize] = useState<CircuitSize>(selection.size);
+  const [practice, setPractice] = useState<string | null>(selection.practice);
+  const [selectionWarning, setSelectionWarning] = useState("");
+  useEffect(() => {
+    try { localStorage.setItem("updated-again:circuit-choice:v1", JSON.stringify({ size, practice })); setSelectionWarning(""); }
+    catch { setSelectionWarning("未能记住关卡选择，刷新后可能回到默认每日题。"); }
+  }, [size, practice]);
   useEffect(() => {
     if (window.location.hash === "#play") document.getElementById("play")?.scrollIntoView?.({ block: "start" });
     const tick = () => setDay(projectDay());
@@ -18,6 +33,7 @@ export function CircuitRoom() {
     <header className="circuit-heading"><div><p className="circuit-kicker">PLAY / 01 · 不用安装，直接动手</p><h2 id="circuit-heading">补丁接线室<span>把今天，重新点亮。</span></h2></div><p>一次按下，自己和上下左右一起翻转。<br />让所有接点亮起来，就算修好了这个小世界。</p></header>
     <div className="circuit-toolbar"><div className="circuit-tabs" aria-label="关卡大小">{CIRCUIT_SIZES.map((value) => <button key={value} aria-pressed={size === value} onClick={() => setSize(value)}>{value} × {value}<small>{value === 3 ? "热身" : value === 4 ? "动脑" : "挑战"}</small></button>)}</div><div className="circuit-modes"><button aria-pressed={!practice} onClick={() => setPractice(null)}>每日同题</button><button aria-pressed={!!practice} onClick={() => setPractice(`practice-${crypto.randomUUID()}`)}>{practice ? "再来一局 ↗" : "自由练习 ↗"}</button></div></div>
     <CircuitGame key={`${practice ?? day}:${size}`} seed={practice ?? day} day={day} size={size} daily={!practice} />
+    {selectionWarning && <p className="circuit-selection-warning" role="alert">{selectionWarning}</p>}
   </section>;
 }
 
