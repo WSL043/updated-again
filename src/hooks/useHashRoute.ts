@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 
-export type AppRoute = "today" | "archive" | "lab";
+export type AppRoute = "today" | "play" | "archive" | "lab";
 
-const ROUTES = new Set<AppRoute>(["today", "archive", "lab"]);
+const ROUTES = new Set<AppRoute>(["today", "play", "archive", "lab"]);
 
 function readRoute(): AppRoute {
   const route = window.location.hash.slice(1) as AppRoute;

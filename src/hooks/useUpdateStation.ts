@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
+import { version as appVersion } from "../../package.json";
 import { rollbackLatest } from "../capabilities";
 import { checkForCoreUpdate, enableNotifications, listenForTrayCheckUpdate, notifyUpdate } from "../core/native";
 import { loadArchive, saveArchive } from "../core/storage";
@@ -13,7 +14,7 @@ export function useUpdateStation() {
   const [capsules, setCapsules] = useState<Map<string, UpdateCapsule>>(new Map());
   const [status, setStatus] = useState<StationStatus>("idle");
   const [notice, setNotice] = useState("正在读取公共更新账本……");
-  const [coreVersion, setCoreVersion] = useState("0.1.2");
+  const [coreVersion, setCoreVersion] = useState(appVersion);
 
   const persist = useCallback((next: LocalArchive) => {
     setArchive(next);

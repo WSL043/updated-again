@@ -1,4 +1,5 @@
 import { Companion } from "../components/Companion";
+import { CircuitRoom } from "../components/CircuitRoom";
 import { PatchPlayground } from "../components/PatchPlayground";
 import { ReleaseFilm } from "../components/ReleaseFilm";
 import { StreakCalendar } from "../components/StreakCalendar";
@@ -19,6 +20,11 @@ export function TodayPage({ station, genome }: { station: UpdateStation; genome:
 
   return (
     <>
+      <section className="play-invitation" aria-label="开始玩">
+        <div><strong>今天的更新，拿来玩。</strong><p>先接通一张小电路，再把装过的更新混成奇怪标本。</p></div>
+        <a href="#play">开始接线 ↗</a>
+      </section>
+      <CircuitRoom />
       <section className="today-hero">
         <div className="edition-mark" aria-hidden="true">
           <span>ISSUE</span>
