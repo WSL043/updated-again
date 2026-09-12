@@ -52,3 +52,13 @@ it("can keep playing when storage is unavailable", () => {
   act(() => buttons()[0].click()); expect(host.querySelector('[role="alert"]')?.textContent).toContain("没有保存成功");
   expect(host.querySelector(".circuit-score strong")?.textContent).toBe("01步");
 });
+it("restores a practice seed, size, and moves after a full reload", () => {
+  click("5 × 5"); click("自由练习");
+  act(() => buttons()[8].click());
+  const before = buttons().map((button) => button.getAttribute("aria-pressed"));
+  act(() => root.unmount()); root = createRoot(host); render();
+  expect(buttons()).toHaveLength(25);
+  expect(buttons().map((button) => button.getAttribute("aria-pressed"))).toEqual(before);
+  expect(host.textContent).toContain("再来一局");
+  expect(host.querySelector(".circuit-score strong")?.textContent).toBe("01步");
+});
