@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.5.0](https://github.com/WSL043/updated-again/compare/v0.4.0...v0.5.0) (2026-09-12)
+
+
+### 新东西
+
+* add daily circuit puzzles and a play-first homepage ([da3e458](https://github.com/WSL043/updated-again/commit/da3e45876e69c5290e74716b6a89d6c70b00d290))
+
 ## [0.4.0](https://github.com/WSL043/updated-again/compare/v0.3.0...v0.4.0) (2026-09-06)
 
 
