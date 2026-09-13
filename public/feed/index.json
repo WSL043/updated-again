@@ -1,9 +1,24 @@
 {
   "specVersion": 1,
-  "generatedAt": "2026-09-12T17:50:19.938Z",
-  "latest": "D-20260913-0045-patch-dumpling-mood",
-  "total": 45,
+  "generatedAt": "2026-09-13T18:20:37.193Z",
+  "latest": "D-20260914-0046-version-star",
+  "total": 46,
   "entries": [
+    {
+      "id": "D-20260914-0046-version-star",
+      "sequence": 46,
+      "publishedAt": "2026-09-13T18:20:37.193Z",
+      "plannedFor": "2026-09-14",
+      "channel": "daily",
+      "kind": "constellation",
+      "headline": "天空缺少一颗只属于本版本的星",
+      "mood": "仰头",
+      "absurdity": 79,
+      "path": "updates/D-20260914-0046-version-star.json",
+      "payloadSha256": "74bf695b615512dd76cd36901d211e24a13a3abbf5ba81b7f52ae7f192fe0be3",
+      "recipe": "version-star",
+      "seed": "965bc93f09bebb605415aa586e7975b0da2b0bbe663984b417975abf0ce57129"
+    },
     {
       "id": "D-20260913-0045-patch-dumpling-mood",
       "sequence": 45,
