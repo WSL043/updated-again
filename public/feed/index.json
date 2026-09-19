@@ -1,9 +1,24 @@
 {
   "specVersion": 1,
-  "generatedAt": "2026-09-19T08:51:34.934Z",
-  "latest": "D-20260919-0053-midnight-ink",
-  "total": 53,
+  "generatedAt": "2026-09-19T18:12:46.287Z",
+  "latest": "D-20260920-0054-version-star",
+  "total": 54,
   "entries": [
+    {
+      "id": "D-20260920-0054-version-star",
+      "sequence": 54,
+      "publishedAt": "2026-09-19T18:12:46.287Z",
+      "plannedFor": "2026-09-20",
+      "channel": "daily",
+      "kind": "constellation",
+      "headline": "天空缺少一颗只属于本版本的星",
+      "mood": "仰头",
+      "absurdity": 79,
+      "path": "updates/D-20260920-0054-version-star.json",
+      "payloadSha256": "3366ab875ac69e34a90d2e101d606dc524081e236482da7f4072cd7027780082",
+      "recipe": "version-star",
+      "seed": "7cfd5f8ba934d0a4257548aa2b6a316dc767db81b74cb2df2ec76ffdec6660d4"
+    },
     {
       "id": "D-20260919-0053-midnight-ink",
       "sequence": 53,
