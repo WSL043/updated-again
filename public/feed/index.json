@@ -1,9 +1,24 @@
 {
   "specVersion": 1,
-  "generatedAt": "2026-09-19T04:37:50.605Z",
-  "latest": "D-20260919-0052-one-sentence-worth-shipping",
-  "total": 52,
+  "generatedAt": "2026-09-19T08:51:34.934Z",
+  "latest": "D-20260919-0053-midnight-ink",
+  "total": 53,
   "entries": [
+    {
+      "id": "D-20260919-0053-midnight-ink",
+      "sequence": 53,
+      "publishedAt": "2026-09-19T08:51:34.934Z",
+      "plannedFor": "2026-09-19",
+      "channel": "daily",
+      "kind": "theme",
+      "headline": "深夜坚持认为深色还可以更深",
+      "mood": "夜行",
+      "absurdity": 57,
+      "path": "updates/D-20260919-0053-midnight-ink.json",
+      "payloadSha256": "f5e2dd88d6430fe233fa98b787f98b6e7f26bab1c71553b7f2d9c2f78942c534",
+      "recipe": "midnight-ink",
+      "seed": "35a0fb2d644c75096bf0a7b4156ce01bbc8a6d3645073748b470e5203ce5253e"
+    },
     {
       "id": "D-20260919-0052-one-sentence-worth-shipping",
       "sequence": 52,
