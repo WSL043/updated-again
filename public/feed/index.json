@@ -1,9 +1,24 @@
 {
   "specVersion": 1,
-  "generatedAt": "2026-09-20T16:28:00.128Z",
-  "latest": "D-20260921-0055-good-mood-sky",
-  "total": 55,
+  "generatedAt": "2026-09-21T20:07:44.236Z",
+  "latest": "D-20260922-0056-museum-object",
+  "total": 56,
   "entries": [
+    {
+      "id": "D-20260922-0056-museum-object",
+      "sequence": 56,
+      "publishedAt": "2026-09-21T20:07:44.236Z",
+      "plannedFor": "2026-09-22",
+      "channel": "weird",
+      "kind": "collectible",
+      "headline": "这件东西没有用途，所以决定永久保存",
+      "mood": "收藏欲",
+      "absurdity": 83,
+      "path": "updates/D-20260922-0056-museum-object.json",
+      "payloadSha256": "b53834ed1a5e64b6032641d403f7adace3fe1ecdb13dad581a78cc023b6fcb27",
+      "recipe": "museum-object",
+      "seed": "fe3cfb8e85a24c8e4eae96aad22c4ef5a818574585918dd7e384909cc0a3a157"
+    },
     {
       "id": "D-20260921-0055-good-mood-sky",
       "sequence": 55,

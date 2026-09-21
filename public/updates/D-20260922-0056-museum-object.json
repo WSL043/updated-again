@@ -1,0 +1,42 @@
+{
+  "specVersion": 1,
+  "id": "D-20260922-0056-museum-object",
+  "sequence": 56,
+  "coreRequirement": ">=0.1.0-beta.1",
+  "publishedAt": "2026-09-21T20:07:44.236Z",
+  "plannedFor": "2026-09-22",
+  "channel": "weird",
+  "kind": "collectible",
+  "reason": {
+    "headline": "这件东西没有用途，所以决定永久保存",
+    "detail": "实用性审查没有通过，但荒诞性审查给了高分。",
+    "mood": "收藏欲",
+    "absurdity": 83
+  },
+  "changes": [
+    "新增一件带唯一编号的版本收藏品。"
+  ],
+  "expectedEffects": [
+    "收藏柜会增加一件可查看的新物品。"
+  ],
+  "payload": {
+    "id": "relic-2026-09-22-56",
+    "name": "没有提交的按钮影子",
+    "glyph": "◇",
+    "note": "它被保存下来，因为删除也需要一个理由。"
+  },
+  "generator": {
+    "mode": "reserve",
+    "recipe": "museum-object",
+    "seed": "fe3cfb8e85a24c8e4eae96aad22c4ef5a818574585918dd7e384909cc0a3a157"
+  },
+  "rollback": {
+    "strategy": "snapshot"
+  },
+  "integrity": {
+    "algorithm": "ed25519",
+    "keyId": "capsule-2026-01",
+    "payloadSha256": "b53834ed1a5e64b6032641d403f7adace3fe1ecdb13dad581a78cc023b6fcb27",
+    "signature": "DqlCqAniuHwLiGsvPXnDPGLtLlsoQfYDWQ86/Gw2CpPXnOxtPF+amtCXs7ddolcJMtfmqtRM/Kf+x3YvjmaUDw=="
+  }
+}
