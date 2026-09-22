@@ -1,9 +1,24 @@
 {
   "specVersion": 1,
-  "generatedAt": "2026-09-21T20:07:44.236Z",
-  "latest": "D-20260922-0056-museum-object",
-  "total": 56,
+  "generatedAt": "2026-09-22T19:11:48.163Z",
+  "latest": "D-20260923-0057-tiny-ritual",
+  "total": 57,
   "entries": [
+    {
+      "id": "D-20260923-0057-tiny-ritual",
+      "sequence": 57,
+      "publishedAt": "2026-09-22T19:11:48.163Z",
+      "plannedFor": "2026-09-23",
+      "channel": "daily",
+      "kind": "ritual",
+      "headline": "软件今天想举行一个非常小的仪式",
+      "mood": "仪式感",
+      "absurdity": 76,
+      "path": "updates/D-20260923-0057-tiny-ritual.json",
+      "payloadSha256": "cce3af723dc546e3b8841ebfea31551a754ad4466fbf2addffab25af9b4e8374",
+      "recipe": "tiny-ritual",
+      "seed": "5411d70af5669203eb3c970b460319c6f0183c365aab00ff478e1512735a9339"
+    },
     {
       "id": "D-20260922-0056-museum-object",
       "sequence": 56,
