@@ -1,9 +1,24 @@
 {
   "specVersion": 1,
-  "generatedAt": "2026-09-22T19:11:48.163Z",
-  "latest": "D-20260923-0057-tiny-ritual",
-  "total": 57,
+  "generatedAt": "2026-09-23T17:26:55.589Z",
+  "latest": "D-20260924-0058-museum-object",
+  "total": 58,
   "entries": [
+    {
+      "id": "D-20260924-0058-museum-object",
+      "sequence": 58,
+      "publishedAt": "2026-09-23T17:26:55.589Z",
+      "plannedFor": "2026-09-24",
+      "channel": "weird",
+      "kind": "collectible",
+      "headline": "这件东西没有用途，所以决定永久保存",
+      "mood": "收藏欲",
+      "absurdity": 83,
+      "path": "updates/D-20260924-0058-museum-object.json",
+      "payloadSha256": "904c5795482c394b139917423b6a3dc4ea0a39c25830aa5dd816666168f2ebf8",
+      "recipe": "museum-object",
+      "seed": "a92b16ac485d8c77303befff5b4f8a57c3e2b3210caa39201cb90c5789099542"
+    },
     {
       "id": "D-20260923-0057-tiny-ritual",
       "sequence": 57,
