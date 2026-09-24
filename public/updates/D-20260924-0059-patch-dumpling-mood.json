@@ -1,0 +1,42 @@
+{
+  "specVersion": 1,
+  "id": "D-20260924-0059-patch-dumpling-mood",
+  "sequence": 59,
+  "coreRequirement": ">=0.1.0-beta.1",
+  "publishedAt": "2026-09-24T13:44:04.911Z",
+  "plannedFor": "2026-09-24",
+  "channel": "daily",
+  "kind": "companion",
+  "reason": {
+    "headline": "补丁团子提交了新的心情状态",
+    "detail": "它没有解释原因，但更新系统认为情绪属于有效载荷。",
+    "mood": "陪伴",
+    "absurdity": 68
+  },
+  "changes": [
+    "改变补丁团子的表情、心情和一句台词。"
+  ],
+  "expectedEffects": [
+    "常驻伙伴以新的状态出现在首页。"
+  ],
+  "payload": {
+    "name": "更新值班员",
+    "mood": "对新版本略感骄傲",
+    "phrase": "如果明天没有灵感，我会贡献一个表情。",
+    "glyph": "◍"
+  },
+  "generator": {
+    "mode": "deterministic",
+    "recipe": "patch-dumpling-mood",
+    "seed": "d116dc0de13bf1d5adcdb3f85776cdbca1cc813b13920c6530bfce4941589172"
+  },
+  "rollback": {
+    "strategy": "snapshot"
+  },
+  "integrity": {
+    "algorithm": "ed25519",
+    "keyId": "capsule-2026-01",
+    "payloadSha256": "54819789b41852cffe7ebe323a8fd31ce74d8e4193d9940b545843d08fc1168e",
+    "signature": "+izqo1yq2lGAyIe7gAoaZG4ngBP2l/zbV6d3OaJh2lg353Ji23qR6p/ZApvKGBD4m18TFKzNq7JStqUkSFABCA=="
+  }
+}
