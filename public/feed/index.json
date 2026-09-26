@@ -1,9 +1,24 @@
 {
   "specVersion": 1,
-  "generatedAt": "2026-09-25T17:31:28.868Z",
-  "latest": "D-20260926-0061-one-sentence-worth-shipping",
-  "total": 61,
+  "generatedAt": "2026-09-26T04:58:08.701Z",
+  "latest": "D-20260926-0062-tiny-ritual",
+  "total": 62,
   "entries": [
+    {
+      "id": "D-20260926-0062-tiny-ritual",
+      "sequence": 62,
+      "publishedAt": "2026-09-26T04:58:08.701Z",
+      "plannedFor": "2026-09-26",
+      "channel": "daily",
+      "kind": "ritual",
+      "headline": "软件今天想举行一个非常小的仪式",
+      "mood": "仪式感",
+      "absurdity": 76,
+      "path": "updates/D-20260926-0062-tiny-ritual.json",
+      "payloadSha256": "8200b906c8d8444fe329931a97a2e6041c39dd3f47fdf24a044d37448c19e400",
+      "recipe": "tiny-ritual",
+      "seed": "6c219a52b42333c3707557119ed85f78d243c56e92507252bdc49b51fc702ce5"
+    },
     {
       "id": "D-20260926-0061-one-sentence-worth-shipping",
       "sequence": 61,
