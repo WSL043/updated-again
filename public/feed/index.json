@@ -1,9 +1,24 @@
 {
   "specVersion": 1,
-  "generatedAt": "2026-09-26T18:43:37.121Z",
-  "latest": "D-20260927-0063-good-mood-sky",
-  "total": 63,
+  "generatedAt": "2026-09-27T19:17:19.953Z",
+  "latest": "D-20260928-0064-patch-dumpling-mood",
+  "total": 64,
   "entries": [
+    {
+      "id": "D-20260928-0064-patch-dumpling-mood",
+      "sequence": 64,
+      "publishedAt": "2026-09-27T19:17:19.953Z",
+      "plannedFor": "2026-09-28",
+      "channel": "daily",
+      "kind": "companion",
+      "headline": "补丁团子提交了新的心情状态",
+      "mood": "陪伴",
+      "absurdity": 68,
+      "path": "updates/D-20260928-0064-patch-dumpling-mood.json",
+      "payloadSha256": "78cf3d05b148cb4f17ed001352a95d00ae92d2de121acf3e7f850b74268ae80e",
+      "recipe": "patch-dumpling-mood",
+      "seed": "f7e54981ed30d45fe6017a388652cf826ad6663aecb8f3b27f1eb7f554d9516a"
+    },
     {
       "id": "D-20260927-0063-good-mood-sky",
       "sequence": 63,
