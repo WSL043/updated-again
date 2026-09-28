@@ -1,9 +1,24 @@
 {
   "specVersion": 1,
-  "generatedAt": "2026-09-28T05:23:59.601Z",
-  "latest": "D-20260928-0065-museum-object",
-  "total": 65,
+  "generatedAt": "2026-09-28T19:49:33.327Z",
+  "latest": "D-20260929-0066-midnight-ink",
+  "total": 66,
   "entries": [
+    {
+      "id": "D-20260929-0066-midnight-ink",
+      "sequence": 66,
+      "publishedAt": "2026-09-28T19:49:33.327Z",
+      "plannedFor": "2026-09-29",
+      "channel": "daily",
+      "kind": "theme",
+      "headline": "深夜坚持认为深色还可以更深",
+      "mood": "夜行",
+      "absurdity": 57,
+      "path": "updates/D-20260929-0066-midnight-ink.json",
+      "payloadSha256": "0ee8cee7107bef897250c35700498c882fbf8cb7659e68075e1e877be3004b82",
+      "recipe": "midnight-ink",
+      "seed": "b4441ca963499fa8dfe043c571da9366a9425cffa7eb7d630fb2d12b49a69313"
+    },
     {
       "id": "D-20260928-0065-museum-object",
       "sequence": 65,
