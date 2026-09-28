@@ -1,9 +1,24 @@
 {
   "specVersion": 1,
-  "generatedAt": "2026-09-27T19:17:19.953Z",
-  "latest": "D-20260928-0064-patch-dumpling-mood",
-  "total": 64,
+  "generatedAt": "2026-09-28T05:23:59.601Z",
+  "latest": "D-20260928-0065-museum-object",
+  "total": 65,
   "entries": [
+    {
+      "id": "D-20260928-0065-museum-object",
+      "sequence": 65,
+      "publishedAt": "2026-09-28T05:23:59.601Z",
+      "plannedFor": "2026-09-28",
+      "channel": "weird",
+      "kind": "collectible",
+      "headline": "版本博物馆收到一件来历可疑的藏品",
+      "mood": "收藏欲",
+      "absurdity": 83,
+      "path": "updates/D-20260928-0065-museum-object.json",
+      "payloadSha256": "e51a5ebad1fe2a286818f5aaa7f4e1e58c2dc0c3aaffd8063a72611f4c068427",
+      "recipe": "museum-object",
+      "seed": "8ac6fa77d7ac04b85ced36993a9418bcd60392659e6fcde7cd10824eb8a7798f"
+    },
     {
       "id": "D-20260928-0064-patch-dumpling-mood",
       "sequence": 64,
