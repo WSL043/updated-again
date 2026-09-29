@@ -1,9 +1,24 @@
 {
   "specVersion": 1,
-  "generatedAt": "2026-09-28T19:49:33.327Z",
-  "latest": "D-20260929-0066-midnight-ink",
-  "total": 66,
+  "generatedAt": "2026-09-29T18:14:22.356Z",
+  "latest": "D-20260930-0067-tiny-ritual",
+  "total": 67,
   "entries": [
+    {
+      "id": "D-20260930-0067-tiny-ritual",
+      "sequence": 67,
+      "publishedAt": "2026-09-29T18:14:22.356Z",
+      "plannedFor": "2026-09-30",
+      "channel": "daily",
+      "kind": "ritual",
+      "headline": "软件今天想举行一个非常小的仪式",
+      "mood": "仪式感",
+      "absurdity": 76,
+      "path": "updates/D-20260930-0067-tiny-ritual.json",
+      "payloadSha256": "e5e0f994c340972482327bb4ad4ebf81fba6534639d80c7662666b8708e6d580",
+      "recipe": "tiny-ritual",
+      "seed": "fa31659590a6ec9df6d9e079b63a058d51ac2ba07aab9d41310c108775145dd5"
+    },
     {
       "id": "D-20260929-0066-midnight-ink",
       "sequence": 66,
