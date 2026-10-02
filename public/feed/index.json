@@ -1,9 +1,24 @@
 {
   "specVersion": 1,
-  "generatedAt": "2026-10-01T18:33:58.596Z",
-  "latest": "D-20261002-0069-museum-object",
-  "total": 69,
+  "generatedAt": "2026-10-02T18:01:23.265Z",
+  "latest": "D-20261003-0070-button-has-opinions",
+  "total": 70,
   "entries": [
+    {
+      "id": "D-20261003-0070-button-has-opinions",
+      "sequence": 70,
+      "publishedAt": "2026-10-02T18:01:23.265Z",
+      "plannedFor": "2026-10-03",
+      "channel": "weird",
+      "kind": "button-personality",
+      "headline": "更新按钮认为自己长期缺乏人格",
+      "mood": "人格化",
+      "absurdity": 88,
+      "path": "updates/D-20261003-0070-button-has-opinions.json",
+      "payloadSha256": "711287c8436e5c9e96cb91ebf5da64987f7d2a5d3cb7317a607ddb4d217bde61",
+      "recipe": "button-has-opinions",
+      "seed": "44bea1ca29bd85fb09bcf57073d5de81f6ea4aeb97c851b18bb6f7bee1017e25"
+    },
     {
       "id": "D-20261002-0069-museum-object",
       "sequence": 69,
