@@ -1,9 +1,24 @@
 {
   "specVersion": 1,
-  "generatedAt": "2026-10-02T18:01:23.265Z",
-  "latest": "D-20261003-0070-button-has-opinions",
-  "total": 70,
+  "generatedAt": "2026-10-03T16:41:54.434Z",
+  "latest": "D-20261004-0071-version-star",
+  "total": 71,
   "entries": [
+    {
+      "id": "D-20261004-0071-version-star",
+      "sequence": 71,
+      "publishedAt": "2026-10-03T16:41:54.434Z",
+      "plannedFor": "2026-10-04",
+      "channel": "daily",
+      "kind": "constellation",
+      "headline": "天空缺少一颗只属于本版本的星",
+      "mood": "仰头",
+      "absurdity": 79,
+      "path": "updates/D-20261004-0071-version-star.json",
+      "payloadSha256": "eb60fd25f796212b5af15307ca289150bf4fb3a8ded8b50d38b1e24872029a02",
+      "recipe": "version-star",
+      "seed": "9d77a86493525512dcb2e3a60da4b31ed604fc6d844f94f4ec26330ae19ee135"
+    },
     {
       "id": "D-20261003-0070-button-has-opinions",
       "sequence": 70,
