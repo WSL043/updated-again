@@ -1,9 +1,24 @@
 {
   "specVersion": 1,
-  "generatedAt": "2026-10-04T18:48:06.531Z",
-  "latest": "D-20261005-0073-one-sentence-worth-shipping",
-  "total": 73,
+  "generatedAt": "2026-10-05T05:40:00.730Z",
+  "latest": "D-20261005-0074-patch-dumpling-mood",
+  "total": 74,
   "entries": [
+    {
+      "id": "D-20261005-0074-patch-dumpling-mood",
+      "sequence": 74,
+      "publishedAt": "2026-10-05T05:40:00.730Z",
+      "plannedFor": "2026-10-05",
+      "channel": "daily",
+      "kind": "companion",
+      "headline": "补丁团子提交了新的心情状态",
+      "mood": "陪伴",
+      "absurdity": 68,
+      "path": "updates/D-20261005-0074-patch-dumpling-mood.json",
+      "payloadSha256": "e4989af97a0be673a5c8dd13299af73ef21a66f280055a31a27b6fa7d07c2c3d",
+      "recipe": "patch-dumpling-mood",
+      "seed": "abd026d9ba4d3dd8a5f1a14cd8796006d22c53d8a320ae0eb301e68b5afdc4ab"
+    },
     {
       "id": "D-20261005-0073-one-sentence-worth-shipping",
       "sequence": 73,
