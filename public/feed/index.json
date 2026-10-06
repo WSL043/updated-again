@@ -1,9 +1,24 @@
 {
   "specVersion": 1,
-  "generatedAt": "2026-10-05T20:54:06.887Z",
-  "latest": "D-20261006-0075-version-star",
-  "total": 75,
+  "generatedAt": "2026-10-06T18:35:43.751Z",
+  "latest": "D-20261007-0076-one-sentence-worth-shipping",
+  "total": 76,
   "entries": [
+    {
+      "id": "D-20261007-0076-one-sentence-worth-shipping",
+      "sequence": 76,
+      "publishedAt": "2026-10-06T18:35:43.751Z",
+      "plannedFor": "2026-10-07",
+      "channel": "daily",
+      "kind": "message",
+      "headline": "今天只多说一句，但它真的被安装了",
+      "mood": "认真胡说",
+      "absurdity": 61,
+      "path": "updates/D-20261007-0076-one-sentence-worth-shipping.json",
+      "payloadSha256": "f82d805b4d80b68a5023b81936883cc122022e87486ec9efe65f3787566b2296",
+      "recipe": "one-sentence-worth-shipping",
+      "seed": "cf238b8fca8c858bc9c117c658262a90346fd4fd5dce11f5182147d9e0af7856"
+    },
     {
       "id": "D-20261006-0075-version-star",
       "sequence": 75,
