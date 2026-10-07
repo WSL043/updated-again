@@ -1,0 +1,42 @@
+{
+  "specVersion": 1,
+  "id": "D-20261008-0077-museum-object",
+  "sequence": 77,
+  "coreRequirement": ">=0.1.0-beta.1",
+  "publishedAt": "2026-10-07T19:04:06.349Z",
+  "plannedFor": "2026-10-08",
+  "channel": "weird",
+  "kind": "collectible",
+  "reason": {
+    "headline": "版本博物馆收到一件来历可疑的藏品",
+    "detail": "实用性审查没有通过，但荒诞性审查给了高分。",
+    "mood": "收藏欲",
+    "absurdity": 83
+  },
+  "changes": [
+    "新增一件带唯一编号的版本收藏品。"
+  ],
+  "expectedEffects": [
+    "收藏柜会增加一件可查看的新物品。"
+  ],
+  "payload": {
+    "id": "relic-2026-10-08-77",
+    "name": "昨天剩下的一个像素",
+    "glyph": "※",
+    "note": "没有功能，但有出生证明。"
+  },
+  "generator": {
+    "mode": "deterministic",
+    "recipe": "museum-object",
+    "seed": "7bfb8c7b618b9cbfd94436ba947b572f0c4478e9dfdad0b4141defd2eae1d33a"
+  },
+  "rollback": {
+    "strategy": "snapshot"
+  },
+  "integrity": {
+    "algorithm": "ed25519",
+    "keyId": "capsule-2026-01",
+    "payloadSha256": "03b68e49ef03489333e65635dfcd71fb47a50cfe12bcc2e5c893277ac4268b98",
+    "signature": "P0SdUnwg+O8HfiIyzn1+RVaniDtHATbv0QNQ1nvQTW3870CfEA5FmGvTvEnIjomw5ssS/BNRUvMbAor12P4WAg=="
+  }
+}

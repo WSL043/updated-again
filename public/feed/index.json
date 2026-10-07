@@ -1,9 +1,24 @@
 {
   "specVersion": 1,
-  "generatedAt": "2026-10-06T18:35:43.751Z",
-  "latest": "D-20261007-0076-one-sentence-worth-shipping",
-  "total": 76,
+  "generatedAt": "2026-10-07T19:04:06.349Z",
+  "latest": "D-20261008-0077-museum-object",
+  "total": 77,
   "entries": [
+    {
+      "id": "D-20261008-0077-museum-object",
+      "sequence": 77,
+      "publishedAt": "2026-10-07T19:04:06.349Z",
+      "plannedFor": "2026-10-08",
+      "channel": "weird",
+      "kind": "collectible",
+      "headline": "版本博物馆收到一件来历可疑的藏品",
+      "mood": "收藏欲",
+      "absurdity": 83,
+      "path": "updates/D-20261008-0077-museum-object.json",
+      "payloadSha256": "03b68e49ef03489333e65635dfcd71fb47a50cfe12bcc2e5c893277ac4268b98",
+      "recipe": "museum-object",
+      "seed": "7bfb8c7b618b9cbfd94436ba947b572f0c4478e9dfdad0b4141defd2eae1d33a"
+    },
     {
       "id": "D-20261007-0076-one-sentence-worth-shipping",
       "sequence": 76,
