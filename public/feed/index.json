@@ -1,9 +1,24 @@
 {
   "specVersion": 1,
-  "generatedAt": "2026-10-08T19:00:04.943Z",
-  "latest": "D-20261009-0079-tiny-ritual",
-  "total": 79,
+  "generatedAt": "2026-10-09T11:23:40.646Z",
+  "latest": "D-20261009-0080-one-sentence-worth-shipping",
+  "total": 80,
   "entries": [
+    {
+      "id": "D-20261009-0080-one-sentence-worth-shipping",
+      "sequence": 80,
+      "publishedAt": "2026-10-09T11:23:40.646Z",
+      "plannedFor": "2026-10-09",
+      "channel": "daily",
+      "kind": "message",
+      "headline": "一句话也值得拥有版本号",
+      "mood": "认真胡说",
+      "absurdity": 61,
+      "path": "updates/D-20261009-0080-one-sentence-worth-shipping.json",
+      "payloadSha256": "f82d805b4d80b68a5023b81936883cc122022e87486ec9efe65f3787566b2296",
+      "recipe": "one-sentence-worth-shipping",
+      "seed": "c3175621ec652127a03fb107a80ceb179d507cddbd5a0a3048713190015f50cb"
+    },
     {
       "id": "D-20261009-0079-tiny-ritual",
       "sequence": 79,
