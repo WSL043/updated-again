@@ -1,0 +1,42 @@
+{
+  "specVersion": 1,
+  "id": "D-20261011-0083-version-star",
+  "sequence": 83,
+  "coreRequirement": ">=0.1.0-beta.1",
+  "publishedAt": "2026-10-10T17:27:51.471Z",
+  "plannedFor": "2026-10-11",
+  "channel": "daily",
+  "kind": "constellation",
+  "reason": {
+    "headline": "天空缺少一颗只属于本版本的星",
+    "detail": "宇宙没有提出需求，但版本委员会仍然通过了。",
+    "mood": "仰头",
+    "absurdity": 79
+  },
+  "changes": [
+    "在本地版本星图中增加一颗唯一恒星。"
+  ],
+  "expectedEffects": [
+    "背景星图出现一个带版本标签的新光点。"
+  ],
+  "payload": {
+    "x": 73,
+    "y": 32,
+    "size": 10,
+    "label": "2026-10-11 / 第 83 更"
+  },
+  "generator": {
+    "mode": "deterministic",
+    "recipe": "version-star",
+    "seed": "111f44dbe392134b6556b1262861d489087cdcd3eb28fc8456f01c8ca2f8f2e0"
+  },
+  "rollback": {
+    "strategy": "snapshot"
+  },
+  "integrity": {
+    "algorithm": "ed25519",
+    "keyId": "capsule-2026-01",
+    "payloadSha256": "1d15de78befcda09575fbff3f86580ce716744e4476b3b3bb04b1bb38390e70f",
+    "signature": "b2YHAcdZp947r+0gbKzyBvEcOgEred5BwVEO07yP3qpLxjm6OJt14bBZw+9Kn+MPwuVkE0pgGogIQMQWT3swAw=="
+  }
+}

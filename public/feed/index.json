@@ -1,9 +1,24 @@
 {
   "specVersion": 1,
-  "generatedAt": "2026-10-09T20:20:20.054Z",
-  "latest": "D-20261010-0082-version-star",
-  "total": 82,
+  "generatedAt": "2026-10-10T17:27:51.471Z",
+  "latest": "D-20261011-0083-version-star",
+  "total": 83,
   "entries": [
+    {
+      "id": "D-20261011-0083-version-star",
+      "sequence": 83,
+      "publishedAt": "2026-10-10T17:27:51.471Z",
+      "plannedFor": "2026-10-11",
+      "channel": "daily",
+      "kind": "constellation",
+      "headline": "天空缺少一颗只属于本版本的星",
+      "mood": "仰头",
+      "absurdity": 79,
+      "path": "updates/D-20261011-0083-version-star.json",
+      "payloadSha256": "1d15de78befcda09575fbff3f86580ce716744e4476b3b3bb04b1bb38390e70f",
+      "recipe": "version-star",
+      "seed": "111f44dbe392134b6556b1262861d489087cdcd3eb28fc8456f01c8ca2f8f2e0"
+    },
     {
       "id": "D-20261010-0082-version-star",
       "sequence": 82,
