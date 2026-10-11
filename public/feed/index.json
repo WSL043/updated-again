@@ -1,9 +1,24 @@
 {
   "specVersion": 1,
-  "generatedAt": "2026-10-10T17:27:51.471Z",
-  "latest": "D-20261011-0083-version-star",
-  "total": 83,
+  "generatedAt": "2026-10-11T19:43:39.225Z",
+  "latest": "D-20261012-0084-midnight-ink",
+  "total": 84,
   "entries": [
+    {
+      "id": "D-20261012-0084-midnight-ink",
+      "sequence": 84,
+      "publishedAt": "2026-10-11T19:43:39.225Z",
+      "plannedFor": "2026-10-12",
+      "channel": "daily",
+      "kind": "theme",
+      "headline": "深夜坚持认为深色还可以更深",
+      "mood": "夜行",
+      "absurdity": 57,
+      "path": "updates/D-20261012-0084-midnight-ink.json",
+      "payloadSha256": "46caa545dcf454c19a84098fb135e3aa4c4d594a8765861e328f2dd39d6ebec0",
+      "recipe": "midnight-ink",
+      "seed": "915e9420c05f0da7eb0b00a652c51d6918e79ad94437883613d998f8e297b0df"
+    },
     {
       "id": "D-20261011-0083-version-star",
       "sequence": 83,
