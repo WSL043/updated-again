@@ -1,0 +1,43 @@
+{
+  "specVersion": 1,
+  "id": "D-20261013-0086-good-mood-sky",
+  "sequence": 86,
+  "coreRequirement": ">=0.1.0-beta.1",
+  "publishedAt": "2026-10-12T22:36:18.013Z",
+  "plannedFor": "2026-10-13",
+  "channel": "daily",
+  "kind": "theme",
+  "reason": {
+    "headline": "作者今天心情不错，所以天空被批准换色",
+    "detail": "没有用户反馈、没有路线图会议，只是觉得今天值得亮一点。",
+    "mood": "心情很好",
+    "absurdity": 72
+  },
+  "changes": [
+    "替换世界调色板并增加一条心情横幅。"
+  ],
+  "expectedEffects": [
+    "首页背景、光晕和宣言发生可见变化。"
+  ],
+  "payload": {
+    "background": "#16132d",
+    "surface": "#18334a",
+    "accent": "#86f7d2",
+    "glow": "#4dd6ff",
+    "banner": "今天允许软件比昨天开心一点。"
+  },
+  "generator": {
+    "mode": "reserve",
+    "recipe": "good-mood-sky",
+    "seed": "cb2a0a27e5a7d5c4213a3257e230901b84fc54a6dd8ce78823ed5364f48ddb88"
+  },
+  "rollback": {
+    "strategy": "snapshot"
+  },
+  "integrity": {
+    "algorithm": "ed25519",
+    "keyId": "capsule-2026-01",
+    "payloadSha256": "3c84b4785af4a0c586e16e8d70e57123ce399568c4c79242b7612f3998459d78",
+    "signature": "OGnpeMjHCu5uZxPCKyaT6ukmBmViQLIF3J8J+Pthg4vqZUUUbkqmoDotHo1jOmlX5Cfl1GW39tabwZKGJQVCAw=="
+  }
+}
