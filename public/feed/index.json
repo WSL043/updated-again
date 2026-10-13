@@ -1,9 +1,24 @@
 {
   "specVersion": 1,
-  "generatedAt": "2026-10-12T22:36:18.013Z",
-  "latest": "D-20261013-0086-good-mood-sky",
-  "total": 86,
+  "generatedAt": "2026-10-13T20:49:26.178Z",
+  "latest": "D-20261014-0087-museum-object",
+  "total": 87,
   "entries": [
+    {
+      "id": "D-20261014-0087-museum-object",
+      "sequence": 87,
+      "publishedAt": "2026-10-13T20:49:26.178Z",
+      "plannedFor": "2026-10-14",
+      "channel": "weird",
+      "kind": "collectible",
+      "headline": "版本博物馆收到一件来历可疑的藏品",
+      "mood": "收藏欲",
+      "absurdity": 83,
+      "path": "updates/D-20261014-0087-museum-object.json",
+      "payloadSha256": "f095b26b43dd7f067db5d28761a56f6a6828f62a9594d1aedc544d3b80296ca0",
+      "recipe": "museum-object",
+      "seed": "d8618258da084f8a6ea8947deed1ed7fc54de0779594a6c757f4ae2cd8186ee4"
+    },
     {
       "id": "D-20261013-0086-good-mood-sky",
       "sequence": 86,
