@@ -1,0 +1,42 @@
+{
+  "specVersion": 1,
+  "id": "D-20261014-0087-museum-object",
+  "sequence": 87,
+  "coreRequirement": ">=0.1.0-beta.1",
+  "publishedAt": "2026-10-13T20:49:26.178Z",
+  "plannedFor": "2026-10-14",
+  "channel": "weird",
+  "kind": "collectible",
+  "reason": {
+    "headline": "版本博物馆收到一件来历可疑的藏品",
+    "detail": "实用性审查没有通过，但荒诞性审查给了高分。",
+    "mood": "收藏欲",
+    "absurdity": 83
+  },
+  "changes": [
+    "新增一件带唯一编号的版本收藏品。"
+  ],
+  "expectedEffects": [
+    "收藏柜会增加一件可查看的新物品。"
+  ],
+  "payload": {
+    "id": "relic-2026-10-14-87",
+    "name": "备用的星期二",
+    "glyph": "※",
+    "note": "未来的考古学家可能会误解它。"
+  },
+  "generator": {
+    "mode": "reserve",
+    "recipe": "museum-object",
+    "seed": "d8618258da084f8a6ea8947deed1ed7fc54de0779594a6c757f4ae2cd8186ee4"
+  },
+  "rollback": {
+    "strategy": "snapshot"
+  },
+  "integrity": {
+    "algorithm": "ed25519",
+    "keyId": "capsule-2026-01",
+    "payloadSha256": "f095b26b43dd7f067db5d28761a56f6a6828f62a9594d1aedc544d3b80296ca0",
+    "signature": "lmEA7aCGubwvVZ4QM9ORWoI3NE1dNiW3JoirnnsDKzR0xYFSNvnsZFP0U4PWhYz/vGkYs37bIR6RK19SNgA5AA=="
+  }
+}
