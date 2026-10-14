@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.6.0](https://github.com/WSL043/updated-again/compare/v0.5.1...v0.6.0) (2026-10-14)
+
+
+### 新东西
+
+* add history replay weekly challenges and a focused play page ([ff826af](https://github.com/WSL043/updated-again/commit/ff826af6b51a90e0e83d6669845baeca1fe4cfe3))
+
 ## [0.5.1](https://github.com/WSL043/updated-again/compare/v0.5.0...v0.5.1) (2026-10-14)
 
 
