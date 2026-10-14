@@ -1,9 +1,24 @@
 {
   "specVersion": 1,
-  "generatedAt": "2026-10-14T04:16:48.899Z",
-  "latest": "C-0.5.1-0088",
-  "total": 88,
+  "generatedAt": "2026-10-14T04:28:21.490Z",
+  "latest": "C-0.6.0-0089",
+  "total": 89,
   "entries": [
+    {
+      "id": "C-0.6.0-0089",
+      "sequence": 89,
+      "publishedAt": "2026-10-14T04:28:21.490Z",
+      "plannedFor": "2026-10-14",
+      "channel": "core",
+      "kind": "message",
+      "headline": "真正的玩法更新抵达 Core 0.6.0",
+      "mood": "认真更新",
+      "absurdity": 24,
+      "path": "updates/C-0.6.0-0089.json",
+      "payloadSha256": "1eeb5f1a748550e6f8f82e0f68f97aed14b2d222ef1f02fab1a3a72992844d7f",
+      "recipe": "core-0.6.0",
+      "seed": "6afb7000622f172e63e9caafea190e86015ff9a758dd8dfacc93f99e241bebd1"
+    },
     {
       "id": "C-0.5.1-0088",
       "sequence": 88,
