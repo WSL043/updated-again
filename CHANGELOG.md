@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.7.0](https://github.com/WSL043/updated-again/compare/v0.6.0...v0.7.0) (2026-10-14)
+
+
+### 新东西
+
+* add four interface languages and local play dates ([159be39](https://github.com/WSL043/updated-again/commit/159be393f7d801062d10870088d88ba1c4811cfb))
+
 ## [0.6.0](https://github.com/WSL043/updated-again/compare/v0.5.1...v0.6.0) (2026-10-14)
 
 
