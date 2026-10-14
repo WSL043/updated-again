@@ -47,7 +47,6 @@ export function CircuitRoom() {
     catch { setSelectionWarning("未能记住关卡选择，刷新后可能回到默认每日题。"); }
   }, [choice, initialChoice.warning]);
   useEffect(() => {
-    if (window.location.hash.startsWith("#play")) document.getElementById("play")?.scrollIntoView?.({ block: "start" });
     const tick = () => setDay(projectDay());
     const shared = () => { const next = choiceFromHash(window.location.hash, projectDay()); if (next) setChoice(next); };
     const timer = window.setInterval(tick, 60_000);
@@ -57,7 +56,7 @@ export function CircuitRoom() {
     window.addEventListener("storage", refreshRecords);
     return () => { window.clearInterval(timer); window.removeEventListener("focus", tick); document.removeEventListener("visibilitychange", tick); window.removeEventListener("hashchange", shared); window.removeEventListener("storage", refreshRecords); };
   }, [refreshRecords]);
-  return <section className="circuit-room" id="play" aria-labelledby="circuit-heading">
+  return <section className="circuit-room" id="circuit-room" aria-labelledby="circuit-heading">
     <header className="circuit-heading"><div><p className="circuit-kicker">CIRCUIT CLUB / 每天亮一点</p><h2 id="circuit-heading">补丁接线室<span>接通今天，也接着玩。</span></h2></div><p>一次按下，自己和上下左右一起翻转。<br />让所有接点亮起来，就算修好了这个小世界。</p><span className="circuit-heading-mark" aria-hidden="true">↗</span></header>
     <div className="circuit-mode-nav" aria-label="玩法选择">{([
       ["today", "每日同题", "一日一题"], ["history", "历史每日题", "把错过的补回来"], ["weekly", "每周挑战", "七关，一张成绩单"], ["practice", "自由练习", "随时再来一局"],
