@@ -100,7 +100,7 @@ export function PatchPlayground({ entries, installedIds }: { entries: readonly F
       </div>
 
       <div className="playground-workbench">
-      {!materials.length ? <div className="playground-empty"><h3>实验室有了，还差第一份材料。</h3><p>先在页面上方安装一个通过验签的更新，或去账本挑一份。已有离线材料会自动回来。</p><a href="#archive">去找第一份更新 →</a></div> : (
+      {!materials.length ? <div className="playground-empty"><h3>实验室有了，还差第一份材料。</h3><p>先到“今天”页安装更新，或去账本挑一份。已有离线材料会自动回来。</p><a href="#archive">去找第一份更新 →</a></div> : (
           <div className="playground-controls">
             <div className="playground-inputs">
               {([first, second] as const).map((item, index) => <label key={index} htmlFor={`mix-material-${index}`}><span>材料 {index === 0 ? "A" : "B"}</span><select id={`mix-material-${index}`} value={item.kind} onChange={(event) => (index === 0 ? setA : setB)(event.target.value as UpdateKind)}>{MATERIAL_KINDS.map((kind) => <option key={kind} value={kind} disabled={!owned.has(kind)}>{MATERIALS[kind].glyph} {MATERIALS[kind].label}{owned.has(kind) ? "" : " · 还没安装"}</option>)}</select><small title={item.headline}>{item.headline}</small></label>)}
