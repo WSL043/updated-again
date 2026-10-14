@@ -13,13 +13,13 @@ export function SiteHeader({ route, status }: { route: AppRoute; status: Station
   const statusLabel = status === "error" ? "连接异常" : status === "checking" ? "正在检查" : status === "installing" ? "正在安装" : "今天仍在更新";
   return (
     <header className="site-header">
-      <a className="brand" href="#today" aria-label="Updated Again 首页">
+      <a className="brand" href="#play" aria-label="Updated Again 首页">
         <span className="brand__mark" aria-hidden="true"><i /><i /></span>
         <span><strong>UPDATED AGAIN</strong><small>为了更新而更新</small></span>
       </a>
       <nav aria-label="主导航">
         {NAV.map((item) => (
-          <a key={item.route} href={`#${item.route}`} className={route === item.route ? "active" : ""} aria-current={route === item.route ? "page" : undefined}>
+          <a key={item.route} href={`#${item.route}`} className={route === item.route || (route === "mix" && item.route === "play") ? "active" : ""} aria-current={route === item.route || (route === "mix" && item.route === "play") ? "page" : undefined}>
             <small>{item.note}</small><span>{item.label}</span>
           </a>
         ))}

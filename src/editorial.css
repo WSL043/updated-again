@@ -88,7 +88,7 @@ body {
   border: 0;
 }
 .eyebrow { max-width: 690px; padding-bottom: 13px; color: var(--ink); border-bottom-width: 2px; }
-.release-summary h1 {
+.release-summary :is(h1, h2) {
   max-width: 10.8ch;
   margin: clamp(62px, 8vw, 112px) 0 25px;
   font-size: clamp(62px, 7.4vw, 116px);
@@ -342,7 +342,7 @@ body {
   .edition-mark { top: 40px; left: auto; right: 0; }
   .edition-mark strong { font-size: 140px; }
   .release-summary { min-height: 0; padding: 72px 0 42px; }
-  .release-summary h1 { max-width: 11ch; margin-top: 70px; font-size: clamp(54px, 16vw, 78px); }
+  .release-summary :is(h1, h2) { max-width: 11ch; margin-top: 70px; font-size: clamp(54px, 16vw, 78px); }
   .release-summary__facts { grid-template-columns: 1fr 1fr 1fr; }
   .release-summary__facts > span,
   .release-summary__facts > span + span,
