@@ -13,7 +13,7 @@ export function useHashRoute() {
   const [route, setRoute] = useState<AppRoute>(readRoute);
 
   useEffect(() => {
-    const update = () => setRoute(readRoute());
+    const update = () => { setRoute(readRoute()); window.scrollTo(0, 0); };
     window.addEventListener("hashchange", update);
     return () => window.removeEventListener("hashchange", update);
   }, []);
