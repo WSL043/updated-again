@@ -39,9 +39,10 @@ for (const entry of feed.entries) {
     const capsule = JSON.parse(await readFile(join(projectRoot, "public", entry.path), "utf8"));
     if (capsule.id !== entry.id) failures.push(`${entry.id}: capsule id mismatch`);
     if (capsule.sequence !== entry.sequence) failures.push(`${entry.id}: sequence mismatch`);
-    for (const field of ["plannedFor", "publishedAt", "kind"]) {
+    for (const field of ["plannedFor", "publishedAt", "kind", "calendarTimeZone"]) {
       if (capsule[field] !== entry[field]) failures.push(`${entry.id}: ${field} differs from signed capsule`);
     }
+    if (capsule.calendarTimeZone !== undefined && capsule.calendarTimeZone !== "UTC") failures.push(`${entry.id}: unsupported release calendar`);
     assertPayload(capsule.kind, capsule.payload);
     const payloadHash = sha256(canonicalize({ kind: capsule.kind, payload: capsule.payload }));
     if (payloadHash !== capsule.integrity.payloadSha256 || payloadHash !== entry.payloadSha256) {

@@ -1,3 +1,4 @@
+import { setLanguage } from "../src/i18n";
 import { act, createElement } from "react";
 import { createRoot, type Root } from "react-dom/client";
 import { afterEach, beforeEach, expect, it, vi } from "vitest";
@@ -15,6 +16,7 @@ const click = (text: string) => act(() => {
   button.click();
 });
 beforeEach(() => {
+  setLanguage("zh-CN");
   vi.useFakeTimers(); vi.setSystemTime(new Date("2026-09-12T04:00:00Z")); localStorage.clear();
   window.history.replaceState(null, "", "/");
   host = document.createElement("div"); document.body.append(host); root = createRoot(host); render();
@@ -42,10 +44,10 @@ it("marks hint-assisted play and supports keyboard navigation", () => {
   act(() => { buttons()[0].focus(); buttons()[0].dispatchEvent(new KeyboardEvent("keydown", { key: "ArrowRight", bubbles: true })); });
   expect(document.activeElement).toBe(buttons()[1]);
 });
-it("retains each size's progress and changes the daily puzzle at Shanghai midnight", () => {
+it("retains each size's progress and changes the daily puzzle at local midnight", () => {
   act(() => buttons()[0].click()); click("3 × 3"); expect(buttons()).toHaveLength(9);
   click("4 × 4"); expect(host.querySelector(".circuit-score strong")?.textContent).toBe("01步");
-  act(() => { vi.setSystemTime(new Date("2026-09-12T16:00:01Z")); window.dispatchEvent(new Event("focus")); });
+  act(() => { vi.setSystemTime(new Date("2026-09-13T00:00:01Z")); window.dispatchEvent(new Event("focus")); });
   expect(host.textContent).toContain("2026-09-13");
   expect(host.querySelector(".circuit-score strong")?.textContent).toBe("00步");
 });
@@ -129,11 +131,11 @@ it("opens a shared historical puzzle, then remembers manual selection instead of
 
 it("switches to a new daily at midnight without destroying yesterday's moves or the prior week", () => {
   act(() => buttons()[0].click());
-  act(() => { vi.setSystemTime(new Date("2026-09-12T16:00:01Z")); window.dispatchEvent(new Event("focus")); });
+  act(() => { vi.setSystemTime(new Date("2026-09-13T00:00:01Z")); window.dispatchEvent(new Event("focus")); });
   expect(moves()).toBe("00步");
   click("历史每日题"); setDate("2026-09-12"); expect(moves()).toBe("01步");
   click("每周挑战"); act(() => buttons()[0].click());
-  act(() => { vi.setSystemTime(new Date("2026-09-13T16:00:01Z")); window.dispatchEvent(new Event("focus")); });
+  act(() => { vi.setSystemTime(new Date("2026-09-14T00:00:01Z")); window.dispatchEvent(new Event("focus")); });
   expect(moves()).toBe("01步");
   click("回到本周"); expect(moves()).toBe("00步");
   click("上一周"); expect(moves()).toBe("01步");

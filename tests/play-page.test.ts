@@ -1,3 +1,4 @@
+import { setLanguage } from "../src/i18n";
 import { act, createElement } from "react";
 import { createRoot, type Root } from "react-dom/client";
 import { beforeEach, afterEach, expect, it, vi } from "vitest";
@@ -8,6 +9,7 @@ Object.assign(globalThis, { IS_REACT_ACT_ENVIRONMENT: true });
 let host: HTMLDivElement, root: Root;
 const station = { feed: { entries: [] }, archive: { state: { installedIds: [] } } } as unknown as UpdateStation;
 beforeEach(() => {
+  setLanguage("zh-CN");
   localStorage.clear(); vi.useFakeTimers(); vi.setSystemTime(new Date("2026-10-14T04:00:00Z"));
   host = document.createElement("div"); document.body.append(host); root = createRoot(host);
 });

@@ -18,7 +18,7 @@ describe("README daily record", () => {
   it("does not let a backfill repair an on-time streak", () => {
     const stats = summarizeFeed(feed(entry("2026-10-12"), entry("2026-10-13", "2026-10-14T01:00:00Z"), entry("2026-10-14")), now);
     expect(stats).toMatchObject({ coverageStreak: 3, onTimeStreak: 1, backfilledDays: 1 });
-    expect(renderStatus(stats)).toContain("已补发");
+    expect(renderStatus(stats)).toContain("Backfilled");
   });
 
   it("allows an unfinished today, but breaks the streak for an absent yesterday", () => {
@@ -26,7 +26,7 @@ describe("README daily record", () => {
     const stats = summarizeFeed(feed(entry("2026-10-12")), now);
     expect(stats.onTimeStreak).toBe(0);
     expect(stats.missing).toEqual(["2026-10-13"]);
-    expect(renderStatus(stats)).toContain("今日等待中");
+    expect(renderStatus(stats)).toContain("Pending today");
   });
 
   it("ignores future-dated releases and handles empty and year-boundary ledgers", () => {

@@ -68,14 +68,14 @@ export function materialize(value, context, random) {
     .replaceAll("{{sequence}}", String(context.sequence));
 }
 
-export function dateInShanghai(now = new Date()) {
-  const formatter = new Intl.DateTimeFormat("en-CA", {
-    timeZone: "Asia/Shanghai",
-    year: "numeric",
-    month: "2-digit",
-    day: "2-digit",
-  });
-  return formatter.format(now);
+export function dateInUTC(now = new Date()) {
+  return now.toISOString().slice(0, 10);
+}
+
+// Legacy signed entries retain their original calendar, without rewriting history.
+export function releaseCalendarDay(entry) {
+  return entry.calendarTimeZone === "UTC" ? dateInUTC(new Date(entry.publishedAt)) :
+    new Intl.DateTimeFormat("en-CA", { timeZone: "Asia/Shanghai", year: "numeric", month: "2-digit", day: "2-digit" }).format(new Date(entry.publishedAt));
 }
 
 export function toUnsignedCapsule(capsule) {

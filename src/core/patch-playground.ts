@@ -1,5 +1,6 @@
 /** Local play only: recipes never install capsules or mutate the signed world. */
 import type { FeedEntry, UpdateKind } from "./types";
+import { localDay } from "./calendar";
 
 export const MATERIALS: Record<UpdateKind, { label: string; glyph: string }> = {
   theme: { label: "颜色", glyph: "◐" },
@@ -83,10 +84,8 @@ export function mix(a: UpdateKind, b: UpdateKind, method: Method): Experiment {
 }
 
 const DAY_MS = 86_400_000;
-const SHANGHAI_OFFSET = 8 * 60 * 60 * 1000;
 export function projectDay(now: Date = new Date()): string {
-  if (!Number.isFinite(now.getTime())) throw new Error("日期无效。");
-  return new Date(now.getTime() + SHANGHAI_OFFSET).toISOString().slice(0, 10);
+  return localDay(now);
 }
 export function dailyExperiment(day: string): Experiment {
   if (!/^\d{4}-\d{2}-\d{2}$/.test(day)) throw new Error("日期无效。");

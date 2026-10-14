@@ -1,4 +1,4 @@
-import { canonicalize, dateInShanghai } from "./lib.mjs";
+import { canonicalize, dateInUTC, releaseCalendarDay } from "./lib.mjs";
 
 export const START = "<!-- daily-status:start -->";
 export const END = "<!-- daily-status:end -->";
@@ -20,10 +20,10 @@ function streak(days, today) {
 }
 
 export function summarizeFeed(feed, now = new Date()) {
-  const today = dateInShanghai(now);
+  const today = dateInUTC(now);
   const entries = feed.entries.filter((entry) => entry.plannedFor <= today && new Date(entry.publishedAt) <= now);
   const covered = new Set(entries.map((entry) => entry.plannedFor));
-  const onTime = new Set(entries.filter((entry) => dateInShanghai(new Date(entry.publishedAt)) === entry.plannedFor).map((entry) => entry.plannedFor));
+  const onTime = new Set(entries.filter((entry) => releaseCalendarDay(entry) === entry.plannedFor).map((entry) => entry.plannedFor));
   const days = [...covered].sort();
   const missing = [];
   for (let day = days[0]; day && day < today; day = shiftDay(day, 1)) {
@@ -32,7 +32,7 @@ export function summarizeFeed(feed, now = new Date()) {
   const recent = Array.from({ length: 7 }, (_, index) => {
     const day = shiftDay(today, -index);
     const updates = entries.filter((entry) => entry.plannedFor === day);
-    const punctual = updates.filter((entry) => dateInShanghai(new Date(entry.publishedAt)) === day).length;
+    const punctual = updates.filter((entry) => releaseCalendarDay(entry) === day).length;
     return { day, count: updates.length, punctual, kinds: [...new Set(updates.map((entry) => entry.kind))].sort() };
   });
   return {
@@ -45,44 +45,28 @@ export function summarizeFeed(feed, now = new Date()) {
 
 export function renderStatus(stats) {
   const rows = stats.recent.map(({ day, count, punctual, kinds }) => {
-    const state = punctual > 0 ? "当日发布" : count > 0 ? "已补发" : day === stats.today ? "今日等待中" : !stats.firstDay || day < stats.firstDay ? "尚未启动" : "缺更";
-    return `| ${day} | ${count} | ${state} | ${kinds.map((kind) => `\`${kind}\``).join("、") || "—"} |`;
+    const state = punctual > 0 ? "Published on schedule" : count > 0 ? "Backfilled" : day === stats.today ? "Pending today" : !stats.firstDay || day < stats.firstDay ? "Not started" : "Missing";
+    return `| ${day} | ${count} | ${state} | ${kinds.map((kind) => `\`${kind}\``).join(", ") || "—"} |`;
   });
-  return [
-    START,
-    "## 每日运行记录",
-    "",
-    "[![每日体检](https://github.com/WSL043/updated-again/actions/workflows/project-health.yml/badge.svg)](https://github.com/WSL043/updated-again/actions/workflows/project-health.yml) [![日更调度](https://github.com/WSL043/updated-again/actions/workflows/daily-update.yml/badge.svg)](https://github.com/WSL043/updated-again/actions/workflows/daily-update.yml)",
-    "",
-    `截至 **${stats.today}（上海时间）**，连续按日发布 **${stats.onTimeStreak} 天**；账本连续覆盖 **${stats.coverageStreak} 天**。`,
-    "",
-    "| 指标 | 当前记录 |",
-    "|---|---|",
-    `| 首次胶囊日期 | ${stats.firstDay || "暂无"} |`,
-    `| 最近覆盖日期 | ${stats.latestDay || "暂无"} |`,
-    `| 累计胶囊 / 覆盖日期 | ${stats.total} 个 / ${stats.coveredDays} 天 |`,
-    `| 仅靠补发覆盖的日期 | ${stats.backfilledDays} 天 |`,
-    `| 已结束日期仍缺更 | ${stats.missing.length} 天 |`,
-    "",
-    "最近七天：",
-    "",
-    "| 日期 | 胶囊数 | 发布情况 | 变化类型 |",
-    "|---|---:|---|---|",
-    ...rows,
-    "",
-    "由签名账本自动生成，日更发布和每日体检时刷新。连续按日发布要求 `publishedAt` 的上海日期等于 `plannedFor`；补发只计入账本覆盖，不能修复按日发布记录。今天尚未发布时从昨天回溯，已结束日期缺更则中断计数。",
-    "",
-    "这是日更记录，不是站点全天在线时长；每日体检另行验证公开 Pages 账本与最新胶囊是否同步，检查失败会显示红色。请结合本页快照日期和体检运行时间判断是否过期。",
-    END,
-  ].join("\n");
+  return [START, "## Daily running record", "",
+    "[![Health audit](https://github.com/WSL043/updated-again/actions/workflows/project-health.yml/badge.svg)](https://github.com/WSL043/updated-again/actions/workflows/project-health.yml) [![Daily release](https://github.com/WSL043/updated-again/actions/workflows/daily-update.yml/badge.svg)](https://github.com/WSL043/updated-again/actions/workflows/daily-update.yml)", "",
+    `As of **${stats.today} (UTC)**: **${stats.onTimeStreak} consecutive on-schedule release days**, with **${stats.coverageStreak} consecutive days covered by the ledger**.`, "",
+    "| Metric | Record |", "|---|---|",
+    `| First release date | ${stats.firstDay || "None"} |`,
+    `| Latest covered date | ${stats.latestDay || "None"} |`,
+    `| Capsules / covered dates | ${stats.total} / ${stats.coveredDays} |`,
+    `| Dates covered only by backfills | ${stats.backfilledDays} |`,
+    `| Completed dates still missing | ${stats.missing.length} |`, "",
+    "Last seven days:", "", "| Date | Capsules | Publication | Types |", "|---|---:|---|---|", ...rows, "",
+    "Generated from the signed ledger during publication and daily audits. New releases use UTC. Historical entries without calendar metadata retain their original recorded calendar; they are never rewritten. Backfills restore ledger coverage, but do not repair on-schedule publication streaks. An unfinished today is allowed; a missing completed day breaks the streak.", "",
+    "This measures release activity, not continuous website uptime. Health audits separately verify the public Pages ledger and latest capsule. Check the snapshot date and audit timestamp for freshness.", END].join("\n");
 }
-
 export function replaceStatus(readme, block) {
   const start = readme.indexOf(START);
   const end = readme.indexOf(END);
   if (start === -1 && end === -1) {
-    const anchor = "## 它现在真的会做什么";
-    if (!readme.includes(anchor)) throw new Error("README status insertion anchor missing");
+    const anchor = ["## What you can do", "## 它现在真的会做什么"].find((heading) => readme.includes(heading));
+    if (!anchor) throw new Error("README status insertion anchor missing");
     return readme.replace(anchor, `${block}\n\n${anchor}`);
   }
   if (start === -1 || end < start || readme.indexOf(START, start + START.length) !== -1 || readme.indexOf(END, end + END.length) !== -1) {
@@ -92,10 +76,10 @@ export function replaceStatus(readme, block) {
 }
 
 export function assertDeployment(feed, remoteFeed, localCapsule, remoteCapsule, today) {
-  const stats = summarizeFeed(feed, new Date(`${today}T15:59:59.999Z`));
+  const stats = summarizeFeed(feed, new Date(`${today}T23:59:59.999Z`));
   const yesterday = shiftDay(today, -1);
   if (!stats.firstDay || stats.firstDay > yesterday || stats.latestDay < yesterday || stats.missing.length) {
-    throw new Error(`Ledger must cover every completed Shanghai day through ${yesterday}`);
+    throw new Error(`Ledger must cover every completed UTC release day through ${yesterday}`);
   }
   // Comparing complete data catches stale deployments even if the latest ID is unchanged.
   if (canonicalize(remoteFeed) !== canonicalize(feed)) throw new Error("Public Pages ledger differs from repository ledger");

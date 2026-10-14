@@ -1,161 +1,158 @@
-# Updated Again · 又更了
+# Updated Again
 
-> 一个为了更新而更新、每天都会真的改点东西的软件玩具。
+> A living software toy that changes something every day, because updating is the point.
 
-[在线体验](https://wsl043.github.io/updated-again/) · [版本账本](https://wsl043.github.io/updated-again/feed/index.json) · [提出荒唐更新](https://github.com/WSL043/updated-again/issues/new?template=update-idea.yml)
+[Play online](https://wsl043.github.io/updated-again/) · [Release ledger](https://wsl043.github.io/updated-again/feed/index.json) · [Suggest an update](https://github.com/WSL043/updated-again/issues/new?template=update-idea.yml) · [简体中文](README.zh-CN.md)
 
-它只更新自己。理由可以是“作者今天心情好”，更新内容不能是空壳；每一更都能安装、验证和回滚。
+It updates itself. The reason can be “the author felt like it”; the change must be real, verifiable, installable, and reversible.
 
 <!-- daily-status:start -->
-## 每日运行记录
+## Daily running record
 
-[![每日体检](https://github.com/WSL043/updated-again/actions/workflows/project-health.yml/badge.svg)](https://github.com/WSL043/updated-again/actions/workflows/project-health.yml) [![日更调度](https://github.com/WSL043/updated-again/actions/workflows/daily-update.yml/badge.svg)](https://github.com/WSL043/updated-again/actions/workflows/daily-update.yml)
+[![Health audit](https://github.com/WSL043/updated-again/actions/workflows/project-health.yml/badge.svg)](https://github.com/WSL043/updated-again/actions/workflows/project-health.yml) [![Daily release](https://github.com/WSL043/updated-again/actions/workflows/daily-update.yml/badge.svg)](https://github.com/WSL043/updated-again/actions/workflows/daily-update.yml)
 
-截至 **2026-10-14（上海时间）**，连续按日发布 **62 天**；账本连续覆盖 **62 天**。
+As of **2026-10-14 (UTC)**: **62 consecutive on-schedule release days**, with **62 consecutive days covered by the ledger**.
 
-| 指标 | 当前记录 |
+| Metric | Record |
 |---|---|
-| 首次胶囊日期 | 2026-08-14 |
-| 最近覆盖日期 | 2026-10-14 |
-| 累计胶囊 / 覆盖日期 | 89 个 / 62 天 |
-| 仅靠补发覆盖的日期 | 0 天 |
-| 已结束日期仍缺更 | 0 天 |
+| First release date | 2026-08-14 |
+| Latest covered date | 2026-10-14 |
+| Capsules / covered dates | 89 / 62 |
+| Dates covered only by backfills | 0 |
+| Completed dates still missing | 0 |
 
-最近七天：
+Last seven days:
 
-| 日期 | 胶囊数 | 发布情况 | 变化类型 |
+| Date | Capsules | Publication | Types |
 |---|---:|---|---|
-| 2026-10-14 | 3 | 当日发布 | `collectible`、`message` |
-| 2026-10-13 | 1 | 当日发布 | `theme` |
-| 2026-10-12 | 2 | 当日发布 | `companion`、`theme` |
-| 2026-10-11 | 1 | 当日发布 | `constellation` |
-| 2026-10-10 | 1 | 当日发布 | `constellation` |
-| 2026-10-09 | 3 | 当日发布 | `companion`、`message`、`ritual` |
-| 2026-10-08 | 2 | 当日发布 | `button-personality`、`collectible` |
+| 2026-10-14 | 3 | Published on schedule | `collectible`, `message` |
+| 2026-10-13 | 1 | Published on schedule | `theme` |
+| 2026-10-12 | 2 | Published on schedule | `companion`, `theme` |
+| 2026-10-11 | 1 | Published on schedule | `constellation` |
+| 2026-10-10 | 1 | Published on schedule | `constellation` |
+| 2026-10-09 | 3 | Published on schedule | `companion`, `message`, `ritual` |
+| 2026-10-08 | 2 | Published on schedule | `button-personality`, `collectible` |
 
-由签名账本自动生成，日更发布和每日体检时刷新。连续按日发布要求 `publishedAt` 的上海日期等于 `plannedFor`；补发只计入账本覆盖，不能修复按日发布记录。今天尚未发布时从昨天回溯，已结束日期缺更则中断计数。
+Generated from the signed ledger during publication and daily audits. New releases use UTC. Historical entries without calendar metadata retain their original recorded calendar; they are never rewritten. Backfills restore ledger coverage, but do not repair on-schedule publication streaks. An unfinished today is allowed; a missing completed day breaks the streak.
 
-这是日更记录，不是站点全天在线时长；每日体检另行验证公开 Pages 账本与最新胶囊是否同步，检查失败会显示红色。请结合本页快照日期和体检运行时间判断是否过期。
+This measures release activity, not continuous website uptime. Health audits separately verify the public Pages ledger and latest capsule. Check the snapshot date and audit timestamp for freshness.
 <!-- daily-status:end -->
 
-## 它现在真的会做什么
+## What you can do
 
-- 打开就能玩「补丁接线室」：3×3 / 4×4 / 5×5 每日同题、历史日期重玩、每周固定七关与自由练习。进度按题保存，独立与提示成绩分开记录；支持最短解提示、撤销、刷新续玩、PNG 成绩卡和同题分享链接。无需安装胶囊或连接账号。
-- 玩法页一次展示一个玩具；接线室、混合台与今日更新各有入口。棋盘、记录和操作保持固定排版，今日更新页继续使用每日视觉基因。
-- 「补丁混合台」把装过的变化变成 84 种可收集的实验状态，支持每日线索和本机图鉴。
-- 每天由 GitHub Actions 在五个错峰时段运行，受约束随机算法决定今天发布 1～3 次。
-- 若真正的 Core 功能版已经发布，它会计入当天更新，原定日更可能被推迟或取消。
-- 最后一个时段承担保底；若调度曾中断，下一次运行会为缺失日期生成并发布储备胶囊。
-- 胶囊使用 Ed25519 签名，客户端安装前同时验证签名和内容哈希。
-- Web、PWA 和 Tauri 桌面客户端共用同一本更新账本和能力注册表。
-- 网页每天由日期和最新胶囊 seed 生成一套可复现的视觉基因；配色、构图、几何和底纹会变，阅读顺序与可访问性底线不变。
-- 每次安装都会保存本地快照，可回滚最后一次胶囊更新。
-- Windows、Linux、macOS Apple Silicon、macOS Intel 都有独立 CI 检查。`feat`、`fix` 等真实改动进入主分支后会被收进候选版本，验证通过即自动发标签、GitHub Release、安装包和更新清单；纯日更不会滥发客户端版本。
+- **Circuit Room:** daily puzzles, historical replay, seven-round weekly challenges, and free practice on 3×3, 4×4, and 5×5 boards. Each puzzle saves separately. Undo, shortest-solution hints, independent scores, share links, and downloadable PNG scorecards are included. No account or capsule installation is required.
+- **Patch Mixer:** turn installed changes into 84 collectible experiments, with daily clues and a local notebook.
+- **Focused navigation:** Play, Today, Archive, and About have separate pages. One toy is shown at a time; the board, records, and controls retain a consistent layout.
+- **Four interface languages:** English by default, plus Simplified Chinese, Japanese, and Spanish. Use the header selector; your choice stays on this device. Switching languages keeps puzzle progress and records.
+- **Local play calendar:** daily puzzles, weekly challenges, and displayed timestamps follow your device's local time. New public releases and automated health audits use UTC. Original signed release text and historical records retain their published content.
+- **Real daily releases:** GitHub Actions runs at five staggered times. A constrained random planner chooses one to three updates per day. A published Core release counts toward that day's activity. The final slot provides a fallback; later runs backfill missing dates after interruptions.
+- **Verified capsules:** Ed25519 signatures and content hashes are checked before installation. Each installation saves a local snapshot for rollback.
+- **Shared clients:** Web, PWA, and Tauri desktop apps use the same ledger and capability registry. Daily visual variations are reproducible from the local date and latest capsule seed.
+- **Automatic Core releases:** real feature/fix commits enter a release candidate, pass checks, and produce tags, GitHub Releases, installers, and updater manifests. Daily content alone does not issue a new client version.
 
-这能做到“最终账本每天至少一更”，但不能把第三方托管平台故障描述成数学意义上的实时保证。仓库使用多个错峰调度、末班保底和断档回填来降低风险；如果需要严格 SLA，应把同一幂等调度器接到第二个独立 Cron 服务。
+The ledger aims to cover every day. Third-party scheduling and hosting can still fail; staggered runs, fallback slots, and backfills reduce that risk. Release-day counts are not continuous uptime measurements.
 
-## 两条时间线
+## Two timelines
 
-| 时间线 | 版本示例 | 谁可以发布 | 用途 |
+| Timeline | Example | Publisher | Purpose |
 |---|---|---|---|
-| Daily Capsule | `D-20260814-0001-museum-object` | 规则引擎自动发布 | 主题、文案、藏品、仪式、伙伴状态、星图、按钮人格 |
-| Core Release | `v0.2.0` | 真实代码合并后自动整理并发布 | 新玩法、新权限、新更新类型、迁移、更新器自身 |
+| Daily Capsule | `D-20260814-0001-museum-object` | Rules engine | Themes, messages, collectibles, rituals, companion states, constellations, and button personalities |
+| Core Release | `v0.6.0` | Validated code changes | New games, capabilities, migrations, permissions, and updater changes |
 
-Agent 可以生成理由、台词、参数和新配方 PR，但不持有签名密钥，也不能直接增加原生权限或发布任意代码。没有 Agent 时，确定性配方引擎和储备池仍能维持项目。
+An agent can propose reasons, dialogue, parameters, and recipe PRs. It does not hold the signing key or directly grant native permissions. The deterministic recipe engine and reserve pool work without an agent.
 
-核心版本也会自己往前走，但不让模型直接改生产代码：Conventional Commit 决定 SemVer，Release Please 只修改版本文件和更新日志，项目自己的检查通过后才合并候选版本。失败会停在候选阶段，已有日更不受影响。
+Conventional Commits determine SemVer. Release Please prepares version files and the changelog; project checks must pass before the candidate is merged. A failed candidate leaves existing daily content available.
 
-## 社区自动驾驶
+## Community autopilot
 
-- 任何人通过“荒唐更新提案”Issue 提交想法后，可信主分支工作流会清洗文本，并自动映射为现有能力的签名胶囊；不需要维护者批准。
-- 社区对 `content/recipes.json`、`community/` 和 `docs/` 的声明式 PR，在完整 CI 通过后自动 squash 合并。
-- Dependabot 的受限依赖文件 PR 同样可自动合并；源码、脚本、权限、工作流以外的任意可执行边界不会从普通社区 PR 自动进入主分支。
-- 自动合并若令主分支 CI 失败，恢复机器人只会回滚带 `[auto-community]` 标记的最新失败提交，并留下事件 Issue。
-- 每日体检会核对签名账本、上海日期覆盖和 GitHub Pages 最新指针；异常自动开 Issue，恢复后自动关闭。
+- Public update-idea Issues are sanitized by a trusted workflow and mapped to existing capabilities as signed capsules.
+- Declarative community PRs within `content/recipes.json`, `community/`, and `docs/` can merge after full CI.
+- Restricted Dependabot dependency PRs can also merge automatically. Arbitrary source code, scripts, workflows, or permissions from ordinary community PRs cannot cross that executable boundary automatically.
+- If an automatic community merge breaks main CI, recovery reverts only the latest failed `[auto-community]` commit and records an incident Issue.
+- Daily audits check signatures, completed UTC release dates, and the public Pages feed. They open an Issue on failure and close it after recovery.
 
-这个边界允许社区想法立即生效，同时避免 Issue/PR 文本接触签名私钥或把任意代码带进持有写权限的工作流。仓库变量 `COMMUNITY_AUTOPILOT=false` 可作为总停机开关。
+Issue and PR text never receives signing secrets. Set repository variable `COMMUNITY_AUTOPILOT=false` to disable community autopilot.
 
-## 当前能力
+## Capabilities
 
-- `theme`：改变世界调色板和宣言
-- `message`：安装并归档一句新文案
-- `collectible`：投放唯一版本藏品
-- `ritual`：增加一项无用小仪式
-- `companion`：改变补丁团子的样子、心情和台词
-- `constellation`：在版本星图中钉上一颗星
-- `button-personality`：改变更新按钮的文案和运动性格
+| Kind | Visible effect |
+|---|---|
+| `theme` | World palette and banner |
+| `message` | An installed, archived sentence |
+| `collectible` | A unique version artifact |
+| `ritual` | A small, unnecessary ritual |
+| `companion` | Patch's appearance, mood, and dialogue |
+| `constellation` | A new star in the release map |
+| `button-personality` | Update-button wording and motion |
 
-## 版本聊天室
+Add recipes in [`content/recipes.json`](content/recipes.json). A new capability needs generation, validation, application, visible effects, rollback, and tests; see [`ADDING_UPDATE_TYPES.md`](docs/ADDING_UPDATE_TYPES.md).
 
-默认聊天先匹配项目规则，再从 410,009 组社区对话中检索。语料按语言延迟加载，中文包约 4.62 MB，其他单个语言包不超过 2.66 MB。社区包完整包含 KdConv、ChatterBot Corpus 和 XDailyDialog；检索在浏览器内完成，消息不会发给外部服务。
+## Version chat
 
-需要生成式回答时，访客可以主动选择匿名 AI Horde，或连接 Puter。AI Horde 不需要登录，但消息会发送给社区工作节点；排队、失败或超时会取消任务并自动回到本地。Puter 使用访客自己账户的月度额度。网页不保存开发者 API Key。
+Local chat first matches project rules, then searches 410,009 community dialogue pairs. Language packs load on demand: Chinese is about 4.62 MB; other individual packs are at most 2.66 MB. The corpus includes KdConv, ChatterBot Corpus, and XDailyDialog. Local retrieval runs in the browser without sending messages to an external service.
 
-Puter 没有公开固定的每日免费次数。连接后，界面会读取当前账户的月度用量并显示剩余比例。
+Visitors can explicitly choose anonymous AI Horde or connect Puter for generated replies. Horde sends messages to community workers; queuing failures and timeouts cancel the request and return to local chat. Puter uses the visitor's own monthly allowance, with available usage shown after connection. The app stores no developer API key.
 
-增加配方只需编辑 [`content/recipes.json`](content/recipes.json)。增加全新能力必须同时实现生成、校验、应用、可见效果、回滚和测试；详见 [`docs/ADDING_UPDATE_TYPES.md`](docs/ADDING_UPDATE_TYPES.md)。
+## Run locally
 
-## 本地运行
-
-需要 Node.js 22、pnpm 10；桌面构建还需要 Rust 和各平台的 Tauri 系统依赖。
+Use Node.js 22.22.2 or later and pnpm 10. Desktop builds also require Rust and the platform's Tauri system dependencies.
 
 ```bash
 pnpm install
 pnpm dev
 ```
 
-验证全部 Web 和更新协议：
+Validate the app and update protocol:
 
 ```bash
 pnpm check
 ```
 
-模拟但不写入一次未来更新：
+Simulate a future update without writing it:
 
 ```bash
 pnpm update:simulate
 ```
 
-运行桌面版：
+Run the desktop shell:
 
 ```bash
 pnpm tauri:dev
 ```
 
-生产日更需要 CI Secret `CAPSULE_SIGNING_PRIVATE_KEY` 和 `CHAOS_SEED`。不要把私钥写进 `.env`、Issue、日志或提交。
+Production daily releases use CI secrets `CAPSULE_SIGNING_PRIVATE_KEY` and `CHAOS_SEED`. Keep private keys out of source files, Issues, and logs.
 
-## 平台边界
+## Platforms
 
-| 平台 | 当前交付 |
+| Platform | Delivery |
 |---|---|
-| Web | GitHub Pages 自动部署 |
-| 手机和平板 | 响应式 PWA，可添加到主屏幕 |
-| Windows x64 | Tauri NSIS/MSI 开发者预览构建 |
-| Linux x64 | Tauri AppImage/deb/rpm 开发者预览构建 |
-| macOS Apple Silicon | Tauri DMG/app 开发者预览构建 |
-| macOS Intel | 独立 Intel CI 构建 |
-| iOS/Android 原生商店包 | 暂不宣称；需要开发者账号、设备验收和商店签名 |
+| Web | Automatic GitHub Pages deployment |
+| Phone/tablet | Responsive PWA with home-screen installation |
+| Windows x64 | Tauri NSIS/MSI Developer Preview |
+| Linux x64 | Tauri AppImage/deb/rpm Developer Preview |
+| macOS Apple Silicon | Tauri DMG/app Developer Preview |
+| macOS Intel | Separate Intel CI build |
+| Native iOS/Android stores | Not currently claimed; requires accounts, devices, and store signing |
 
-目前桌面产物使用项目级更新签名，但没有付费的 Apple Developer ID 或 Windows Authenticode 证书，系统可能显示未知开发者警告。CI 成功也不等于真实设备支持，未经真实设备安装、更新、回滚和卸载验收前，所有原生包都标为 Developer Preview。
+Desktop artifacts use project updater signatures but do not currently have paid Apple Developer ID or Windows Authenticode certificates. They remain Developer Preview until real-device installation, update, rollback, and uninstall have been verified. CI success alone does not establish device support.
 
-## 目录
+## Repository
 
 ```text
-src/                 Web/PWA 与桌面共享界面
-src/capabilities/    胶囊能力注册表和回滚边界
-src/core/            协议、签名、存储、更新客户端
-content/             无代码配方
-scripts/             随机计划、发布、签名、账本验证
-public/feed/         公共只追加账本和核心更新指针
-public/updates/      不可变胶囊
-src-tauri/           跨平台桌面外壳
-.github/workflows/   CI、日更、Pages、核心发布
+src/                 Shared Web/PWA and desktop UI
+src/i18n/            Interface catalog and language preferences
+src/capabilities/    Capsule capabilities and rollback boundaries
+src/core/            Protocol, signatures, storage, and update client
+content/             Declarative recipes
+scripts/             Planning, publishing, signing, and ledger validation
+public/feed/         Append-only ledger and Core update pointers
+public/updates/      Immutable capsules
+src-tauri/           Cross-platform desktop shell
+.github/workflows/   CI, daily releases, Pages, and Core releases
 ```
 
-详细设计见 [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) 和 [`docs/DAILY_RELEASE_CONTRACT.md`](docs/DAILY_RELEASE_CONTRACT.md)。
+See [`ARCHITECTURE.md`](docs/ARCHITECTURE.md), [`DAILY_RELEASE_CONTRACT.md`](docs/DAILY_RELEASE_CONTRACT.md), and [`LOCALIZATION.md`](docs/LOCALIZATION.md).
 
-## 状态
-
-当前版本是公开开发者预览，不是稳定版。项目故意不会急着宣布 `1.0`，但“不完成”不意味着可以跳过安全、真实性或回滚。
+This is a public Developer Preview. The project is in no hurry to declare 1.0; that does not excuse skipping verification, safety, or rollback.
 
 MIT License

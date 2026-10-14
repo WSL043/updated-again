@@ -1,13 +1,13 @@
 {
-  "name": "Updated Again · 又更了",
-  "short_name": "又更了",
-  "description": "一个为了更新而更新、每天都真实改变一点点的活体软件项目。",
+  "name": "Updated Again",
+  "short_name": "Updated Again",
+  "description": "A living software toy with a little real change every day.",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
   "background_color": "#11101d",
   "theme_color": "#17142f",
-  "lang": "zh-CN",
+  "lang": "en",
   "categories": ["entertainment", "developer tools"],
   "icons": [
     {

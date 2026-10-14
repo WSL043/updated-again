@@ -24,9 +24,9 @@ describe("patch recipe algebra", () => {
   it("rejects unsupported methods instead of inventing outcomes", () => {
     expect(() => mix("theme", "message", "unknown" as never)).toThrow();
   });
-  it("uses Shanghai midnight, independent of the visitor's timezone", () => {
-    expect(projectDay(new Date("2026-09-06T15:59:59Z"))).toBe("2026-09-06");
-    expect(projectDay(new Date("2026-09-06T16:00:00Z"))).toBe("2026-09-07");
+  it("uses device-local midnight", () => {
+    expect(projectDay(new Date("2026-09-06T23:59:59Z"))).toBe("2026-09-06");
+    expect(projectDay(new Date("2026-09-07T00:00:00Z"))).toBe("2026-09-07");
   });
   it("offers every v1 state exactly once in an 84-day cycle", () => {
     const recipes = Array.from({ length: 84 }, (_, offset) => dailyExperiment(new Date(Date.UTC(2026, 0, 1 + offset)).toISOString().slice(0, 10)).id);

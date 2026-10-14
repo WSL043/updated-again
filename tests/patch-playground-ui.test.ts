@@ -1,3 +1,4 @@
+import { setLanguage } from "../src/i18n";
 import { act, createElement } from "react";
 import { createRoot, type Root } from "react-dom/client";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
@@ -18,7 +19,8 @@ function click(text: string) {
   if (!button) throw new Error(`Missing button: ${text}`);
   act(() => button.click());
 }
-beforeEach(() => { localStorage.clear(); host = document.createElement("div"); document.body.append(host); root = createRoot(host); });
+beforeEach(() => {
+  setLanguage("zh-CN"); localStorage.clear(); host = document.createElement("div"); document.body.append(host); root = createRoot(host); });
 afterEach(() => { act(() => root.unmount()); host.remove(); vi.restoreAllMocks(); vi.useRealTimers(); });
 
 describe("playground browser interaction", () => {
@@ -77,7 +79,7 @@ describe("playground browser interaction", () => {
     expect(host.querySelector("progress")?.value).toBe(0);
   });
   it("refreshes the daily clue at midnight without a page reload", () => {
-    vi.useFakeTimers(); vi.setSystemTime(new Date("2026-09-06T15:59:59Z"));
+    vi.useFakeTimers(); vi.setSystemTime(new Date("2026-09-06T23:59:59Z"));
     render(); expect(host.querySelector("time")?.textContent).toBe("2026-09-06");
     click("再给一点提示");
     act(() => { vi.advanceTimersByTime(60_000); });
