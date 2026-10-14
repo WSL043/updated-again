@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.5.1](https://github.com/WSL043/updated-again/compare/v0.5.0...v0.5.1) (2026-10-14)
+
+
+### 修好了
+
+* publish trustworthy daily README records and health audits ([aa0e466](https://github.com/WSL043/updated-again/commit/aa0e466ddda79349d02111f9cc8c1427b49cdfe1))
+
 ## [0.5.0](https://github.com/WSL043/updated-again/compare/v0.4.0...v0.5.0) (2026-09-12)
 
 
