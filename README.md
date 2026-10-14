@@ -6,6 +6,38 @@
 
 它只更新自己。理由可以是“作者今天心情好”，更新内容不能是空壳；每一更都能安装、验证和回滚。
 
+<!-- daily-status:start -->
+## 每日运行记录
+
+[![每日体检](https://github.com/WSL043/updated-again/actions/workflows/project-health.yml/badge.svg)](https://github.com/WSL043/updated-again/actions/workflows/project-health.yml) [![日更调度](https://github.com/WSL043/updated-again/actions/workflows/daily-update.yml/badge.svg)](https://github.com/WSL043/updated-again/actions/workflows/daily-update.yml)
+
+截至 **2026-10-14（上海时间）**，连续按日发布 **62 天**；账本连续覆盖 **62 天**。
+
+| 指标 | 当前记录 |
+|---|---|
+| 首次胶囊日期 | 2026-08-14 |
+| 最近覆盖日期 | 2026-10-14 |
+| 累计胶囊 / 覆盖日期 | 87 个 / 62 天 |
+| 仅靠补发覆盖的日期 | 0 天 |
+| 已结束日期仍缺更 | 0 天 |
+
+最近七天：
+
+| 日期 | 胶囊数 | 发布情况 | 变化类型 |
+|---|---:|---|---|
+| 2026-10-14 | 1 | 当日发布 | `collectible` |
+| 2026-10-13 | 1 | 当日发布 | `theme` |
+| 2026-10-12 | 2 | 当日发布 | `companion`、`theme` |
+| 2026-10-11 | 1 | 当日发布 | `constellation` |
+| 2026-10-10 | 1 | 当日发布 | `constellation` |
+| 2026-10-09 | 3 | 当日发布 | `companion`、`message`、`ritual` |
+| 2026-10-08 | 2 | 当日发布 | `button-personality`、`collectible` |
+
+由签名账本自动生成，日更发布和每日体检时刷新。连续按日发布要求 `publishedAt` 的上海日期等于 `plannedFor`；补发只计入账本覆盖，不能修复按日发布记录。今天尚未发布时从昨天回溯，已结束日期缺更则中断计数。
+
+这是日更记录，不是站点全天在线时长；每日体检另行验证公开 Pages 账本与最新胶囊是否同步，检查失败会显示红色。请结合本页快照日期和体检运行时间判断是否过期。
+<!-- daily-status:end -->
+
 ## 它现在真的会做什么
 
 - 打开就能玩「补丁接线室」：3×3 / 4×4 / 5×5 每日同题与自由练习，最短解提示、撤销、刷新续玩和通关卡片。无需安装胶囊或连接账号。

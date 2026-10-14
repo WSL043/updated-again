@@ -33,6 +33,7 @@ jobs:
     steps:
       - uses: actions/checkout@v7
         with:
+          ref: main
           fetch-depth: 0
       - uses: pnpm/action-setup@v6
         with:
@@ -67,22 +68,26 @@ jobs:
           if [[ "$GITHUB_EVENT_NAME" == "workflow_dispatch" && "$FORCE" == "true" ]]; then args+=(--force); fi
           node scripts/run-daily-update.mjs "${args[@]}"
       - run: pnpm update:validate
+      - name: Refresh README daily record
+        run: node scripts/update-readme-status.mjs
       - name: Commit only living-update artifacts
         id: publish
         shell: bash
         run: |
-          if git diff --quiet -- public/feed/index.json public/updates; then
+          ledger_changed=false
+          if ! git diff --quiet -- public/feed/index.json public/updates; then ledger_changed=true; fi
+          if git diff --quiet -- public/feed/index.json public/updates README.md; then
             echo "The current slot intentionally produced no release."
             echo "changed=false" >> "$GITHUB_OUTPUT"
             exit 0
           fi
           git config user.name "updated-again-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add public/feed/index.json public/updates
+          git add public/feed/index.json public/updates README.md
           day="${UPDATE_DATE:-$(TZ=Asia/Shanghai date +%F)}"
           git commit -m "chore(update): keep ${day} alive"
           git push origin HEAD:main
-          echo "changed=true" >> "$GITHUB_OUTPUT"
+          echo "changed=$ledger_changed" >> "$GITHUB_OUTPUT"
       - name: Deploy only when the public ledger changed
         if: steps.publish.outputs.changed == 'true'
         env:

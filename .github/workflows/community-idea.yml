@@ -57,6 +57,8 @@ jobs:
           export COMMUNITY_ISSUE_JSON="$(cat "$RUNNER_TEMP/community-issue.json")"
           node scripts/run-community-idea.mjs
       - run: pnpm check
+      - name: Refresh README daily record
+        run: node scripts/update-readme-status.mjs
       - name: Publish only immutable ledger artifacts
         id: publish
         env:
@@ -68,7 +70,7 @@ jobs:
           fi
           git config user.name "updated-again-community-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add public/feed/index.json public/updates
+          git add public/feed/index.json public/updates README.md
           git commit -m "[community-live] publish idea #${ISSUE_NUMBER}"
           git push origin HEAD:main
           echo "changed=true" >> "$GITHUB_OUTPUT"
