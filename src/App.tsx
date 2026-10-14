@@ -6,6 +6,7 @@ import { useUpdateStation } from "./hooks/useUpdateStation";
 import { ArchivePage } from "./pages/ArchivePage";
 import { LabPage } from "./pages/LabPage";
 import { TodayPage } from "./pages/TodayPage";
+import { PlayPage } from "./pages/PlayPage";
 
 function App() {
   const route = useHashRoute();
@@ -20,14 +21,16 @@ function App() {
   return (
     <div
       className="app-shell"
+      data-view={route === "play" || route === "mix" ? "play" : "edition"}
       data-composition={genome.composition}
       data-geometry={genome.geometry}
       data-texture={genome.texture}
-      style={genome.cssVariables}
+      style={route === "play" || route === "mix" ? undefined : genome.cssVariables}
     >
       <SiteHeader route={route} status={station.status} />
       <main id="main-content">
-        {(route === "today" || route === "play") && <TodayPage station={station} genome={genome} />}
+        {route === "today" && <TodayPage station={station} genome={genome} />}
+        {(route === "play" || route === "mix") && <PlayPage station={station} toy={route === "mix" ? "mix" : "circuit"} />}
         {route === "archive" && <ArchivePage station={station} />}
         {route === "lab" && <LabPage station={station} />}
       </main>

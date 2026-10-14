@@ -1,6 +1,4 @@
 import { Companion } from "../components/Companion";
-import { CircuitRoom } from "../components/CircuitRoom";
-import { PatchPlayground } from "../components/PatchPlayground";
 import { ReleaseFilm } from "../components/ReleaseFilm";
 import { StreakCalendar } from "../components/StreakCalendar";
 import { UpdateCard } from "../components/UpdateCard";
@@ -20,12 +18,7 @@ export function TodayPage({ station, genome }: { station: UpdateStation; genome:
 
   return (
     <>
-      <section className="play-invitation" aria-label="开始玩">
-        <div><strong>今天的更新，拿来玩。</strong><p>先接通一张小电路，再把装过的更新混成奇怪标本。</p></div>
-        <a href="#play">开始接线 ↗</a>
-      </section>
-      <CircuitRoom />
-      <section className="today-hero">
+      <section className="today-hero" id="edition">
         <div className="edition-mark" aria-hidden="true">
           <span>ISSUE</span>
           <strong>{String(sequence).padStart(4, "0")}</strong>
@@ -73,7 +66,7 @@ export function TodayPage({ station, genome }: { station: UpdateStation; genome:
         </aside>
       </section>
 
-      <PatchPlayground entries={feed?.entries ?? []} installedIds={archive.state.installedIds} />
+      <aside className="edition-play-link"><strong>更新看完了，来玩一局。</strong><a href="#play">去接线室 →</a><a href="#mix">去混合台 →</a></aside>
 
       <section className="world-section">
         <header className="section-intro">

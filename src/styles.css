@@ -119,7 +119,7 @@ select:focus-visible {
 .eyebrow { padding-bottom: 19px; display: flex; justify-content: space-between; gap: 20px; border-bottom: 1px solid var(--ink); color: var(--muted); font: 700 10px/1.2 ui-monospace, monospace; letter-spacing: 0.08em; text-transform: uppercase; }
 .eyebrow > span { min-width: 0; }
 .eyebrow time { flex: none; white-space: nowrap; }
-.release-summary h1 { margin: 50px 0 22px; max-width: 13ch; font-size: clamp(48px, 5.6vw, 86px); line-height: 0.98; letter-spacing: -0.06em; }
+.release-summary :is(h1, h2) { margin: 50px 0 22px; max-width: 13ch; font-size: clamp(48px, 5.6vw, 86px); line-height: 0.98; letter-spacing: -0.06em; }
 .release-summary__detail { margin: 0 0 42px; max-width: 34em; color: #42413c; font-size: clamp(17px, 1.6vw, 22px); line-height: 1.6; }
 .release-summary__facts { margin-top: auto; display: grid; grid-template-columns: 1.25fr 1fr 1fr; border-block: 1px solid var(--line); }
 .release-summary__facts > span { padding: 18px 16px 18px 0; display: grid; gap: 8px; border-right: 1px solid var(--line); }
@@ -341,7 +341,7 @@ select:focus-visible {
   .edition-colophon { padding-inline: 0; border-right: 0; }
   .edition-colophon dl { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .release-summary { min-height: auto; padding: 52px 0 40px; }
-  .release-summary h1 { margin-top: 36px; font-size: clamp(48px, 15vw, 72px); }
+  .release-summary :is(h1, h2) { margin-top: 36px; font-size: clamp(48px, 15vw, 72px); }
   .release-summary__facts { grid-template-columns: 1fr 1fr; }
   .release-summary__facts > span:nth-child(2) { border-right: 0; }
   .release-summary__facts > span:last-child { grid-column: 1 / -1; padding-left: 0; border-top: 1px solid var(--line); }

@@ -84,7 +84,7 @@ export function PatchPlayground({ entries, installedIds }: { entries: readonly F
   };
 
   return (
-    <section className="patch-playground" aria-labelledby="playground-heading">
+    <section className="patch-playground" id="mix" aria-labelledby="playground-heading">
       <header className="playground-heading">
         <div><p className="playground-kicker">旧更新的新用法</p><h2 id="playground-heading">补丁混合台</h2><p>借两份装过的变化，看看会发生什么。同一种也能放两份；只借副本，不消耗原版。</p></div>
         <div className="playground-counter"><strong>{notebook.discoveries.length}<small> / {EXPERIMENTS.length}</small></strong><span>发现记录 · 28 类标本 × 3 种状态</span><progress aria-label="标本发现进度" value={notebook.discoveries.length} max={EXPERIMENTS.length} /></div>
