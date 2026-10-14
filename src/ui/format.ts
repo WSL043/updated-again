@@ -1,7 +1,9 @@
+import { getLanguage, t } from "../i18n";
+import { localDay } from "../core/calendar";
+
 export function dateTimeLabel(value?: string): string {
-  if (!value) return "等待下一次开机";
-  return new Intl.DateTimeFormat("zh-CN", {
-    timeZone: "Asia/Shanghai",
+  if (!value) return t("等待中");
+  return new Intl.DateTimeFormat(getLanguage(), {
     year: "numeric",
     month: "2-digit",
     day: "2-digit",
@@ -11,11 +13,5 @@ export function dateTimeLabel(value?: string): string {
 }
 
 export function shortDateLabel(value?: string): string {
-  if (!value) return "TODAY";
-  return new Intl.DateTimeFormat("en-CA", {
-    timeZone: "Asia/Shanghai",
-    year: "numeric",
-    month: "2-digit",
-    day: "2-digit",
-  }).format(new Date(value));
+  return localDay(value ? new Date(value) : new Date());
 }

@@ -10,7 +10,7 @@ on:
   workflow_dispatch:
     inputs:
       date:
-        description: Optional Asia/Shanghai date (YYYY-MM-DD)
+        description: Optional UTC release date (YYYY-MM-DD)
         required: false
         type: string
       force:
@@ -84,7 +84,7 @@ jobs:
           git config user.name "updated-again-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add public/feed/index.json public/updates README.md
-          day="${UPDATE_DATE:-$(TZ=Asia/Shanghai date +%F)}"
+          day="${UPDATE_DATE:-$(TZ=UTC date +%F)}"
           git commit -m "chore(update): keep ${day} alive"
           git push origin HEAD:main
           echo "changed=$ledger_changed" >> "$GITHUB_OUTPUT"

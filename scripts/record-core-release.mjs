@@ -6,7 +6,7 @@ import {
   base64ToBytes,
   bytesToBase64,
   canonicalize,
-  dateInShanghai,
+  dateInUTC,
   sha256,
   toUnsignedCapsule,
 } from "./lib.mjs";
@@ -25,7 +25,7 @@ if (feed.entries.some((entry) => entry.channel === "core" && entry.recipe === `c
 }
 
 const sequence = feed.total + 1;
-const date = process.env.UPDATE_DATE || dateInShanghai();
+const date = process.env.UPDATE_DATE || dateInUTC();
 const id = `C-${version.replaceAll(/[^0-9A-Za-z.-]/g, "-")}-${String(sequence).padStart(4, "0")}`;
 const payload = {
   text: `核心程序已经更新到 ${version}。日更胶囊继续沿用自己的时间线。`,
@@ -39,6 +39,7 @@ const capsule = {
   coreRequirement: `>=${version}`,
   publishedAt: new Date().toISOString(),
   plannedFor: date,
+  calendarTimeZone: "UTC",
   channel: "core",
   kind: "message",
   reason: {
@@ -75,6 +76,7 @@ feed.entries.unshift({
   sequence,
   publishedAt: capsule.publishedAt,
   plannedFor: date,
+  calendarTimeZone: "UTC",
   channel: "core",
   kind: "message",
   headline: capsule.reason.headline,

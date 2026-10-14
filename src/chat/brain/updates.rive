@@ -1,5 +1,32 @@
 ! version = 2.0
 
++ give me a reason to update
+- A button felt lonely, so today it gets a friend. A reason can be silly; the change still has to be real.
+
++ why update every day
+- Updating is the game. Each day adds a real, signed, reversible change to the public ledger. New release dates use UTC; puzzles follow your local date.
+
++ what does remotion do
+- Remotion generates an 8.7-second film from release data. It loads only when you press play.
+
++ 更新する理由を教えて
+- ボタンが寂しそうだったので、今日は仲間を増やします。理由は変でも、変更は本物でなければなりません。
+
++ なぜ毎日更新するの
+- 更新そのものが遊びです。毎日、署名付きで元に戻せる変更を公開します。公開日付はUTC、問題は現地の日付です。
+
++ remotionは何をするの
+- Remotionは更新データから8.7秒の短編を生成します。再生を押したときだけ読み込みます。
+
++ dame un motivo para actualizar
+- Un botón se sentía solo, así que hoy recibe un amigo. El motivo puede ser absurdo; el cambio debe ser real.
+
++ por qué actualizar cada día
+- Actualizar es el juego. Cada día añade un cambio real, firmado y reversible. Las versiones usan UTC y los retos tu fecha local.
+
++ para qué sirve remotion
+- Remotion genera un corto de 8,7 segundos con los datos de la versión. Solo se carga al pulsar reproducir.
+
 + 什么是 updated again
 - 一个把“软件更新”本身当作作品的活体软件：每天至少真实改变一点，理由可以荒唐，历史必须留下。
 - 它不是更新聚合器，而是一个为了体验更新而持续更新自己的项目。
@@ -82,7 +109,7 @@
 
 + 你会自动更新吗
 - 项目每天由 GitHub Actions 规划并发布至少一个真实内容变化；真正的核心更新也可以在同一天发生。
-- 自动日更有延期与补更规则，但目标是上海时区每个自然日至少留下一个有效胶囊。
+- 自动日更有延期与补更规则，但目标是UTC每个自然日至少留下一个有效胶囊。
 
 + 更新失败怎么办
 - 先保留用户现有状态，再显示明确错误和重新检查入口。自动化失败会进入恢复流程，而不是悄悄伪造成功。

@@ -6,6 +6,9 @@ import { canonicalize } from "../src/core/canonical";
 import { DEFAULT_ARCHIVE } from "../src/core/state";
 import type { UpdateCapsule, UpdateKind } from "../src/core/types";
 import { verifyCapsule } from "../src/core/signature";
+import { ed25519 } from "@noble/curves/ed25519.js";
+import { sha256 } from "../src/core/signature";
+import { toUnsignedCapsule } from "../src/core/canonical";
 
 function capsule(kind: UpdateKind, payload: Record<string, unknown>): UpdateCapsule {
   return {
@@ -67,6 +70,18 @@ describe("capability registry", () => {
 });
 
 describe("published feed", () => {
+  it("verifies new UTC calendar metadata as part of the signature", async () => {
+    const value = capsule("message", samples.message);
+    value.calendarTimeZone = "UTC";
+    value.integrity.payloadSha256 = await sha256(canonicalize({ kind: value.kind, payload: value.payload }));
+    const testKey = new Uint8Array(32).fill(42);
+    const encode = (bytes: Uint8Array) => btoa(String.fromCharCode(...bytes));
+    value.integrity.signature = encode(ed25519.sign(new TextEncoder().encode(canonicalize(toUnsignedCapsule(value))), testKey));
+    const publicKey = encode(ed25519.getPublicKey(testKey));
+    expect(await verifyCapsule(value, publicKey)).toBe(true);
+    delete value.calendarTimeZone;
+    expect(await verifyCapsule(value, publicKey)).toBe(false);
+  });
   it("contains a verifiable, non-empty first update", async () => {
     const feed = JSON.parse(await readFile(resolve("public/feed/index.json"), "utf8"));
     const published = JSON.parse(await readFile(resolve("public", feed.entries[0].path), "utf8"));

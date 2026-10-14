@@ -1,5 +1,6 @@
 import type { CSSProperties } from "react";
 import type { UpdateKind } from "./types";
+import { localDay } from "./calendar";
 
 type Rgb = [number, number, number];
 type Hsl = [number, number, number];
@@ -95,24 +96,13 @@ function accessibleColor(hue: number, saturation: number, lightness: number, aga
   return color;
 }
 
-export function dateInShanghai(now = new Date()): string {
-  const parts = new Intl.DateTimeFormat("en-CA", {
-    timeZone: "Asia/Shanghai",
-    year: "numeric",
-    month: "2-digit",
-    day: "2-digit",
-  }).formatToParts(now);
-  const value = Object.fromEntries(parts.map((part) => [part.type, part.value]));
-  return `${value.year}-${value.month}-${value.day}`;
-}
-
 export function createStyleGenome(input: {
   date?: string;
   updateSeed?: string;
   kind?: UpdateKind;
   sequence?: number;
 } = {}): StyleGenome {
-  const date = input.date || dateInShanghai();
+  const date = input.date || localDay();
   const baseHash = hash32(`updated-again:visual-v1:${date}`);
   const mutationHash = hash32(`${input.updateSeed ?? "waiting"}:${input.kind ?? "none"}:${input.sequence ?? 0}`);
   const baseRandom = randomFrom(baseHash);

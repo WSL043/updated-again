@@ -1,5 +1,5 @@
 import { readFile } from "node:fs/promises";
-import { dateInShanghai } from "./lib.mjs";
+import { dateInUTC } from "./lib.mjs";
 import { assertDeployment } from "./readme-status.mjs";
 
 const site = "https://wsl043.github.io/updated-again/";
@@ -21,5 +21,5 @@ const [remoteFeed, remoteCapsule, localCapsule] = await Promise.all([
   getJson("feed/index.json"), getJson(latest.path),
   readFile(new URL(`../public/${latest.path}`, import.meta.url), "utf8").then(JSON.parse),
 ]);
-assertDeployment(feed, remoteFeed, localCapsule, remoteCapsule, dateInShanghai());
-console.log(`Pages ledger and latest capsule match: ${feed.latest}. All completed Shanghai days covered.`);
+assertDeployment(feed, remoteFeed, localCapsule, remoteCapsule, dateInUTC());
+console.log(`Pages ledger and latest capsule match: ${feed.latest}. All completed UTC release days covered.`);

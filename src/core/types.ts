@@ -38,6 +38,7 @@ export interface UpdateCapsule {
   coreRequirement: string;
   publishedAt: string;
   plannedFor: string;
+  calendarTimeZone?: "UTC";
   channel: UpdateChannel;
   kind: UpdateKind;
   reason: UpdateReason;
@@ -56,6 +57,7 @@ export interface FeedEntry {
   sequence: number;
   publishedAt: string;
   plannedFor: string;
+  calendarTimeZone?: "UTC";
   channel: UpdateChannel;
   kind: UpdateKind;
   headline: string;

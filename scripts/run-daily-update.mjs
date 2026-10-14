@@ -6,7 +6,7 @@ import {
   base64ToBytes,
   bytesToBase64,
   canonicalize,
-  dateInShanghai,
+  dateInUTC,
   materialize,
   pick,
   seededRandom,
@@ -23,7 +23,7 @@ const argv = new Set(process.argv.slice(2));
 const dryRun = argv.has("--dry-run");
 const force = argv.has("--force");
 const slot = Number(process.env.UPDATE_SLOT ?? 4);
-const today = process.env.UPDATE_DATE || dateInShanghai();
+const today = process.env.UPDATE_DATE || dateInUTC();
 const chaosSecret = process.env.CHAOS_SEED || "updated-again-public-chaos";
 const keyId = process.env.CAPSULE_SIGNING_KEY_ID || "capsule-2026-01";
 const signingKeyValue = process.env.CAPSULE_SIGNING_PRIVATE_KEY;
@@ -87,6 +87,7 @@ function createCapsule(date, mode = "deterministic") {
     coreRequirement: ">=0.1.0-beta.1",
     publishedAt: new Date().toISOString(),
     plannedFor: date,
+    calendarTimeZone: "UTC",
     channel: recipe.absurdity >= 80 ? "weird" : "daily",
     kind: recipe.kind,
     reason,
@@ -111,6 +112,7 @@ function createCapsule(date, mode = "deterministic") {
     sequence,
     publishedAt: capsule.publishedAt,
     plannedFor: date,
+    calendarTimeZone: "UTC",
     channel: capsule.channel,
     kind: capsule.kind,
     headline: capsule.reason.headline,

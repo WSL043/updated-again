@@ -3,7 +3,7 @@ import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { ed25519 } from "@noble/curves/ed25519.js";
 import { communityPayload, normalizeCommunityIdea } from "./community-lib.mjs";
-import { base64ToBytes, bytesToBase64, canonicalize, dateInShanghai, sha256, toUnsignedCapsule } from "./lib.mjs";
+import { base64ToBytes, bytesToBase64, canonicalize, dateInUTC, sha256, toUnsignedCapsule } from "./lib.mjs";
 import { assertPayload } from "./payload-schema.mjs";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
@@ -27,7 +27,7 @@ if (feed.entries.some((entry) => entry.recipe === recipe)) {
 }
 
 const sequence = feed.total + 1;
-const date = dateInShanghai();
+const date = dateInUTC();
 const publishedAt = new Date().toISOString();
 const id = `H-${date.replaceAll("-", "")}-${String(sequence).padStart(4, "0")}-issue-${idea.number}`;
 const payload = communityPayload(idea, sequence, date);
@@ -40,6 +40,7 @@ const capsule = {
   coreRequirement: ">=0.1.0-beta.1",
   publishedAt,
   plannedFor: date,
+  calendarTimeZone: "UTC",
   channel: "experimental",
   kind: idea.kind,
   reason: {
@@ -64,6 +65,7 @@ feed.entries.unshift({
   sequence,
   publishedAt,
   plannedFor: date,
+  calendarTimeZone: "UTC",
   channel: capsule.channel,
   kind: capsule.kind,
   headline: capsule.reason.headline,

@@ -1,6 +1,8 @@
 # Daily release contract
 
-The project promises an append-only calendar with at least one real update assigned to every Asia/Shanghai day after launch.
+The project maintains an append-only release calendar with at least one real update assigned to every UTC day after launch. Browser timestamps and daily games follow the visitor's device time zone.
+
+From the October 2026 locale migration, newly signed capsules and feed entries declare `calendarTimeZone: "UTC"`. Older signed capsules retain their original recorded calendar. Historical bytes, IDs and planned dates are never rewritten; publication streaks evaluate each entry using its declared calendar or its legacy calendar when the field is absent.
 
 ## Planning
 
