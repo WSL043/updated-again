@@ -1,9 +1,25 @@
 {
   "specVersion": 1,
-  "generatedAt": "2026-10-14T05:01:15.772Z",
-  "latest": "C-0.7.0-0090",
-  "total": 90,
+  "generatedAt": "2026-10-15T09:13:31.238Z",
+  "latest": "D-20261015-0091-button-has-opinions",
+  "total": 91,
   "entries": [
+    {
+      "id": "D-20261015-0091-button-has-opinions",
+      "sequence": 91,
+      "publishedAt": "2026-10-15T09:13:31.238Z",
+      "plannedFor": "2026-10-15",
+      "calendarTimeZone": "UTC",
+      "channel": "weird",
+      "kind": "button-personality",
+      "headline": "更新按钮认为自己长期缺乏人格",
+      "mood": "人格化",
+      "absurdity": 88,
+      "path": "updates/D-20261015-0091-button-has-opinions.json",
+      "payloadSha256": "164021342359fe3e7c4fb2ce0ec5bfd8995943b77e6d9b6d047184f001b5bcea",
+      "recipe": "button-has-opinions",
+      "seed": "c0c50e195062fa105dee66d7286ce4fd3c88a6ca5339b91c355910b75190ee75"
+    },
     {
       "id": "C-0.7.0-0090",
       "sequence": 90,
