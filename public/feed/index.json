@@ -1,9 +1,25 @@
 {
   "specVersion": 1,
-  "generatedAt": "2026-10-15T09:13:31.238Z",
-  "latest": "D-20261015-0091-button-has-opinions",
-  "total": 91,
+  "generatedAt": "2026-10-16T13:28:32.219Z",
+  "latest": "D-20261016-0092-patch-dumpling-mood",
+  "total": 92,
   "entries": [
+    {
+      "id": "D-20261016-0092-patch-dumpling-mood",
+      "sequence": 92,
+      "publishedAt": "2026-10-16T13:28:32.219Z",
+      "plannedFor": "2026-10-16",
+      "calendarTimeZone": "UTC",
+      "channel": "daily",
+      "kind": "companion",
+      "headline": "补丁团子提交了新的心情状态",
+      "mood": "陪伴",
+      "absurdity": 68,
+      "path": "updates/D-20261016-0092-patch-dumpling-mood.json",
+      "payloadSha256": "c58624bf7af68e9278528597d97198ed5ed9b47912d443121d30b3a87f5828f7",
+      "recipe": "patch-dumpling-mood",
+      "seed": "a7216e4907ad62032f6a4b5fc0af880b21e2baff620ec16bfc07849ee38339e8"
+    },
     {
       "id": "D-20261015-0091-button-has-opinions",
       "sequence": 91,
