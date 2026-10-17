@@ -1,0 +1,41 @@
+{
+  "specVersion": 1,
+  "id": "D-20261017-0093-tiny-ritual",
+  "sequence": 93,
+  "coreRequirement": ">=0.1.0-beta.1",
+  "publishedAt": "2026-10-17T08:39:07.664Z",
+  "plannedFor": "2026-10-17",
+  "calendarTimeZone": "UTC",
+  "channel": "daily",
+  "kind": "ritual",
+  "reason": {
+    "headline": "软件今天想举行一个非常小的仪式",
+    "detail": "完成与否不会影响任何正经功能，但会影响今天的气氛。",
+    "mood": "仪式感",
+    "absurdity": 76
+  },
+  "changes": [
+    "向今日仪式列表添加一个新动作。"
+  ],
+  "expectedEffects": [
+    "首页出现一项可完成的无用小任务。"
+  ],
+  "payload": {
+    "instruction": "认真观察版本号三秒，然后假装理解了它。",
+    "reward": "一枚只存在于记忆里的徽章"
+  },
+  "generator": {
+    "mode": "deterministic",
+    "recipe": "tiny-ritual",
+    "seed": "badc7caf8dcd2630d09f3713ce6e2226f1d7897ab44823c6066156e67eccadb9"
+  },
+  "rollback": {
+    "strategy": "snapshot"
+  },
+  "integrity": {
+    "algorithm": "ed25519",
+    "keyId": "capsule-2026-01",
+    "payloadSha256": "bf504074509df39f3df97876698b8ce13bff3e839dd546a4e4b5d5f48d7c8220",
+    "signature": "+58gm8qTuGXEeDtYXqAeyeUv/V4KAG2CLzacF4k5CJVrb4z3+n07zIuiLmJQl6URS2w83zcxW7BMgW0lfJJhDQ=="
+  }
+}
