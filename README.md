@@ -11,13 +11,13 @@ It updates itself. The reason can be “the author felt like it”; the change m
 
 [![Health audit](https://github.com/WSL043/updated-again/actions/workflows/project-health.yml/badge.svg)](https://github.com/WSL043/updated-again/actions/workflows/project-health.yml) [![Daily release](https://github.com/WSL043/updated-again/actions/workflows/daily-update.yml/badge.svg)](https://github.com/WSL043/updated-again/actions/workflows/daily-update.yml)
 
-As of **2026-10-17 (UTC)**: **64 consecutive on-schedule release days**, with **64 consecutive days covered by the ledger**.
+As of **2026-10-17 (UTC)**: **65 consecutive on-schedule release days**, with **65 consecutive days covered by the ledger**.
 
 | Metric | Record |
 |---|---|
 | First release date | 2026-08-14 |
-| Latest covered date | 2026-10-16 |
-| Capsules / covered dates | 92 / 64 |
+| Latest covered date | 2026-10-17 |
+| Capsules / covered dates | 93 / 65 |
 | Dates covered only by backfills | 0 |
 | Completed dates still missing | 0 |
 
@@ -25,7 +25,7 @@ Last seven days:
 
 | Date | Capsules | Publication | Types |
 |---|---:|---|---|
-| 2026-10-17 | 0 | Pending today | — |
+| 2026-10-17 | 1 | Published on schedule | `ritual` |
 | 2026-10-16 | 1 | Published on schedule | `companion` |
 | 2026-10-15 | 1 | Published on schedule | `button-personality` |
 | 2026-10-14 | 4 | Published on schedule | `collectible`, `message` |
