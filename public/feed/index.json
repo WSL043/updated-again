@@ -1,9 +1,25 @@
 {
   "specVersion": 1,
-  "generatedAt": "2026-10-17T08:39:07.664Z",
-  "latest": "D-20261017-0093-tiny-ritual",
-  "total": 93,
+  "generatedAt": "2026-10-18T08:55:08.881Z",
+  "latest": "D-20261018-0094-version-star",
+  "total": 94,
   "entries": [
+    {
+      "id": "D-20261018-0094-version-star",
+      "sequence": 94,
+      "publishedAt": "2026-10-18T08:55:08.881Z",
+      "plannedFor": "2026-10-18",
+      "calendarTimeZone": "UTC",
+      "channel": "daily",
+      "kind": "constellation",
+      "headline": "天空缺少一颗只属于本版本的星",
+      "mood": "仰头",
+      "absurdity": 79,
+      "path": "updates/D-20261018-0094-version-star.json",
+      "payloadSha256": "5f3e077fb53e7f66e81c869d8d404bf61fb0bec7bfdb918e3b2bb8ec52e27ed4",
+      "recipe": "version-star",
+      "seed": "87b37ee5591a7ea9144d4ef9d498c3f3cfe1238e310ad2f1a54d4e5ca478f6d1"
+    },
     {
       "id": "D-20261017-0093-tiny-ritual",
       "sequence": 93,
