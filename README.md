@@ -17,7 +17,7 @@ As of **2026-10-22 (UTC)**: **70 consecutive on-schedule release days**, with **
 |---|---|
 | First release date | 2026-08-14 |
 | Latest covered date | 2026-10-22 |
-| Capsules / covered dates | 99 / 70 |
+| Capsules / covered dates | 100 / 70 |
 | Dates covered only by backfills | 0 |
 | Completed dates still missing | 0 |
 
@@ -25,7 +25,7 @@ Last seven days:
 
 | Date | Capsules | Publication | Types |
 |---|---:|---|---|
-| 2026-10-22 | 1 | Published on schedule | `constellation` |
+| 2026-10-22 | 2 | Published on schedule | `constellation`, `message` |
 | 2026-10-21 | 1 | Published on schedule | `constellation` |
 | 2026-10-20 | 1 | Published on schedule | `button-personality` |
 | 2026-10-19 | 2 | Published on schedule | `constellation`, `theme` |
