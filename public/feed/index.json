@@ -1,9 +1,25 @@
 {
   "specVersion": 1,
-  "generatedAt": "2026-10-23T04:49:01.883Z",
-  "latest": "D-20261023-0101-patch-dumpling-mood",
-  "total": 101,
+  "generatedAt": "2026-10-24T12:53:18.047Z",
+  "latest": "D-20261024-0102-button-has-opinions",
+  "total": 102,
   "entries": [
+    {
+      "id": "D-20261024-0102-button-has-opinions",
+      "sequence": 102,
+      "publishedAt": "2026-10-24T12:53:18.047Z",
+      "plannedFor": "2026-10-24",
+      "calendarTimeZone": "UTC",
+      "channel": "weird",
+      "kind": "button-personality",
+      "headline": "更新按钮认为自己长期缺乏人格",
+      "mood": "人格化",
+      "absurdity": 88,
+      "path": "updates/D-20261024-0102-button-has-opinions.json",
+      "payloadSha256": "d0eb4aabe668099bbbd896182f698a1ce365b9a556ebb22b3ac3025a74f793f9",
+      "recipe": "button-has-opinions",
+      "seed": "8285fc0712e4975e5279bd695dfbd3469a8a778dcceab8629172517e2f90752d"
+    },
     {
       "id": "D-20261023-0101-patch-dumpling-mood",
       "sequence": 101,
