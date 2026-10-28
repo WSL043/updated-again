@@ -1,9 +1,25 @@
 {
   "specVersion": 1,
-  "generatedAt": "2026-10-27T05:04:26.107Z",
-  "latest": "D-20261027-0105-tiny-ritual",
-  "total": 105,
+  "generatedAt": "2026-10-28T05:41:53.437Z",
+  "latest": "D-20261028-0106-button-has-opinions",
+  "total": 106,
   "entries": [
+    {
+      "id": "D-20261028-0106-button-has-opinions",
+      "sequence": 106,
+      "publishedAt": "2026-10-28T05:41:53.437Z",
+      "plannedFor": "2026-10-28",
+      "calendarTimeZone": "UTC",
+      "channel": "weird",
+      "kind": "button-personality",
+      "headline": "更新按钮认为自己长期缺乏人格",
+      "mood": "人格化",
+      "absurdity": 88,
+      "path": "updates/D-20261028-0106-button-has-opinions.json",
+      "payloadSha256": "529e9fb7a0189c091ce6a7c6ff7c9d75938b81251a951f108ec6b53776f0cffd",
+      "recipe": "button-has-opinions",
+      "seed": "14fc6ef1d7580353d447921c37e084a36004f8689153d6798c9531b8f689f545"
+    },
     {
       "id": "D-20261027-0105-tiny-ritual",
       "sequence": 105,
