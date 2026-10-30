@@ -11,13 +11,13 @@ It updates itself. The reason can be “the author felt like it”; the change m
 
 [![Health audit](https://github.com/WSL043/updated-again/actions/workflows/project-health.yml/badge.svg)](https://github.com/WSL043/updated-again/actions/workflows/project-health.yml) [![Daily release](https://github.com/WSL043/updated-again/actions/workflows/daily-update.yml/badge.svg)](https://github.com/WSL043/updated-again/actions/workflows/daily-update.yml)
 
-As of **2026-10-29 (UTC)**: **77 consecutive on-schedule release days**, with **77 consecutive days covered by the ledger**.
+As of **2026-10-30 (UTC)**: **78 consecutive on-schedule release days**, with **78 consecutive days covered by the ledger**.
 
 | Metric | Record |
 |---|---|
 | First release date | 2026-08-14 |
-| Latest covered date | 2026-10-29 |
-| Capsules / covered dates | 107 / 77 |
+| Latest covered date | 2026-10-30 |
+| Capsules / covered dates | 108 / 78 |
 | Dates covered only by backfills | 0 |
 | Completed dates still missing | 0 |
 
@@ -25,13 +25,13 @@ Last seven days:
 
 | Date | Capsules | Publication | Types |
 |---|---:|---|---|
+| 2026-10-30 | 1 | Published on schedule | `theme` |
 | 2026-10-29 | 1 | Published on schedule | `theme` |
 | 2026-10-28 | 1 | Published on schedule | `button-personality` |
 | 2026-10-27 | 1 | Published on schedule | `ritual` |
 | 2026-10-26 | 1 | Published on schedule | `constellation` |
 | 2026-10-25 | 1 | Published on schedule | `message` |
 | 2026-10-24 | 1 | Published on schedule | `button-personality` |
-| 2026-10-23 | 1 | Published on schedule | `companion` |
 
 Generated from the signed ledger during publication and daily audits. New releases use UTC. Historical entries without calendar metadata retain their original recorded calendar; they are never rewritten. Backfills restore ledger coverage, but do not repair on-schedule publication streaks. An unfinished today is allowed; a missing completed day breaks the streak.
 
