@@ -1,9 +1,25 @@
 {
   "specVersion": 1,
-  "generatedAt": "2026-10-30T05:48:34.582Z",
-  "latest": "D-20261030-0108-midnight-ink",
-  "total": 108,
+  "generatedAt": "2026-10-30T15:14:54.591Z",
+  "latest": "D-20261030-0109-one-sentence-worth-shipping",
+  "total": 109,
   "entries": [
+    {
+      "id": "D-20261030-0109-one-sentence-worth-shipping",
+      "sequence": 109,
+      "publishedAt": "2026-10-30T15:14:54.591Z",
+      "plannedFor": "2026-10-30",
+      "calendarTimeZone": "UTC",
+      "channel": "daily",
+      "kind": "message",
+      "headline": "今天只多说一句，但它真的被安装了",
+      "mood": "轻量发布",
+      "absurdity": 61,
+      "path": "updates/D-20261030-0109-one-sentence-worth-shipping.json",
+      "payloadSha256": "f82d805b4d80b68a5023b81936883cc122022e87486ec9efe65f3787566b2296",
+      "recipe": "one-sentence-worth-shipping",
+      "seed": "bd06f5cab24120721c42f95e4d922a4252931b65bcdea29e4ab750e2784ace16"
+    },
     {
       "id": "D-20261030-0108-midnight-ink",
       "sequence": 108,
