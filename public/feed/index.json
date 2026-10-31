@@ -1,9 +1,25 @@
 {
   "specVersion": 1,
-  "generatedAt": "2026-10-31T05:40:21.963Z",
-  "latest": "D-20261031-0110-version-star",
-  "total": 110,
+  "generatedAt": "2026-10-31T17:21:24.483Z",
+  "latest": "D-20261031-0111-tiny-ritual",
+  "total": 111,
   "entries": [
+    {
+      "id": "D-20261031-0111-tiny-ritual",
+      "sequence": 111,
+      "publishedAt": "2026-10-31T17:21:24.483Z",
+      "plannedFor": "2026-10-31",
+      "calendarTimeZone": "UTC",
+      "channel": "daily",
+      "kind": "ritual",
+      "headline": "软件今天想举行一个非常小的仪式",
+      "mood": "仪式感",
+      "absurdity": 76,
+      "path": "updates/D-20261031-0111-tiny-ritual.json",
+      "payloadSha256": "1e8b39c52b6e6fc2b6bcda618358a8dcf91efc8e46e65a1db6728b6641396f87",
+      "recipe": "tiny-ritual",
+      "seed": "469b3c3088733f22637630f006e3abf0e7e0f74d42d9440cff9fb584e364f80f"
+    },
     {
       "id": "D-20261031-0110-version-star",
       "sequence": 110,
