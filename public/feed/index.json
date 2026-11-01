@@ -1,9 +1,25 @@
 {
   "specVersion": 1,
-  "generatedAt": "2026-10-31T17:21:24.483Z",
-  "latest": "D-20261031-0111-tiny-ritual",
-  "total": 111,
+  "generatedAt": "2026-11-01T18:05:22.216Z",
+  "latest": "D-20261101-0112-patch-dumpling-mood",
+  "total": 112,
   "entries": [
+    {
+      "id": "D-20261101-0112-patch-dumpling-mood",
+      "sequence": 112,
+      "publishedAt": "2026-11-01T18:05:22.216Z",
+      "plannedFor": "2026-11-01",
+      "calendarTimeZone": "UTC",
+      "channel": "daily",
+      "kind": "companion",
+      "headline": "补丁团子提交了新的心情状态",
+      "mood": "陪伴",
+      "absurdity": 68,
+      "path": "updates/D-20261101-0112-patch-dumpling-mood.json",
+      "payloadSha256": "493de1ee94c09ccab0376cb2f3c4f43804838773f71d34b1396976943dcfcd90",
+      "recipe": "patch-dumpling-mood",
+      "seed": "249b07c4280c43a353526294c6b4e652f39aeebb576c342994329b842d57c2d3"
+    },
     {
       "id": "D-20261031-0111-tiny-ritual",
       "sequence": 111,
