@@ -1,0 +1,40 @@
+{
+  "specVersion": 1,
+  "id": "D-20261102-0113-one-sentence-worth-shipping",
+  "sequence": 113,
+  "coreRequirement": ">=0.1.0-beta.1",
+  "publishedAt": "2026-11-02T06:01:46.257Z",
+  "plannedFor": "2026-11-02",
+  "calendarTimeZone": "UTC",
+  "channel": "daily",
+  "kind": "message",
+  "reason": {
+    "headline": "今天只多说一句，但它真的被安装了",
+    "detail": "体积很小，态度完整；本次更新拒绝因为改动少而感到羞愧。",
+    "mood": "轻量发布",
+    "absurdity": 61
+  },
+  "changes": [
+    "向本地版本档案写入一条新的永久文案。"
+  ],
+  "expectedEffects": [
+    "首页出现今天独有的一句话，并被收进消息档案。"
+  ],
+  "payload": {
+    "text": "本版本增加了一句以后可能会被另一句吐槽的话。"
+  },
+  "generator": {
+    "mode": "deterministic",
+    "recipe": "one-sentence-worth-shipping",
+    "seed": "d35173ad189f24de34c776d8623244bfaf9794a8ea37abafe00bec6d89b22704"
+  },
+  "rollback": {
+    "strategy": "snapshot"
+  },
+  "integrity": {
+    "algorithm": "ed25519",
+    "keyId": "capsule-2026-01",
+    "payloadSha256": "162e5835ec88480cb9105a7321f05b6a4d6356cc5938e350f1d669efc08e7699",
+    "signature": "iIlTzWQbL0b9d751Kd+7kcGIK5L82QKHk+YVn3MGA/Gn6OvLTEblEG19lw1+DjhH/3dQ29CTa+Pt1B/YmvVdBg=="
+  }
+}

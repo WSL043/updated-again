@@ -1,9 +1,25 @@
 {
   "specVersion": 1,
-  "generatedAt": "2026-11-01T18:05:22.216Z",
-  "latest": "D-20261101-0112-patch-dumpling-mood",
-  "total": 112,
+  "generatedAt": "2026-11-02T06:01:46.257Z",
+  "latest": "D-20261102-0113-one-sentence-worth-shipping",
+  "total": 113,
   "entries": [
+    {
+      "id": "D-20261102-0113-one-sentence-worth-shipping",
+      "sequence": 113,
+      "publishedAt": "2026-11-02T06:01:46.257Z",
+      "plannedFor": "2026-11-02",
+      "calendarTimeZone": "UTC",
+      "channel": "daily",
+      "kind": "message",
+      "headline": "今天只多说一句，但它真的被安装了",
+      "mood": "轻量发布",
+      "absurdity": 61,
+      "path": "updates/D-20261102-0113-one-sentence-worth-shipping.json",
+      "payloadSha256": "162e5835ec88480cb9105a7321f05b6a4d6356cc5938e350f1d669efc08e7699",
+      "recipe": "one-sentence-worth-shipping",
+      "seed": "d35173ad189f24de34c776d8623244bfaf9794a8ea37abafe00bec6d89b22704"
+    },
     {
       "id": "D-20261101-0112-patch-dumpling-mood",
       "sequence": 112,
