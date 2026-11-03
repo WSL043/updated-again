@@ -17,7 +17,7 @@ As of **2026-11-03 (UTC)**: **82 consecutive on-schedule release days**, with **
 |---|---|
 | First release date | 2026-08-14 |
 | Latest covered date | 2026-11-03 |
-| Capsules / covered dates | 114 / 82 |
+| Capsules / covered dates | 115 / 82 |
 | Dates covered only by backfills | 0 |
 | Completed dates still missing | 0 |
 
@@ -25,7 +25,7 @@ Last seven days:
 
 | Date | Capsules | Publication | Types |
 |---|---:|---|---|
-| 2026-11-03 | 1 | Published on schedule | `message` |
+| 2026-11-03 | 2 | Published on schedule | `constellation`, `message` |
 | 2026-11-02 | 1 | Published on schedule | `message` |
 | 2026-11-01 | 1 | Published on schedule | `companion` |
 | 2026-10-31 | 2 | Published on schedule | `constellation`, `ritual` |

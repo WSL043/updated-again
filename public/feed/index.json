@@ -1,9 +1,25 @@
 {
   "specVersion": 1,
-  "generatedAt": "2026-11-03T06:46:45.029Z",
-  "latest": "D-20261103-0114-one-sentence-worth-shipping",
-  "total": 114,
+  "generatedAt": "2026-11-03T12:03:37.944Z",
+  "latest": "D-20261103-0115-version-star",
+  "total": 115,
   "entries": [
+    {
+      "id": "D-20261103-0115-version-star",
+      "sequence": 115,
+      "publishedAt": "2026-11-03T12:03:37.944Z",
+      "plannedFor": "2026-11-03",
+      "calendarTimeZone": "UTC",
+      "channel": "daily",
+      "kind": "constellation",
+      "headline": "天空缺少一颗只属于本版本的星",
+      "mood": "仰头",
+      "absurdity": 79,
+      "path": "updates/D-20261103-0115-version-star.json",
+      "payloadSha256": "60d313e49e37d1d24fe01ee8c053830e25e391437bd7c61108b7690704db0158",
+      "recipe": "version-star",
+      "seed": "63e092220a2c410d66acc581ba7225722084df95aacb7f45d8921216ba59f8b6"
+    },
     {
       "id": "D-20261103-0114-one-sentence-worth-shipping",
       "sequence": 114,
