@@ -1,9 +1,25 @@
 {
   "specVersion": 1,
-  "generatedAt": "2026-11-04T20:00:09.515Z",
-  "latest": "D-20261104-0119-version-star",
-  "total": 119,
+  "generatedAt": "2026-11-05T16:43:07.894Z",
+  "latest": "D-20261105-0120-one-sentence-worth-shipping",
+  "total": 120,
   "entries": [
+    {
+      "id": "D-20261105-0120-one-sentence-worth-shipping",
+      "sequence": 120,
+      "publishedAt": "2026-11-05T16:43:07.894Z",
+      "plannedFor": "2026-11-05",
+      "calendarTimeZone": "UTC",
+      "channel": "daily",
+      "kind": "message",
+      "headline": "一句话也值得拥有版本号",
+      "mood": "轻量发布",
+      "absurdity": 61,
+      "path": "updates/D-20261105-0120-one-sentence-worth-shipping.json",
+      "payloadSha256": "57a4b4ffde49fff32c4b11225224d64646f5ebc8f3354314f0b83f396dba7326",
+      "recipe": "one-sentence-worth-shipping",
+      "seed": "ee9b5cf902dbded3dd4cd36369d3d6fe099d4c9d6943fe9ad966907f05ef2967"
+    },
     {
       "id": "D-20261104-0119-version-star",
       "sequence": 119,

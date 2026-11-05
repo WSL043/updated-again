@@ -1,0 +1,40 @@
+{
+  "specVersion": 1,
+  "id": "D-20261105-0120-one-sentence-worth-shipping",
+  "sequence": 120,
+  "coreRequirement": ">=0.1.0-beta.1",
+  "publishedAt": "2026-11-05T16:43:07.894Z",
+  "plannedFor": "2026-11-05",
+  "calendarTimeZone": "UTC",
+  "channel": "daily",
+  "kind": "message",
+  "reason": {
+    "headline": "一句话也值得拥有版本号",
+    "detail": "体积很小，态度完整；本次更新拒绝因为改动少而感到羞愧。",
+    "mood": "轻量发布",
+    "absurdity": 61
+  },
+  "changes": [
+    "向本地版本档案写入一条新的永久文案。"
+  ],
+  "expectedEffects": [
+    "首页出现今天独有的一句话，并被收进消息档案。"
+  ],
+  "payload": {
+    "text": "2026-11-05：软件确认自己今天仍然活着。"
+  },
+  "generator": {
+    "mode": "deterministic",
+    "recipe": "one-sentence-worth-shipping",
+    "seed": "ee9b5cf902dbded3dd4cd36369d3d6fe099d4c9d6943fe9ad966907f05ef2967"
+  },
+  "rollback": {
+    "strategy": "snapshot"
+  },
+  "integrity": {
+    "algorithm": "ed25519",
+    "keyId": "capsule-2026-01",
+    "payloadSha256": "57a4b4ffde49fff32c4b11225224d64646f5ebc8f3354314f0b83f396dba7326",
+    "signature": "zmAQIf0XMGkzJ+Py9ORp3PIe9GerD8nNzfqKmxXndg2/ppeg61mvZ9CWmaxYmaazMmoJOTrQpsOqLUQxA0m9DQ=="
+  }
+}
