@@ -1,9 +1,25 @@
 {
   "specVersion": 1,
-  "generatedAt": "2026-11-05T16:43:07.894Z",
-  "latest": "D-20261105-0120-one-sentence-worth-shipping",
-  "total": 120,
+  "generatedAt": "2026-11-06T19:40:21.134Z",
+  "latest": "D-20261106-0121-good-mood-sky",
+  "total": 121,
   "entries": [
+    {
+      "id": "D-20261106-0121-good-mood-sky",
+      "sequence": 121,
+      "publishedAt": "2026-11-06T19:40:21.134Z",
+      "plannedFor": "2026-11-06",
+      "calendarTimeZone": "UTC",
+      "channel": "daily",
+      "kind": "theme",
+      "headline": "作者今天心情不错，所以天空被批准换色",
+      "mood": "心情很好",
+      "absurdity": 72,
+      "path": "updates/D-20261106-0121-good-mood-sky.json",
+      "payloadSha256": "28e89085467a1bf5fd4d7a5f3c10db0d33aac018c31e442ae1cc383fa5865da2",
+      "recipe": "good-mood-sky",
+      "seed": "4c0204419be6f138011efafabe5a0d24f3f2f89c0da405e3ec8e3737a0df3fd1"
+    },
     {
       "id": "D-20261105-0120-one-sentence-worth-shipping",
       "sequence": 120,
